@@ -7,7 +7,6 @@ require('confs.packer')
 require('confs.tree_sitter')
 require('confs.lsp_config')
 require('confs.autopairs')
-require('confs.dap')
 require('confs.cmp')
 require('confs.which_key')
 require('confs.telescope')
@@ -15,15 +14,10 @@ require('confs.nvimtree')
 require('confs.symbols')
 require('confs.gitsigns')
 require('confs.lualine')
-require('confs.toggleterm')
-require('confs.luasnip')
-require('confs.null_ls')
 require('confs.bufferline')
-require('confs.colorizer')
 
 vim.cmd([[
 " For startup speed
-lua require('impatient')
 
 "------------------------------------------------------------
 " Vim native options and settings
