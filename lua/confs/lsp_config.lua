@@ -82,18 +82,17 @@ end
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local servers = {
-  -- "jedi_language_server",
   "pyright",
-  "clangd",
-  "vimls",
-  "tsserver",
-  "texlab",
-  "bashls",
-  "gopls",
-  "html",
-  "cssls",
-  "html",
-  "sumneko_lua"
+  -- "clangd",
+  -- "vimls",
+  -- "tsserver",
+  -- "texlab",
+  -- "bashls",
+  -- "gopls",
+  -- "html",
+  -- "cssls",
+  -- "html",
+  -- "sumneko_lua"
 }
 
 for _, lsp in ipairs(servers) do
@@ -104,28 +103,3 @@ for _, lsp in ipairs(servers) do
     handlers = handlers,
   }
 end
-
-
--- Installing lua language server separately
--- local sumneko_root_path = "/Users/shreyash/git/lua-language-server"
--- local sumneko_binary = "/Users/shreyash/git/lua-language-server/bin/macOS/lua-language-server"
-
--- nvim_lsp.sumneko_lua.setup {
---     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
---     settings = {
---         Lua = {
---             runtime = {
---                 version = 'LuaJIT',
---                 path = vim.split(package.path, ';')
---             },
---             diagnostics = {
---                 globals = {'vim'}
---             },
---             workspace = {
---                 library = vim.api.nvim_get_runtime_file("", true),
---             },
---         },
---     },
---     on_attach = on_attach,
---     handlers = handlers,
--- }

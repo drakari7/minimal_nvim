@@ -8,13 +8,11 @@ require('confs.tree_sitter')
 require('confs.lsp_config')
 require('confs.autopairs')
 require('confs.cmp')
-require('confs.which_key')
-require('confs.telescope')
-require('confs.nvimtree')
 require('confs.symbols')
 require('confs.gitsigns')
 require('confs.lualine')
 require('confs.bufferline')
+require('confs.telescope')
 
 vim.cmd([[
 " For startup speed
@@ -86,97 +84,13 @@ filetype plugin indent on
 " Setting up python3 for neovim
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-" C++ syntax highlighting
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-
-" Latex settings
-let g:tex_flavor = "latex"
-
-" Templates for different types of files
-au BufNewFile *.c               0r ~/.config/nvim/templates/skeleton.c
-au BufNewFile *.tex             0r ~/.config/nvim/templates/skeleton.tex
-
 " Executing code from within nvim
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
-au FileType sh      nnoremap <buffer> <leader>rr :w<CR>:!sh %<CR>
-au FileType c       nnoremap <buffer> <leader>rr :w<CR>:!gcc % && ./a.out<CR>
-au FileType go      nnoremap <buffer> <leader>rr :w<CR>:!go run %<CR>
-au FileType haskell nnoremap <buffer> <leader>rr :w<CR>:!runhaskell %<CR>
-au FileType lua     nnoremap <buffer> <leader>rr :w<CR>:!lua %<CR>
-
-" CPP different flag runs for CP
-au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++17 % && ./a.out<CR>
-au FileType cpp     nnoremap <buffer> <leader>rt :w<CR>:!g++ -std=c++17 % && ./a.out < testfile<CR>
-au FileType cpp     nnoremap <buffer> <leader>rc :w<CR>:!g++ -g -std=c++17 %<CR>
-
-" Haskell testfile run
-au FileType haskell nnoremap <buffer> <leader>rt :w<CR>:!runhaskell % < testfile<CR>
-
-" Open module documentation
-au FileType python  nnoremap <leader>gc yiw:!open https://docs.python.org/3/library/<C-r>".html<CR><CR>
-
-" Open help for options in vimrc
-au FileType vim     nnoremap <leader>gc yiw:vert h <C-r>"<CR>
-
-" Compiling latex files
-au FileType tex     nnoremap <leader>gc yi}:!open https://ctan.org/pkg/<C-r>"<CR><CR>
-au FileType tex     nnoremap <leader>ls :VimtexCompileSS<CR>
-
-" Shortcuts for python
-au Filetype python  nnoremap <leader>p Iprint(<ESC>A)<ESC>
-
-" Open vim plugins in github
-au Filetype vim     nnoremap <leader>gh yiw:vert h <C-r>"<CR>
-au Filetype vim     nnoremap <leader>gc yi':!open https://github.com/<C-r>"<CR><CR>
-au Filetype lua     nnoremap <leader>gc yi':!open https://github.com/<C-r>"<CR><CR>
-
-" Open Markdown preview
-au Filetype markdown nnoremap <leader>mp :MarkdownPreviewToggle<CR>
 "----------------------------------------------------------
 " Plugin options
 "----------------------------------------------------------
-" Vimtex options
-let g:tex_flavor = "latex"
-" let g:vimtex_view_general_viewer = "zathura"
-let g:vimtex_quickfix_ignore_filters = [
-    \ 'Underfull',
-    \ 'Overfull',
-    \]
-
-" Startify options
-let g:startify_custom_header = 'startify#fortune#quote()'
-let g:startify_session_persistence = 1
-let g:startify_change_to_vcs_root = 1
-let g:startify_lists = [
-            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-            \ { 'type': 'sessions',  'header': ['   Sessions']       },
-            \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-            \ { 'type': 'files',     'header': ['   MRU']            },
-            \ { 'type': 'commands',  'header': ['   Commands']       },
-            \ ]
-let g:startify_bookmarks = [
-            \ {'c': '~/.config/nvim/init.vim'},
-            \ {'p': '~/.config/nvim/lua/confs/packer.lua'},
-            \ {'n': '~/notes/todo.md'},
-            \ {'tc': '~/random/test.cpp'},
-            \ {'tp': '~/random/test.py'},
-            \ {'th': '~/random/test.hs'},
-            \ {'tl': '~/random/test.lua'},
-            \ {'tx': '~/random/test.tex'},
-            \ {'bl': '~/notes/bucket_list.md'},
-            \ ]
-
 " Symbol outline
 nnoremap <silent> <leader>ta :SymbolsOutline<CR>
-
-" Openbrowser settings
-let g:netrw_nogx = 1
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-
-" Indent blankline
-let g:indent_blankline_buftype_exclude = ['terminal', 'nofile']
 
 "-----------------------------------------------------------
 " Mappings for different plugins
@@ -227,19 +141,6 @@ nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 nnoremap <silent>]b :BufferLineCycleNext<CR>
 nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
-" Nvim dap mappings
-nnoremap <silent> <leader>dn :lua require'dap'.continue()<CR>
-nnoremap <silent> <leader>sn :lua require'dap'.step_over()<CR>
-nnoremap <silent> <leader>si :lua require'dap'.step_into()<CR>
-nnoremap <silent> <leader>so :lua require'dap'.step_out()<CR>
-nnoremap <silent> <leader>dc :lua require'dap'.close()<CR>
-
-nnoremap <silent> <leader>br :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
-
-" Nvim dap ui mappings
-nnoremap <silent> <leader>dt :lua require'dapui'.toggle()<CR>
-
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -250,9 +151,6 @@ nnoremap <leader>fr <cmd>Telescope resume<cr>
 nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
 
-" Tree sitter show highlight group
-nnoremap <leader>hi :tshighlightcapturesundercursor<cr>
-nnoremap <leader>cp "ayiw~h"byw:%s/<C-R>a/<C-R>b/g<CR>
 "------------------Miscellaneous----------------------------
 " Open test file
 " nnoremap <silent> <leader>ot :call <SID>NewTestFile()<CR>
