@@ -9,10 +9,8 @@ require('confs.lsp_config')
 require('confs.autopairs')
 require('confs.cmp')
 require('confs.symbols')
-require('confs.gitsigns')
 require('confs.lualine')
 require('confs.bufferline')
-require('confs.telescope')
 
 vim.cmd([[
 " For startup speed
