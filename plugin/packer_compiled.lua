@@ -104,20 +104,10 @@ _G.packer_plugins = {
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["gitsigns.nvim"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
-    url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
-  ["lsp_signature.nvim"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
-    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -144,25 +134,10 @@ _G.packer_plugins = {
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["open-browser.vim"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/open-browser.vim",
-    url = "https://github.com/tyru/open-browser.vim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -184,40 +159,15 @@ _G.packer_plugins = {
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
     url = "https://github.com/simrat39/symbols-outline.nvim"
   },
-  ["telescope-file-browser.nvim"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
-    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
-  },
-  ["telescope-fzf-native.nvim"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-  },
-  ["telescope.nvim"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
-  },
   ["vim-repeat"] = {
     loaded = true,
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/vim-repeat",
     url = "https://github.com/tpope/vim-repeat"
-  },
-  ["vim-rhubarb"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
-    url = "https://github.com/tpope/vim-rhubarb"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -228,11 +178,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
     url = "https://github.com/tpope/vim-unimpaired"
-  },
-  ["which-key.nvim"] = {
-    loaded = true,
-    path = "/Users/shreyash/.local/share/nvim/site/pack/packer/start/which-key.nvim",
-    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
