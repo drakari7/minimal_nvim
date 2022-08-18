@@ -95,21 +95,13 @@ nnoremap <silent> <leader>ta :SymbolsOutline<CR>
 "-----------------------------------------------------------
 " General purpose vim shortcuts
 nnoremap <silent> <space> :noh<CR>
-nnoremap <leader>sv :so $MYVIMRC<CR>
-nnoremap <leader>ss :so ~/.config/nvim/lua/confs/snippets.lua<CR>
-nnoremap <leader>vc :e ~/.config/nvim/init.vim<CR>
-nnoremap <leader>pc :e ~/.config/nvim/lua/confs/packer.lua<CR>
-nnoremap <leader>nc :e ~/notes/todo.md<CR>
-nnoremap <leader>sh :!cp ~/custom_headers_cpp/* .<CR><CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>qc :cclose<CR>
-nnoremap <leader>w <C-W><C-W>
 nnoremap <leader>bb "_d
 vnoremap <leader>bb "_d
 nnoremap <leader>ya mmggVGy'm
 nnoremap gb :ls<CR>:b<space>
 nnoremap <leader>bd :Bd<CR>
-nnoremap <leader>ps :PackerSync<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
 
 " Better navigation
