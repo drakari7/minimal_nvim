@@ -130,6 +130,7 @@ nnoremap gb :ls<CR>:b<space>
 nnoremap <leader>bd :Bd<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
 nnoremap <leader>cr :cd ~/crypto/<CR>
+nnoremap <leader>ps :PackerSync<CR>
 
 " Shortcuts for file tree
 nnoremap <leader>nn :NvimTreeToggle<CR>
