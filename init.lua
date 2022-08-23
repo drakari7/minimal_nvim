@@ -8,9 +8,16 @@ require('confs.tree_sitter')
 require('confs.lsp_config')
 require('confs.autopairs')
 require('confs.cmp')
+require('confs.gitsigns')
+require('confs.which_key')
+require('confs.nvimtree')
 require('confs.symbols')
 require('confs.lualine')
+require('confs.toggleterm')
+require('confs.luasnip')
 require('confs.bufferline')
+require('confs.telescope')
+-- require('confs.colorizer')
 
 vim.cmd([[
 " For startup speed
@@ -25,6 +32,8 @@ syntax enable
 set number
 set hidden
 set whichwrap+=<,>,h,l,[,]
+set cursorline
+set ffs=unix,dos
 
 " Tabs
 set autoindent
@@ -84,6 +93,7 @@ filetype plugin indent on
 
 " Executing code from within nvim
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
+au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ % && ./a.out<CR>
 "----------------------------------------------------------
 " Plugin options
 "----------------------------------------------------------
@@ -100,16 +110,17 @@ let g:startify_lists = [
             \ { 'type': 'commands',  'header': ['   Commands']       },
             \ ]
 let g:startify_bookmarks = [
-            \ {'c': '~/.config/nvim/init.lua'},
-            \ {'n': '~/notes/todo.md'},
+          \ { 'cc' : '~/crypto/subprojects/config/dev.shreyash.py'},
+          \ { 'n' : '~/notes/notes.md'},
             \ {'tc': '~/random/test.cpp'},
             \ {'tp': '~/random/test.py'},
-            \ ]
+          \ ]
 "-----------------------------------------------------------
 " Mappings for different plugins
 "-----------------------------------------------------------
 " General purpose vim shortcuts
 nnoremap <silent> <space> :noh<CR>
+nnoremap <leader>no :e ~/notes/notes.md<CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>qc :cclose<CR>
 nnoremap <leader>bb "_d
@@ -118,6 +129,7 @@ nnoremap <leader>ya mmggVGy'm
 nnoremap gb :ls<CR>:b<space>
 nnoremap <leader>bd :Bd<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
+nnoremap <leader>cr :cd ~/crypto/<CR>
 
 " Shortcuts for file tree
 nnoremap <leader>nn :NvimTreeToggle<CR>

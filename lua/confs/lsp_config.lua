@@ -87,11 +87,11 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 local servers = {
   "pyright",
-  -- "clangd",
+  "clangd",
   -- "vimls",
   -- "tsserver",
   -- "texlab",
-  -- "bashls",
+  "bashls",
   -- "gopls",
   -- "html",
   -- "cssls",
