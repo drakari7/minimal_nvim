@@ -90,6 +90,21 @@ au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
 " Symbol outline
 nnoremap <silent> <leader>ta :SymbolsOutline<CR>
 
+" Startify options
+let g:startify_change_to_vcs_root = 1
+let g:startify_lists = [
+            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+            \ { 'type': 'sessions',  'header': ['   Sessions']       },
+            \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+            \ { 'type': 'files',     'header': ['   MRU']            },
+            \ { 'type': 'commands',  'header': ['   Commands']       },
+            \ ]
+let g:startify_bookmarks = [
+            \ {'c': '~/.config/nvim/init.lua'},
+            \ {'n': '~/notes/todo.md'},
+            \ {'tc': '~/random/test.cpp'},
+            \ {'tp': '~/random/test.py'},
+            \ ]
 "-----------------------------------------------------------
 " Mappings for different plugins
 "-----------------------------------------------------------
