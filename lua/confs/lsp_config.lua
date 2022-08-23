@@ -1,4 +1,8 @@
-require("nvim-lsp-installer").setup{
+-- require("nvim-lsp-installer").setup{
+--   automatic_installation = true,
+-- }
+require("mason").setup {}
+require("mason-lspconfig").setup {
   automatic_installation = true,
 }
 local nvim_lsp = require('lspconfig')

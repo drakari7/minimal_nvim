@@ -80,7 +80,7 @@ filetype plugin indent on
 " Language specific settings here
 "------------------------------------------------------------
 " Setting up python3 for neovim
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Executing code from within nvim
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
@@ -103,16 +103,6 @@ nnoremap <leader>ya mmggVGy'm
 nnoremap gb :ls<CR>:b<space>
 nnoremap <leader>bd :Bd<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
-
-" Better navigation
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap ]c ]czz
-nnoremap [c [czz
-
-" Move text around
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 " Shortcuts for file tree
 nnoremap <leader>nn :NvimTreeToggle<CR>
@@ -140,24 +130,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope resume<cr>
 nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
-
-"------------------Miscellaneous----------------------------
-" Open test file
-" nnoremap <silent> <leader>ot :call <SID>NewTestFile()<CR>
-" function! <SID>NewTestFile()
-"     let l:test_file = 'test.' . expand('%:e')
-"     execute ":e ~/random/" . l:test_file
-" endfunc
-" 
-" source ~/.config/nvim/after/colors.vim
-" 
-" nnoremap <silent> <leader>mt :call <SID>MakeTransparent()<CR>
-" function! <SID>MakeTransparent()
-"     execute ":hi Normal guibg=None"
-"     execute ":hi EndOfBuffer guibg=None"
-"     execute ":hi SignColumn guibg=None"
-"     execute ":hi LineNr guibg=None"
-" endfunc
 
 " Manually source at the end
 source ~/.config/nvim/after/colors.vim
