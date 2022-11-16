@@ -50,54 +50,34 @@ hi LspDiagnosticsDefaultInformation guifg=#29a3ff
 hi LspDiagnosticsDefaultHint        guifg=#29ff7e
 
 " Tree sitter related colors
-" Misc
-" hi TSError
-hi TSPunctDelimiter     guifg=#696969
-hi TSPunctBracket       guifg=#d94311
+hi @punctuation.delimiter     guifg=#696969
+hi @punctuation.bracket       guifg=#d94311
 " hi TSPunctSpecial
 
 " Constants
-" hi TSConstant
-" hi TSConstBuiltin
-" hi TSConstMacro
-" hi TSStringRegex
-hi TSString             guifg=#b8bb26
-hi TSStringEscape       guifg=#619fff
-hi TSCharacter          guifg=#63ffb9
-hi TSNumber             guifg=#e9875f
-hi TSBoolean            guifg=#63ffb9       gui=italic
-hi TSFloat              guifg=#e9875f
-" hi TSAnnotation
-" hi TSAttribute
-" hi TSNamespace
+hi @string             guifg=#b8bb26
+hi @string.escape       guifg=#619fff
+hi @character          guifg=#63ffb9
+hi @number             guifg=#e9875f
+hi @boolean            guifg=#63ffb9       gui=italic
+hi @float              guifg=#e9875f
+
 
 " Functions
-hi TSFuncBuiltin        guifg=#50e1ff       gui=italic
-hi TSFunction           guifg=#829fff
-hi TSMethod             guifg=#829fff       gui=none
-" hi TSFuncMacro
-" hi TSParameter
-" hi TSParameterRefe    rence
-hi TSField              guifg=#fa6950
-" hi TSProperty
-hi TSConstructor        guifg=#829fff       gui=italic
+hi @function.builtin        guifg=#50e1ff       gui=italic
+hi @function           guifg=#829fff
+hi @method             guifg=#829fff       gui=none
+hi @field              guifg=#fa6950
+hi @constructor        guifg=#829fff       gui=italic
 
 " Keywords
-" temp color AF87D7
-hi TSConditional        guifg=#AF87D7
-hi TSRepeat             guifg=#AF87D7
-hi TSKeywordOperator    guifg=#AF87D7
-hi TSKeyword            guifg=#AF87D7       gui=italic
-" hi TSKeywordFunction
-hi TSOperator           guifg=#de671d
-" hi TSException
-" hi TSLabel
-" hi TSType
-" hi TSTypeBuiltin
-" hi TSStructure
-hi TSInclude            guifg=#5ade18
+hi @conditional        guifg=#AF87D7
+hi @repeat             guifg=#AF87D7
+hi @keyword            guifg=#AF87D7       gui=italic
+hi @keyword.operator    guifg=#AF87D7
+hi @operator           guifg=#de671d
+hi @include            guifg=#5ade18
 
 " Variable
-" hi TSVariable
-hi TSVariableBuiltin    guifg=#adadad       gui=italic
+hi @variable.builtin    guifg=#adadad       gui=italic
 

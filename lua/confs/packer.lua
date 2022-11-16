@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
 
   -- SpeedUp
   use 'nathom/filetype.nvim'
+  use 'lewis6991/impatient.nvim'
 
   -- LSP related plugins
   use 'simrat39/symbols-outline.nvim'       -- Symbol table

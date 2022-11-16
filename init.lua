@@ -1,4 +1,5 @@
 vim.opt.termguicolors = true
+require('impatient')
 --------------------------------------------------------------
 -- Sourcing config files
 -------------------------------------------------------------
@@ -20,7 +21,6 @@ require('confs.telescope')
 -- require('confs.colorizer')
 
 vim.cmd([[
-" For startup speed
 
 "------------------------------------------------------------
 " Vim native options and settings
