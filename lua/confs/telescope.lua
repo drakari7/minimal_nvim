@@ -11,6 +11,16 @@ require('telescope').setup{
     file_ignore_patterns = {
       "__pycache__/",
     },
+    mappings = {
+      i = {
+        ["<c-j>"] = actions.move_selection_next,
+        ["<c-k>"] = actions.move_selection_previous,
+      },
+      n = {
+        ["<c-j>"] = actions.move_selection_next,
+        ["<c-k>"] = actions.move_selection_previous,
+      }
+    }
   },
 }
 

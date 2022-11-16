@@ -4,6 +4,7 @@ vim.opt.termguicolors = true
 -------------------------------------------------------------
 
 require('confs.packer')
+require('confs.symbols')
 require('confs.tree_sitter')
 require('confs.lsp_config')
 require('confs.autopairs')
@@ -11,7 +12,6 @@ require('confs.cmp')
 require('confs.gitsigns')
 require('confs.which_key')
 require('confs.nvimtree')
-require('confs.symbols')
 require('confs.lualine')
 require('confs.toggleterm')
 require('confs.luasnip')
@@ -80,7 +80,7 @@ let mapleader= ","
 let maplocalleader = ","
 
 " Mouse options
-set mouse=a
+set mouse=i
 let g:is_mouse_enabled = 1
 
 " Enable filetype plugins
@@ -93,7 +93,7 @@ filetype plugin indent on
 
 " Executing code from within nvim
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
-au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ % && ./a.out<CR>
+au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a.out<CR>
 "----------------------------------------------------------
 " Plugin options
 "----------------------------------------------------------
@@ -101,7 +101,7 @@ au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ % && ./a.out<CR>
 nnoremap <silent> <leader>ta :SymbolsOutline<CR>
 
 " Startify options
-let g:startify_change_to_vcs_root = 1
+let g:startify_change_to_dir = 1
 let g:startify_lists = [
             \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
             \ { 'type': 'sessions',  'header': ['   Sessions']       },
@@ -110,10 +110,19 @@ let g:startify_lists = [
             \ { 'type': 'commands',  'header': ['   Commands']       },
             \ ]
 let g:startify_bookmarks = [
-          \ { 'cc' : '~/crypto/subprojects/config/dev.shreyash.py'},
-          \ { 'n' : '~/notes/notes.md'},
-            \ {'tc': '~/random/test.cpp'},
-            \ {'tp': '~/random/test.py'},
+          \ { 'cv' : '~/.config/nvim/init.lua'},
+          \ { 'cm' : '~/crypto/subprojects/config/prod.crypto_main.py'},
+          \ { 'cb' : '~/crypto/subprojects/config/crypto.beta.py'},
+          \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
+          \ { 'cs' : '~/crypto/subprojects/config/dev.shreyash.py'},
+          \ { 'no' : '~/notes/notes.md'},
+          \ { 'dq' : '~/notes/david_quotes.md'},
+          \ { 'al' : '~/.config/zsh/aliasrc'},
+          \ { 'zrc' : '~/.config/zsh/.zshrc'},
+          \ { 'ss' : '~/.ssh/config'},
+          \ { 'cg' : '~/.gitconfig'},
+          \ { 'tc': '~/random/test.cpp'},
+          \ { 'tp': '~/random/test.py'},
           \ ]
 "-----------------------------------------------------------
 " Mappings for different plugins
@@ -131,6 +140,17 @@ nnoremap <leader>bd :Bd<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
 nnoremap <leader>cr :cd ~/crypto/<CR>
 nnoremap <leader>ps :PackerSync<CR>
+nnoremap <leader>cf :!clang-format -i %<CR><CR>
+nnoremap <leader>cs :e ~/crypto/subprojects/config/dev.shreyash.py<CR>
+nnoremap <leader>cm :e ~/crypto/subprojects/config/prod.crypto_main.py<CR>
+nnoremap <leader>ss :e ~/.ssh/config<CR>
+nnoremap <leader>nw :set nowrap!<CR>
+nnoremap <leader>gb :Git blame<CR>
+" nnoreamp <leader>gb :Git blame<CR>
+
+" Move text around
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Shortcuts for file tree
 nnoremap <leader>nn :NvimTreeToggle<CR>
@@ -160,5 +180,11 @@ nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
 
 " Manually source at the end
+colorscheme gruvbox
 source ~/.config/nvim/after/colors.vim
 ]])
+
+-- local get_line_git_history = function ()
+-- end
+
+

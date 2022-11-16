@@ -1,7 +1,6 @@
 " Overwrites the color scheme
 " Background is 1f1f1f
 " temp color #ebdbb2
-colorscheme gruvbox
 let background = "#1f1f1f"
 
 hi Normal           guifg=#efefef       guibg=#1f1f1f       gui=none
