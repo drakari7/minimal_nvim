@@ -2,10 +2,10 @@ vim.opt.termguicolors = true
 require('impatient')
 --------------------------------------------------------------
 -- Sourcing config files
--------------------------------------------------------------
+-----------------------------------------------------------
 
 require('confs.packer')
-require('confs.symbols')
+require('confs.aerial')
 require('confs.tree_sitter')
 require('confs.lsp_config')
 require('confs.autopairs')
@@ -18,7 +18,7 @@ require('confs.toggleterm')
 require('confs.luasnip')
 require('confs.bufferline')
 require('confs.telescope')
--- require('confs.colorizer')
+require('confs.colorizer')
 
 vim.cmd([[
 
@@ -98,7 +98,7 @@ au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a
 " Plugin options
 "----------------------------------------------------------
 " Symbol outline
-nnoremap <silent> <leader>ta :SymbolsOutline<CR>
+nnoremap <silent> <leader>a :AerialToggle!<CR>
 
 " Startify options
 let g:startify_change_to_dir = 1
@@ -146,7 +146,7 @@ nnoremap <leader>cm :e ~/crypto/subprojects/config/prod.crypto_main.py<CR>
 nnoremap <leader>ss :e ~/.ssh/config<CR>
 nnoremap <leader>nw :set nowrap!<CR>
 nnoremap <leader>gb :Git blame<CR>
-" nnoreamp <leader>gb :Git blame<CR>
+nnoremap <leader>hi :TSHighlightCapturesUnderCursor<CR>
 
 " Move text around
 vnoremap J :m '>+1<CR>gv=gv

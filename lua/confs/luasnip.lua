@@ -49,4 +49,4 @@ vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 -- Load some default snippets from friendly-snippets
-require("luasnip.loaders.from_vscode").load()
+-- require("luasnip.loaders.from_vscode").load()
