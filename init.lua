@@ -20,6 +20,9 @@ require('confs.bufferline')
 require('confs.telescope')
 require('confs.colorizer')
 
+-- Activate plugins
+require('leap').add_default_mappings()
+
 vim.cmd([[
 
 "------------------------------------------------------------
@@ -89,7 +92,7 @@ filetype plugin indent on
 " Language specific settings here
 "------------------------------------------------------------
 " Setting up python3 for neovim
-" let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Executing code from within nvim
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
@@ -176,6 +179,7 @@ nnoremap <leader>bf <cmd>Telescope buffers<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope resume<cr>
+nnoremap <leader>fa <cmd>Telescope aerial<cr>
 nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
 
