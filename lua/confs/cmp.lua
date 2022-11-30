@@ -48,8 +48,8 @@ cmp.setup({
     format = function (entry, vim_item)
       vim_item.abbr = string.sub(vim_item.abbr, 1, 35)
       vim_item.menu = ({
-        nvim_lsp = "[LSP]",
         nvim_lua = "[API]",
+        nvim_lsp = "[LSP]",
         path = "[Path]",
         luasnip = "[LuaSnip]",
         ultisnips = "[UltiSnips]",

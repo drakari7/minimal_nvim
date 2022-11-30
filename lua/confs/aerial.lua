@@ -1,9 +1,9 @@
 require("aerial").setup({
-  backends = { "treesitter", "lsp", "markdown", "man" },
+  backends = { "treesitter", "lsp", "markdown"},
 
   layout = {
-    max_width = { 40, 0.2 },
-    min_width = { 20, 0.1 },
+    max_width = { 30, 0.16 },
+    min_width = { 15, 0.1 },
     -- width = nil,
     default_direction = "prefer_right",
     placement = "window",

@@ -24,7 +24,7 @@ local border = {
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'}),
   ["textDocument/signature_help"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'}),
-  ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {virtual_text = false,}),
+  -- ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {virtual_text = false,}),
 }
 
 -- Change diagnostic settings

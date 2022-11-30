@@ -28,10 +28,10 @@ vim.cmd([[
 "------------------------------------------------------------
 " Vim native options and settings
 "------------------------------------------------------------
-syntax enable
+" syntax enable
 
 " Some basic options
-" TODO: lookup wildmenu, also shada
+" TODO: lookup wildmenu
 set number
 set hidden
 set whichwrap+=<,>,h,l,[,]
@@ -97,6 +97,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " Executing code from within nvim
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
 au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a.out<CR>
+
 "----------------------------------------------------------
 " Plugin options
 "----------------------------------------------------------
@@ -114,8 +115,8 @@ let g:startify_lists = [
             \ ]
 let g:startify_bookmarks = [
           \ { 'cv' : '~/.config/nvim/init.lua'},
-          \ { 'cm' : '~/crypto/subprojects/config/prod.crypto_main.py'},
-          \ { 'cb' : '~/crypto/subprojects/config/crypto.beta.py'},
+          \ { 'cm' : '~/prod-crypto/subprojects/config/crypto_prod.main.py'},
+          \ { 'cb' : '~/master-config/crypto.beta.py'},
           \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
           \ { 'cs' : '~/crypto/subprojects/config/dev.shreyash.py'},
           \ { 'no' : '~/notes/notes.md'},
@@ -145,11 +146,13 @@ nnoremap <leader>cr :cd ~/crypto/<CR>
 nnoremap <leader>ps :PackerSync<CR>
 nnoremap <leader>cf :!clang-format -i %<CR><CR>
 nnoremap <leader>cs :e ~/crypto/subprojects/config/dev.shreyash.py<CR>
-nnoremap <leader>cm :e ~/crypto/subprojects/config/prod.crypto_main.py<CR>
+nnoremap <leader>cm :e ~/prod-crypto/subprojects/config/crypto_prod.main.py<CR>
 nnoremap <leader>ss :e ~/.ssh/config<CR>
 nnoremap <leader>nw :set nowrap!<CR>
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>hi :TSHighlightCapturesUnderCursor<CR>
+nnoremap <leader>rp' "_di'hp
+nnoremap <leader>rp" "_di"hp
 
 " Move text around
 vnoremap J :m '>+1<CR>gv=gv
@@ -181,12 +184,19 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope resume<cr>
 nnoremap <leader>fa <cmd>Telescope aerial<cr>
 nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
+nnoremap <leader>fs <cmd>lua require('confs.telescope').find_scripts()<CR>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
 
 " Manually source at the end
 colorscheme gruvbox
 source ~/.config/nvim/after/colors.vim
 ]])
+
+-- Strip trailing whitespaces
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = {"*"},
+  command = [[% s#\s\+$##e]],
+})
 
 -- local get_line_git_history = function ()
 -- end

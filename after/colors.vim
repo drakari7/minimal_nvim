@@ -64,18 +64,20 @@ hi @float              guifg=#e9875f
 
 
 " Functions
-hi @function.builtin   guifg=#50e1ff        gui=italic
-hi @function           guifg=#829fff
-hi @function.call      guifg=#829fff
-hi @method             guifg=#829fff        gui=none
-hi @field              guifg=#fa6950
-hi @constructor        guifg=#829fff        gui=italic
+hi @function.builtin    guifg=#50e1ff        gui=italic
+hi @function            guifg=#829fff
+hi @function.call       guifg=#829fff
+hi @method              guifg=#829fff
+hi @method.call         guifg=#829fff
+hi @field               guifg=#fa6950
+hi @constructor         guifg=#829fff        gui=italic
 
 " Keywords
 hi @conditional        guifg=#AF87D7
 hi @repeat             guifg=#AF87D7
 hi @keyword            guifg=#AF87D7        gui=italic
 hi @keyword.operator   guifg=#AF87D7
+hi @keyword.return     guifg=#AF87D7
 hi @operator           guifg=#de671d
 hi @include            guifg=#5ade18
 hi @variable.builtin   guifg=#adadad        gui=italic

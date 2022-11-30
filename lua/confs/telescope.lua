@@ -38,4 +38,11 @@ function M.nvim_config_files()
     }
 end
 
+function M.find_scripts()
+    require('telescope.builtin').find_files{
+        cwd = "~/scripts",
+        prompt_title = "My Scripts",
+    }
+end
+
 return M
