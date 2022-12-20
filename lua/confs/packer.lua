@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'                -- Easy comments
   use 'tpope/vim-surround'                  -- change surroundings
   use 'tpope/vim-repeat'                    -- For repeating stuff
+  use 'tpope/vim-abolish'                   -- For better substitution
   use 'mhinz/vim-startify'                  -- Startpage
   use 'folke/which-key.nvim'                -- easy keymap guide
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines

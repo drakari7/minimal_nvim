@@ -1,10 +1,10 @@
 vim.opt.termguicolors = true
-require('impatient')
 --------------------------------------------------------------
 -- Sourcing config files
 -----------------------------------------------------------
 
 require('confs.packer')
+require('impatient')
 require('confs.aerial')
 require('confs.tree_sitter')
 require('confs.lsp_config')
@@ -115,7 +115,8 @@ let g:startify_lists = [
             \ ]
 let g:startify_bookmarks = [
           \ { 'cv' : '~/.config/nvim/init.lua'},
-          \ { 'cm' : '~/prod-crypto/subprojects/config/crypto_prod.main.py'},
+          \ { 'ca' : '~/prod-config/product_definitions/product_config_all.toml'},
+          \ { 'cm' : '~/prod-config/crypto_prod.main.py'},
           \ { 'cb' : '~/master-config/crypto.beta.py'},
           \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
           \ { 'cs' : '~/crypto/subprojects/config/dev.shreyash.py'},
@@ -146,7 +147,7 @@ nnoremap <leader>cr :cd ~/crypto/<CR>
 nnoremap <leader>ps :PackerSync<CR>
 nnoremap <leader>cf :!clang-format -i %<CR><CR>
 nnoremap <leader>cs :e ~/crypto/subprojects/config/dev.shreyash.py<CR>
-nnoremap <leader>cm :e ~/prod-crypto/subprojects/config/crypto_prod.main.py<CR>
+nnoremap <leader>cm :e ~/prod-config/crypto_prod.main.py<CR>
 nnoremap <leader>ss :e ~/.ssh/config<CR>
 nnoremap <leader>nw :set nowrap!<CR>
 nnoremap <leader>gb :Git blame<CR>
@@ -181,7 +182,7 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>bf <cmd>Telescope buffers<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fr <cmd>Telescope resume<cr>
+nnoremap <leader>fr <cmd>Telescope resume initial_mode=normal<cr>
 nnoremap <leader>fa <cmd>Telescope aerial<cr>
 nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
 nnoremap <leader>fs <cmd>lua require('confs.telescope').find_scripts()<CR>
@@ -193,10 +194,11 @@ source ~/.config/nvim/after/colors.vim
 ]])
 
 -- Strip trailing whitespaces
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {"*"},
-  command = [[% s#\s\+$##e]],
-})
+vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   pattern = {"*"},
+--   command = [[% s#\s\+$##e]],
+-- })
 
 -- local get_line_git_history = function ()
 -- end

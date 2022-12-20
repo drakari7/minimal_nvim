@@ -28,13 +28,13 @@ hi TelescopePromptCounter   guifg=#AAAAAA
 hi TelescopePromptTitle     guifg=#ffffff       guibg=#CD6F82
 
 hi TelescopeResultsNormal   guibg=#3B4252
-hi TelescopeResultsBorder   guifg=#3B4252       guibg=#3B4252 
+hi TelescopeResultsBorder   guifg=#3B4252       guibg=#3B4252
 hi TelescopeResultsStruct   guifg=#000000       guibg=#D8DEE9
 
 " Completion menu options
 hi Pmenu            guifg=#efefef       guibg=#363944       gui=none
 hi PmenuSbar        guifg=#efefef       guibg=#363944       gui=none
-hi PmenuThumb       guifg=#efefef       guibg=#363944       gui=none
+hi PmenuThumb       guifg=#efefef       guibg=#696969       gui=none
 
 " for floating windows
 hi NormalFloat      guifg=none          guibg=#363944       gui=none
