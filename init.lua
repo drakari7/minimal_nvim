@@ -22,6 +22,7 @@ require('confs.colorizer')
 
 -- Activate plugins
 require('leap').add_default_mappings()
+require('Comment').setup()
 
 vim.cmd([[
 

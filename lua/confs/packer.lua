@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'               -- Autoclose brackets
   use 'famiu/bufdelete.nvim'                -- Delete buffers nicely
   use 'tpope/vim-unimpaired'                -- Symmetric mappings
-  use 'tpope/vim-commentary'                -- Easy comments
+  use 'numToStr/Comment.nvim'               -- Easy comments
   use 'tpope/vim-surround'                  -- change surroundings
   use 'tpope/vim-repeat'                    -- For repeating stuff
   use 'tpope/vim-abolish'                   -- For better substitution
