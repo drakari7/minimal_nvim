@@ -20,7 +20,7 @@ require('confs.bufferline')
 require('confs.telescope')
 require('confs.colorizer')
 
--- Activate plugins
+-- Activate simple plugins
 require('leap').add_default_mappings()
 require('Comment').setup()
 
@@ -84,8 +84,7 @@ let mapleader= ","
 let maplocalleader = ","
 
 " Mouse options
-set mouse=i
-let g:is_mouse_enabled = 1
+set mouse=
 
 " Enable filetype plugins
 filetype plugin indent on
@@ -110,8 +109,8 @@ let g:startify_change_to_dir = 1
 let g:startify_lists = [
             \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
             \ { 'type': 'sessions',  'header': ['   Sessions']       },
-            \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
             \ { 'type': 'files',     'header': ['   MRU']            },
+            \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
             \ { 'type': 'commands',  'header': ['   Commands']       },
             \ ]
 let g:startify_bookmarks = [
@@ -196,6 +195,8 @@ source ~/.config/nvim/after/colors.vim
 
 -- Strip trailing whitespaces
 vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
+
+-- Autocommand for the same thing
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --   pattern = {"*"},
 --   command = [[% s#\s\+$##e]],
@@ -203,5 +204,3 @@ vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent 
 
 -- local get_line_git_history = function ()
 -- end
-
-
