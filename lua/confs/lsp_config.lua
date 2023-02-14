@@ -97,7 +97,7 @@ local servers = {
   -- "html",
   -- "cssls",
   -- "html",
-  "sumneko_lua"
+  "lua_ls"
 }
 
 for _, lsp in ipairs(servers) do
