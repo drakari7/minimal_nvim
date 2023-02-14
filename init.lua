@@ -23,6 +23,10 @@ require('confs.colorizer')
 -- Activate simple plugins
 require('leap').add_default_mappings()
 require('Comment').setup()
+require('neodev').setup()
+require('indent_blankline').setup {
+  -- show_current_context = true
+}
 
 vim.cmd([[
 
@@ -38,6 +42,7 @@ set hidden
 set whichwrap+=<,>,h,l,[,]
 set cursorline
 set ffs=unix,dos
+set signcolumn=yes
 
 " Tabs
 set autoindent
@@ -120,6 +125,7 @@ let g:startify_bookmarks = [
           \ { 'cb' : '~/master-config/crypto.beta.py'},
           \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
           \ { 'cs' : '~/crypto/subprojects/config/dev.shreyash.py'},
+          \ { 'mf' : '~/scripts/my_funcs.sh'},
           \ { 'no' : '~/notes/notes.md'},
           \ { 'dq' : '~/notes/david_quotes.md'},
           \ { 'al' : '~/.config/zsh/aliasrc'},
@@ -128,6 +134,8 @@ let g:startify_bookmarks = [
           \ { 'cg' : '~/.gitconfig'},
           \ { 'tc': '~/random/test.cpp'},
           \ { 'tp': '~/random/test.py'},
+          \ { 'tb': '~/random/test.sh'},
+          \ { 'tm': '~/.tmux.conf'},
           \ ]
 "-----------------------------------------------------------
 " Mappings for different plugins
@@ -154,6 +162,8 @@ nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>hi :TSHighlightCapturesUnderCursor<CR>
 nnoremap <leader>rp' "_di'hp
 nnoremap <leader>rp" "_di"hp
+nmap <F1> <nop>
+imap <F1> <nop>
 
 " Move text around
 vnoremap J :m '>+1<CR>gv=gv
