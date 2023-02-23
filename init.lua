@@ -23,7 +23,6 @@ require('confs.colorizer')
 -- Activate simple plugins
 require('leap').add_default_mappings()
 require('Comment').setup()
-require('neodev').setup()
 require('indent_blankline').setup {
   -- show_current_context = true
 }
@@ -128,6 +127,7 @@ let g:startify_bookmarks = [
           \ { 'mf' : '~/scripts/my_funcs.sh'},
           \ { 'no' : '~/notes/notes.md'},
           \ { 'dq' : '~/notes/david_quotes.md'},
+          \ { 'sp': '~/notes/scratchpad.md'},
           \ { 'al' : '~/.config/zsh/aliasrc'},
           \ { 'zrc' : '~/.config/zsh/.zshrc'},
           \ { 'ss' : '~/.ssh/config'},
