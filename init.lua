@@ -19,6 +19,7 @@ require('confs.luasnip')
 require('confs.bufferline')
 require('confs.telescope')
 require('confs.colorizer')
+require('confs.mini')
 
 -- Activate simple plugins
 require('leap').add_default_mappings()
@@ -61,7 +62,7 @@ set encoding=utf-8 fileencoding=utf-8 fileformat=unix
 set noshowmode
 " set cursorline
 set shortmess+=c
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 set ignorecase incsearch
 set pumheight=15                " sets the pmenu height
 set pumblend=10
@@ -211,6 +212,18 @@ vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent 
 --   pattern = {"*"},
 --   command = [[% s#\s\+$##e]],
 -- })
+--
+vim.api.nvim_create_autocmd("VimLeave", {
+    group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
+    callback =  function()
+        os.execute("killall xsel")
+    end
+})
 
--- local get_line_git_history = function ()
+-- local function get_line_git_history()
+--   print(2)
 -- end
+-- vim.api.nvim_set_keymap("n", "<leader>hl", '', {
+--     callback = get_line_git_history(),
+--     desc = 'laalala'
+-- })
