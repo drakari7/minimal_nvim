@@ -25,6 +25,7 @@ require('confs.mini')
 -- Activate simple plugins
 require('leap').add_default_mappings()
 require('Comment').setup()
+require('nvim-surround').setup()
 require('indent_blankline').setup {
   -- show_current_context = true
 }
@@ -34,7 +35,8 @@ vim.cmd([[
 "------------------------------------------------------------
 " Vim native options and settings
 "------------------------------------------------------------
-" syntax enable
+syntax enable
+set clipboard=unnamedplus
 
 " Some basic options
 " TODO: lookup wildmenu
@@ -48,7 +50,7 @@ set signcolumn=yes
 " Tabs
 set autoindent
 set cindent
-set wrap
+set nowrap
 
 set tabstop=4
 set shiftwidth=4
@@ -63,7 +65,6 @@ set encoding=utf-8 fileencoding=utf-8 fileformat=unix
 set noshowmode
 " set cursorline
 set shortmess+=c
-set clipboard=unnamedplus
 set ignorecase incsearch
 set pumheight=15                " sets the pmenu height
 set pumblend=10
@@ -155,7 +156,7 @@ nnoremap <leader>bd :Bd<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
 nnoremap <leader>cr :cd ~/crypto/<CR>
 nnoremap <leader>ps :PackerSync<CR>
-nnoremap <leader>cf :!clang-format -i %<CR><CR>
+nnoremap <leader>cf :w<CR>:!clang-format -i %<CR><CR>
 nnoremap <leader>cs :e ~/crypto/subprojects/config/dev.shreyash.py<CR>
 nnoremap <leader>cm :e ~/prod-config/crypto_prod.main.py<CR>
 nnoremap <leader>ss :e ~/.ssh/config<CR>
@@ -164,6 +165,7 @@ nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>hi :TSHighlightCapturesUnderCursor<CR>
 nnoremap <leader>rp' "_di'hp
 nnoremap <leader>rp" "_di"hp
+vnoremap <leader>ct :!column -t<CR>gv>
 nmap <F1> <nop>
 imap <F1> <nop>
 
@@ -208,12 +210,7 @@ source ~/.config/nvim/after/colors.vim
 -- Strip trailing whitespaces
 vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
 
--- Autocommand for the same thing
--- vim.api.nvim_create_autocmd("BufWritePre", {
---   pattern = {"*"},
---   command = [[% s#\s\+$##e]],
--- })
---
+-- Kill xsel on leaving an instance of neovim
 vim.api.nvim_create_autocmd("VimLeave", {
     group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
     callback =  function()
@@ -221,10 +218,9 @@ vim.api.nvim_create_autocmd("VimLeave", {
     end
 })
 
+
+-- Get git history of current and surrounding lines
 -- local function get_line_git_history()
---   print(2)
+--   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 -- end
--- vim.api.nvim_set_keymap("n", "<leader>hl", '', {
---     callback = get_line_git_history(),
---     desc = 'laalala'
--- })
+-- vim.keymap.set("n", "<leader>gh", get_line_git_history)
