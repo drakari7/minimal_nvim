@@ -3,6 +3,7 @@ vim.opt.termguicolors = true
 -- Sourcing config files
 -----------------------------------------------------------
 
+
 require('confs.packer')
 require('impatient')
 require('confs.aerial')
