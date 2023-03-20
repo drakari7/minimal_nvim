@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
   -- Functionality plugins
   use 'windwp/nvim-autopairs'               -- Autoclose brackets
   use 'famiu/bufdelete.nvim'                -- Delete buffers nicely
-  use 'tpope/vim-unimpaired'                -- Symmetric mappings
+  use 'echasnovski/mini.bracketed'          -- Square bracket navigation
   use 'numToStr/Comment.nvim'               -- Easy comments
   use 'tpope/vim-surround'                  -- change surroundings
   use 'tpope/vim-repeat'                    -- For repeating stuff
@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
   use 'stevearc/aerial.nvim'                -- Symbol table
   use 'ray-x/lsp_signature.nvim'            -- Function signatures
   use 'ggandor/leap.nvim'                   -- Code navigation
+  use 'folke/neodev.nvim'                   -- Nvim lua api completions and setup
   -- use 'jose-elias-alvarez/null-ls.nvim'     -- Formatting
 
   -- Debugging

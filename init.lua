@@ -20,10 +20,14 @@ require('confs.luasnip')
 require('confs.bufferline')
 require('confs.telescope')
 require('confs.colorizer')
+require('confs.mini')
 
--- Activate plugins
+-- Activate simple plugins
 require('leap').add_default_mappings()
 require('Comment').setup()
+require('indent_blankline').setup {
+  -- show_current_context = true
+}
 
 vim.cmd([[
 
@@ -39,6 +43,7 @@ set hidden
 set whichwrap+=<,>,h,l,[,]
 set cursorline
 set ffs=unix,dos
+set signcolumn=yes
 
 " Tabs
 set autoindent
@@ -58,7 +63,7 @@ set encoding=utf-8 fileencoding=utf-8 fileformat=unix
 set noshowmode
 " set cursorline
 set shortmess+=c
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 set ignorecase incsearch
 set pumheight=15                " sets the pmenu height
 set pumblend=10
@@ -85,8 +90,7 @@ let mapleader= ","
 let maplocalleader = ","
 
 " Mouse options
-set mouse=i
-let g:is_mouse_enabled = 1
+set mouse=
 
 " Enable filetype plugins
 filetype plugin indent on
@@ -111,8 +115,8 @@ let g:startify_change_to_dir = 1
 let g:startify_lists = [
             \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
             \ { 'type': 'sessions',  'header': ['   Sessions']       },
-            \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
             \ { 'type': 'files',     'header': ['   MRU']            },
+            \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
             \ { 'type': 'commands',  'header': ['   Commands']       },
             \ ]
 let g:startify_bookmarks = [
@@ -122,14 +126,18 @@ let g:startify_bookmarks = [
           \ { 'cb' : '~/master-config/crypto.beta.py'},
           \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
           \ { 'cs' : '~/crypto/subprojects/config/dev.shreyash.py'},
+          \ { 'mf' : '~/scripts/my_funcs.sh'},
           \ { 'no' : '~/notes/notes.md'},
           \ { 'dq' : '~/notes/david_quotes.md'},
+          \ { 'sp': '~/notes/scratchpad.md'},
           \ { 'al' : '~/.config/zsh/aliasrc'},
           \ { 'zrc' : '~/.config/zsh/.zshrc'},
           \ { 'ss' : '~/.ssh/config'},
           \ { 'cg' : '~/.gitconfig'},
           \ { 'tc': '~/random/test.cpp'},
           \ { 'tp': '~/random/test.py'},
+          \ { 'tb': '~/random/test.sh'},
+          \ { 'tm': '~/.tmux.conf'},
           \ ]
 "-----------------------------------------------------------
 " Mappings for different plugins
@@ -156,6 +164,8 @@ nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>hi :TSHighlightCapturesUnderCursor<CR>
 nnoremap <leader>rp' "_di'hp
 nnoremap <leader>rp" "_di"hp
+nmap <F1> <nop>
+imap <F1> <nop>
 
 " Move text around
 vnoremap J :m '>+1<CR>gv=gv
@@ -197,12 +207,24 @@ source ~/.config/nvim/after/colors.vim
 
 -- Strip trailing whitespaces
 vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
+
+-- Autocommand for the same thing
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --   pattern = {"*"},
 --   command = [[% s#\s\+$##e]],
 -- })
+--
+vim.api.nvim_create_autocmd("VimLeave", {
+    group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
+    callback =  function()
+        os.execute("killall xsel")
+    end
+})
 
--- local get_line_git_history = function ()
+-- local function get_line_git_history()
+--   print(2)
 -- end
-
-
+-- vim.api.nvim_set_keymap("n", "<leader>hl", '', {
+--     callback = get_line_git_history(),
+--     desc = 'laalala'
+-- })

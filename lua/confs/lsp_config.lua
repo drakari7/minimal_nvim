@@ -1,6 +1,7 @@
 -- require("nvim-lsp-installer").setup{
 --   automatic_installation = true,
 -- }
+require('neodev').setup()           -- Must be included before lspconfig.setup
 require("mason").setup {}
 require("mason-lspconfig").setup {
   automatic_installation = true,
@@ -89,15 +90,14 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 local servers = {
   "pyright",
   "clangd",
+  "bashls",
+  "lua_ls"
   -- "vimls",
   -- "tsserver",
   -- "texlab",
-  "bashls",
   -- "gopls",
   -- "html",
   -- "cssls",
-  -- "html",
-  "sumneko_lua"
 }
 
 for _, lsp in ipairs(servers) do
