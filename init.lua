@@ -50,7 +50,7 @@ set signcolumn=yes
 " Tabs
 set autoindent
 set cindent
-set asdasdasd wrap
+set wrap
 
 set tabstop=4
 set shiftwidth=4
