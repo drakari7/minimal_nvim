@@ -6,6 +6,7 @@ require('telescope').setup{
     layout_config = {
         preview_width = 0.55,
     },
+    -- path_display = { shorten = 2 },
     prompt_prefix = "   ",
     results_title = false,
     file_ignore_patterns = {

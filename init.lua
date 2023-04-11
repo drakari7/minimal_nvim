@@ -25,6 +25,7 @@ require('confs.mini')
 -- Activate simple plugins
 require('leap').add_default_mappings()
 require('Comment').setup()
+require('nvim-surround').setup()
 require('indent_blankline').setup {
   -- show_current_context = true
 }
@@ -34,7 +35,8 @@ vim.cmd([[
 "------------------------------------------------------------
 " Vim native options and settings
 "------------------------------------------------------------
-" syntax enable
+syntax enable
+set clipboard=unnamedplus
 
 " Some basic options
 " TODO: lookup wildmenu
@@ -63,7 +65,6 @@ set encoding=utf-8 fileencoding=utf-8 fileformat=unix
 set noshowmode
 " set cursorline
 set shortmess+=c
-set clipboard=unnamedplus
 set ignorecase incsearch
 set pumheight=15                " sets the pmenu height
 set pumblend=10
@@ -86,8 +87,9 @@ set lcs+=conceal:┊
 set lcs+=nbsp:␣
 
 " Setting leader keys
-let mapleader= ","
-let maplocalleader = ","
+nnoremap <Space> <Nop>
+let mapleader= " "
+let maplocalleader = " "
 
 " Mouse options
 set mouse=
@@ -122,6 +124,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
           \ { 'cv' : '~/.config/nvim/init.lua'},
           \ { 'ca' : '~/prod-config/product_definitions/product_config_all.toml'},
+          \ { 'cg' : '~/prod-config/product_definitions/generators/generate_product_config.py'},
           \ { 'cm' : '~/prod-config/crypto_prod.main.py'},
           \ { 'cb' : '~/master-config/crypto.beta.py'},
           \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
@@ -143,7 +146,7 @@ let g:startify_bookmarks = [
 " Mappings for different plugins
 "-----------------------------------------------------------
 " General purpose vim shortcuts
-nnoremap <silent> <space> :noh<CR>
+nnoremap <silent> , :noh<CR>
 nnoremap <leader>no :e ~/notes/notes.md<CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>qc :cclose<CR>
@@ -155,15 +158,16 @@ nnoremap <leader>bd :Bd<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
 nnoremap <leader>cr :cd ~/crypto/<CR>
 nnoremap <leader>ps :PackerSync<CR>
-nnoremap <leader>cf :!clang-format -i %<CR><CR>
+nnoremap <leader>cf :w<CR>:!clang-format -i %<CR><CR>
 nnoremap <leader>cs :e ~/crypto/subprojects/config/dev.shreyash.py<CR>
 nnoremap <leader>cm :e ~/prod-config/crypto_prod.main.py<CR>
 nnoremap <leader>ss :e ~/.ssh/config<CR>
 nnoremap <leader>nw :set nowrap!<CR>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>hi :TSHighlightCapturesUnderCursor<CR>
+nnoremap <leader>hi :Inspect<CR>
 nnoremap <leader>rp' "_di'hp
 nnoremap <leader>rp" "_di"hp
+vnoremap <leader>ct :!column -t<CR>gv>
 nmap <F1> <nop>
 imap <F1> <nop>
 
@@ -190,7 +194,8 @@ nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep path_display={"tail"}<cr>
+nnoremap <leader>fw <cmd>Telescope grep_string<cr>
 nnoremap <leader>bf <cmd>Telescope buffers<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -208,12 +213,7 @@ source ~/.config/nvim/after/colors.vim
 -- Strip trailing whitespaces
 vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
 
--- Autocommand for the same thing
--- vim.api.nvim_create_autocmd("BufWritePre", {
---   pattern = {"*"},
---   command = [[% s#\s\+$##e]],
--- })
---
+-- Kill xsel on leaving an instance of neovim
 vim.api.nvim_create_autocmd("VimLeave", {
     group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
     callback =  function()
@@ -221,10 +221,9 @@ vim.api.nvim_create_autocmd("VimLeave", {
     end
 })
 
+
+-- Get git history of current and surrounding lines
 -- local function get_line_git_history()
---   print(2)
+--   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 -- end
--- vim.api.nvim_set_keymap("n", "<leader>hl", '', {
---     callback = get_line_git_history(),
---     desc = 'laalala'
--- })
+-- vim.keymap.set("n", "<leader>gh", get_line_git_history)

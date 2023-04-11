@@ -10,14 +10,13 @@ return require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason.lspconfig.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
 
   -- Functionality plugins
   use 'windwp/nvim-autopairs'               -- Autoclose brackets
   use 'famiu/bufdelete.nvim'                -- Delete buffers nicely
   use 'echasnovski/mini.bracketed'          -- Square bracket navigation
   use 'numToStr/Comment.nvim'               -- Easy comments
-  use 'tpope/vim-surround'                  -- change surroundings
+  use 'kylechui/nvim-surround'              -- change surroundings
   use 'tpope/vim-repeat'                    -- For repeating stuff
   use 'tpope/vim-abolish'                   -- For better substitution
   use 'mhinz/vim-startify'                  -- Startpage
