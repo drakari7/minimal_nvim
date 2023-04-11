@@ -50,7 +50,7 @@ set signcolumn=yes
 " Tabs
 set autoindent
 set cindent
-set nowrap
+set wrap
 
 set tabstop=4
 set shiftwidth=4
@@ -87,8 +87,9 @@ set lcs+=conceal:┊
 set lcs+=nbsp:␣
 
 " Setting leader keys
-let mapleader= ","
-let maplocalleader = ","
+nnoremap <Space> <Nop>
+let mapleader= " "
+let maplocalleader = " "
 
 " Mouse options
 set mouse=
@@ -123,6 +124,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
           \ { 'cv' : '~/.config/nvim/init.lua'},
           \ { 'ca' : '~/prod-config/product_definitions/product_config_all.toml'},
+          \ { 'cg' : '~/prod-config/product_definitions/generators/generate_product_config.py'},
           \ { 'cm' : '~/prod-config/crypto_prod.main.py'},
           \ { 'cb' : '~/master-config/crypto.beta.py'},
           \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
@@ -144,7 +146,7 @@ let g:startify_bookmarks = [
 " Mappings for different plugins
 "-----------------------------------------------------------
 " General purpose vim shortcuts
-nnoremap <silent> <space> :noh<CR>
+nnoremap <silent> , :noh<CR>
 nnoremap <leader>no :e ~/notes/notes.md<CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>qc :cclose<CR>
@@ -162,7 +164,7 @@ nnoremap <leader>cm :e ~/prod-config/crypto_prod.main.py<CR>
 nnoremap <leader>ss :e ~/.ssh/config<CR>
 nnoremap <leader>nw :set nowrap!<CR>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>hi :TSHighlightCapturesUnderCursor<CR>
+nnoremap <leader>hi :Inspect<CR>
 nnoremap <leader>rp' "_di'hp
 nnoremap <leader>rp" "_di"hp
 vnoremap <leader>ct :!column -t<CR>gv>
@@ -192,7 +194,8 @@ nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep path_display={"tail"}<cr>
+nnoremap <leader>fw <cmd>Telescope grep_string<cr>
 nnoremap <leader>bf <cmd>Telescope buffers<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

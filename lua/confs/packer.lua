@@ -10,7 +10,6 @@ return require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason.lspconfig.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
 
   -- Functionality plugins
   use 'windwp/nvim-autopairs'               -- Autoclose brackets
