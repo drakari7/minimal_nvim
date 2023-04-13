@@ -123,16 +123,9 @@ let g:startify_lists = [
             \ ]
 let g:startify_bookmarks = [
           \ { 'cv' : '~/.config/nvim/init.lua'},
-          \ { 'ca' : '~/prod-config/product_definitions/product_config_all.toml'},
-          \ { 'cg' : '~/prod-config/product_definitions/generators/generate_product_config.py'},
-          \ { 'cm' : '~/prod-config/crypto_prod.main.py'},
-          \ { 'cb' : '~/master-config/crypto.beta.py'},
-          \ { 'cq' : '~/crypto/subprojects/config/prod.crypto_quoting.py'},
-          \ { 'cs' : '~/crypto/subprojects/config/dev.shreyash.py'},
+          \ { 'cw' : '~/.config/wezterm/wezterm.lua'},
           \ { 'mf' : '~/scripts/my_funcs.sh'},
           \ { 'no' : '~/notes/notes.md'},
-          \ { 'dq' : '~/notes/david_quotes.md'},
-          \ { 'sp': '~/notes/scratchpad.md'},
           \ { 'al' : '~/.config/zsh/aliasrc'},
           \ { 'zrc' : '~/.config/zsh/.zshrc'},
           \ { 'ss' : '~/.ssh/config'},
