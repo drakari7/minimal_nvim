@@ -139,7 +139,7 @@ let g:startify_bookmarks = [
 " Mappings for different plugins
 "-----------------------------------------------------------
 " General purpose vim shortcuts
-nnoremap <silent> , :noh<CR>
+nnoremap <silent> <leader>qh :noh<CR>
 nnoremap <leader>no :e ~/notes/notes.md<CR>
 nnoremap <leader>lc :lclose<CR>
 nnoremap <leader>qc :cclose<CR>
