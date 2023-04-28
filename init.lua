@@ -202,6 +202,7 @@ nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
 " Manually source at the end
 colorscheme gruvbox
 source ~/.config/nvim/after/colors.vim
+source ~/.config/nvim/after/telescope_theme.vim
 ]])
 
 -- Strip trailing whitespaces
