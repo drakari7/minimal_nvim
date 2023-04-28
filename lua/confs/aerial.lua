@@ -23,7 +23,7 @@ require("aerial").setup({
     "Method",
     "Struct",
   },
-  icons = {},
+  -- icons = {},
   show_guides = true,
 })
 

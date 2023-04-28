@@ -36,8 +36,8 @@ return require('packer').startup(function(use)
   use 'dstein64/vim-startuptime'
 
   -- LSP related plugins / miscellaneous
-  -- use 'simrat39/symbols-outline.nvim'       -- Symbol table
   use 'stevearc/aerial.nvim'                -- Symbol table
+  use 'onsails/lspkind.nvim'                -- Icons
   use 'ray-x/lsp_signature.nvim'            -- Function signatures
   use 'ggandor/leap.nvim'                   -- Code navigation
   use 'folke/neodev.nvim'                   -- Nvim lua api completions and setup
