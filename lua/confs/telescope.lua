@@ -28,7 +28,6 @@ require('telescope').setup{
 -- Loading extensions
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('file_browser')
-require('telescope').load_extension('aerial')
 
 local M = {}
 

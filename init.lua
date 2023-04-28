@@ -185,7 +185,7 @@ nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 nnoremap <silent>]b :BufferLineCycleNext<CR>
 nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
-" Telescope mappings
+" Telescope mappings TODO: Move to telescope.lua
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep path_display={"tail"}<cr>
 nnoremap <leader>fw <cmd>Telescope grep_string<cr>
@@ -194,6 +194,7 @@ nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope resume initial_mode=normal<cr>
 nnoremap <leader>fa <cmd>Telescope aerial<cr>
+nnoremap <leader>fl <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
 nnoremap <leader>fs <cmd>lua require('confs.telescope').find_scripts()<CR>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
