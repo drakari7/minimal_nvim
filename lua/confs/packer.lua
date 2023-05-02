@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
   use 'lewis6991/impatient.nvim'
   use 'dstein64/vim-startuptime'
 
-  -- LSP related plugins / miscellaneous
+  -- LSP related plugins
   use 'stevearc/aerial.nvim'                -- Symbol table
   use 'onsails/lspkind.nvim'                -- Icons
   use 'ray-x/lsp_signature.nvim'            -- Function signatures
@@ -43,12 +43,15 @@ return require('packer').startup(function(use)
   use 'folke/neodev.nvim'                   -- Nvim lua api completions and setup
   -- use 'jose-elias-alvarez/null-ls.nvim'     -- Formatting
 
+  -- Miscellaneous
+  use 'christoomey/vim-tmux-navigator'      -- Tmux integration
+
   -- Debugging
   -- use 'mfussenegger/nvim-dap'               -- Debugging engine
   -- use 'rcarriga/nvim-dap-ui'                -- UI and overlay
   -- use 'theHamsta/nvim-dap-virtual-text'     -- Virtual text summary
 
-  -- Terminal wrapper
+  -- Terminal
   use 'akinsho/toggleterm.nvim'             -- better terminal
 
   -- Completion Plugins
