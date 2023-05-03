@@ -106,6 +106,9 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
 au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a.out<CR>
 
+" Set filetype for tmux.conf properly
+au BufNewFile,BufRead ~/.config/tmux/tmux.conf set filetype=tmux
+
 "----------------------------------------------------------
 " Plugin options
 "----------------------------------------------------------
@@ -140,7 +143,7 @@ let g:startify_bookmarks = [
           \ { 'tc': '~/random/test.cpp'},
           \ { 'tp': '~/random/test.py'},
           \ { 'tb': '~/random/test.sh'},
-          \ { 'tm': '~/.tmux.conf'},
+          \ { 'tm': '~/.config/tmux/tmux.conf'},
           \ ]
 "-----------------------------------------------------------
 " Mappings for different plugins
