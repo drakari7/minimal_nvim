@@ -62,6 +62,7 @@ vim.api.nvim_set_keymap('n', '<leader>dl', '<cmd>lua vim.diagnostic.setloclist()
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
+  client.server_capabilities.semanticTokensProvider = nil       -- Disable semantic highlighting for now
   -- attaching lsp_signature
   require('lsp_signature').on_attach(lsp_signature_cfg)
 
@@ -77,7 +78,7 @@ local function on_attach(client, bufnr)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   -- buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+  -- buf_set_keymap("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
   -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workleader_folder()<CR>', opts)
   -- buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workleader_folder()<CR>', opts)
   -- buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workleader_folders()))<CR>', opts)

@@ -1,10 +1,9 @@
-vim.opt.termguicolors = true
 vim.loader.enable()
 --------------------------------------------------------------
 -- Sourcing config files
 -----------------------------------------------------------
 
-
+require('confs.options')
 require('confs.packer')
 require('confs.aerial')
 require('confs.tree_sitter')
@@ -21,80 +20,10 @@ require('confs.bufferline')
 require('confs.telescope')
 require('confs.colorizer')
 require('confs.mini')
+require('confs.misc')
 
--- Activate simple plugins
-require('leap').add_default_mappings()
-require('Comment').setup()
-require('nvim-surround').setup()
-require('indent_blankline').setup {
-  -- show_current_context = true
-}
 
 vim.cmd([[
-
-"------------------------------------------------------------
-" Vim native options and settings
-"------------------------------------------------------------
-set clipboard=unnamedplus
-
-" Some basic options
-" TODO: lookup wildmenu
-set number
-set hidden
-set whichwrap+=<,>,h,l,[,]
-set cursorline
-set ffs=unix,dos
-set signcolumn=yes
-
-" Tabs
-set autoindent
-set cindent
-set wrap
-
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-set breakindent
-set linebreak
-set showbreak=>
-
-set encoding=utf-8 fileencoding=utf-8 fileformat=unix
-set noshowmode
-" set cursorline
-set shortmess+=c
-set ignorecase incsearch
-set pumheight=15                " sets the pmenu height
-set pumblend=10
-set timeoutlen=1000
-" set autochdir
-set scrolloff=5
-set splitbelow splitright       " split below instead of top
-set conceallevel=0
-" set textwidth=70
-
-" listchars
-set list
-set lcs=
-set lcs+=eol:¬
-set lcs+=tab:»·
-set lcs+=trail:·
-set lcs+=extends:<
-set lcs+=precedes:>
-set lcs+=conceal:┊
-set lcs+=nbsp:␣
-
-" Setting leader keys
-nnoremap <Space> <Nop>
-let mapleader= " "
-let maplocalleader = " "
-
-" Mouse options
-set mouse=
-
-" Enable filetype plugins
-filetype plugin indent on
 "------------------------------------------------------------
 " Language specific settings here
 "------------------------------------------------------------
@@ -176,6 +105,7 @@ nnoremap <leader>rp' "_di'hp
 nnoremap <leader>rp" "_di"hp
 vnoremap <leader>ct :!column -t<CR>gv>
 nnoremap <leader>pp 0hwyt<space>oprint(<C-r>")<ESC>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 nmap <F1> <nop>
 imap <F1> <nop>
@@ -211,6 +141,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope resume initial_mode=normal<cr>
 nnoremap <leader>fa <cmd>Telescope aerial<cr>
 nnoremap <leader>fl <cmd>Telescope lsp_document_symbols<cr>
+nnoremap <leader>fo <cmd>Telescope vim_options<cr>
 nnoremap <leader>fv <cmd>lua require('confs.telescope').nvim_config_files()<CR>
 nnoremap <leader>fs <cmd>lua require('confs.telescope').find_scripts()<CR>
 nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<CR>
@@ -221,16 +152,17 @@ source ~/.config/nvim/after/colors.vim
 source ~/.config/nvim/after/telescope_theme.vim
 ]])
 
+
 -- Strip trailing whitespaces
 vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
 
 -- Kill xsel on leaving an instance of neovim
-vim.api.nvim_create_autocmd("VimLeave", {
-    group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
-    callback =  function()
-        os.execute("killall xsel")
-    end
-})
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--     group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
+--     callback =  function()
+--         os.execute("killall xsel")
+--     end
+-- })
 
 
 -- Get git history of current and surrounding lines
