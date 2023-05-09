@@ -1,4 +1,6 @@
+local telescope = require('telescope')
 local actions = require('telescope.actions')
+local builtin = require('telescope.builtin')
 
 require('telescope').setup{
   defaults = {
@@ -24,26 +26,37 @@ require('telescope').setup{
     }
   },
 }
+-- Extensions
+telescope.load_extension('fzf')
+telescope.load_extension('aerial')
 
--- Loading extensions
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('file_browser')
-require('telescope').load_extension('aerial')
-
-local M = {}
-
-function M.nvim_config_files()
-    require('telescope.builtin').find_files{
-        cwd = "~/.config/nvim",
-        prompt_title = "Nvim Config Files",
-    }
+-- Custom pickers
+local function nvim_config_files()
+  builtin.find_files{
+    cwd = "~/.config/nvim",
+    prompt_title = "Nvim Config Files",
+  }
 end
 
-function M.find_scripts()
-    require('telescope.builtin').find_files{
-        cwd = "~/scripts",
-        prompt_title = "My Scripts",
-    }
+local function find_scripts()
+  builtin.find_files{
+    cwd = "~/scripts",
+    prompt_title = "My Scripts",
+  }
 end
 
-return M
+-- TODO: Add descriptions to all keybindings for which key
+-- Keybindings
+vim.keymap.set('n', '<leader>ff', builtin.find_files)
+vim.keymap.set('n', '<leader>fg', function () builtin.live_grep{path_display='tail'} end)
+vim.keymap.set('n', '<leader>fw', function () builtin.grep_string{initial_mode="normal"} end)
+vim.keymap.set('n', '<leader>bf', builtin.buffers)
+vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+vim.keymap.set('n', '<leader>fr', function () builtin.resume{initial_mode="normal"} end)
+vim.keymap.set('n', '<leader>fa', telescope.extensions.aerial.aerial)
+vim.keymap.set('n', '<leader>fl', builtin.lsp_document_symbols)
+vim.keymap.set('n', '<leader>fo', builtin.vim_options)
+vim.keymap.set('n', '<leader>fv', nvim_config_files)
+vim.keymap.set('n', '<leader>fs', find_scripts)
+vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find)
+

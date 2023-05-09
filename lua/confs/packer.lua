@@ -66,7 +66,6 @@ return require('packer').startup(function(use)
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'       --File finder and grep
-  use "nvim-telescope/telescope-file-browser.nvim"
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- Colors and aesthetics
