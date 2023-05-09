@@ -157,12 +157,12 @@ source ~/.config/nvim/after/telescope_theme.vim
 vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
 
 -- Kill xsel on leaving an instance of neovim
--- vim.api.nvim_create_autocmd("VimLeave", {
---     group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
---     callback =  function()
---         os.execute("killall xsel")
---     end
--- })
+vim.api.nvim_create_autocmd("VimLeave", {
+    group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
+    callback =  function()
+        os.execute("killall xsel")
+    end
+})
 
 
 -- Get git history of current and surrounding lines
