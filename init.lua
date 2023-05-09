@@ -1,11 +1,11 @@
 vim.opt.termguicolors = true
+vim.loader.enable()
 --------------------------------------------------------------
 -- Sourcing config files
 -----------------------------------------------------------
 
 
 require('confs.packer')
-require('impatient')
 require('confs.aerial')
 require('confs.tree_sitter')
 require('confs.lsp_config')
@@ -106,7 +106,7 @@ au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
 au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a.out<CR>
 
 " Set filetype for tmux.conf properly
-au BufNewFile,BufRead ~/.config/tmux/tmux.conf set filetype=tmux
+" au BufNewFile,BufRead ~/.config/tmux/tmux.conf set filetype=tmux
 
 "----------------------------------------------------------
 " Plugin options

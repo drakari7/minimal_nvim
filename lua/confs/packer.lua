@@ -31,8 +31,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'                  -- Git commands in nvim
 
   -- SpeedUp
-  use 'nathom/filetype.nvim'
-  use 'lewis6991/impatient.nvim'
   use 'dstein64/vim-startuptime'
 
   -- LSP related plugins
