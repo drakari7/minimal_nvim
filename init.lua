@@ -35,7 +35,6 @@ vim.cmd([[
 "------------------------------------------------------------
 " Vim native options and settings
 "------------------------------------------------------------
-syntax enable
 set clipboard=unnamedplus
 
 " Some basic options
@@ -112,7 +111,7 @@ au BufNewFile,BufRead ~/.config/tmux/tmux.conf set filetype=tmux
 "----------------------------------------------------------
 " Plugin options
 "----------------------------------------------------------
-" Symbol outline
+" Aerial
 nnoremap <silent> <leader>a :AerialToggle!<CR>
 
 " Startify options
@@ -145,6 +144,14 @@ let g:startify_bookmarks = [
           \ { 'tb': '~/random/test.sh'},
           \ { 'tm': '~/.config/tmux/tmux.conf'},
           \ ]
+
+" Vim tmux navigator
+" let g:tmux_navigator_no_mappings = 1
+"
+"  noremap <silent> <C-space>h :<C-U>TmuxNavigateLeft<cr>
+"  noremap <silent> <C-space>j :<C-U>TmuxNavigateDown<cr>
+"  noremap <silent> <C-space>k :<C-U>TmuxNavigateUp<cr>
+"  noremap <silent> <C-space>l :<C-U>TmuxNavigateRight<cr>
 "-----------------------------------------------------------
 " Mappings for different plugins
 "-----------------------------------------------------------
@@ -171,6 +178,8 @@ nnoremap <leader>hi :Inspect<CR>
 nnoremap <leader>rp' "_di'hp
 nnoremap <leader>rp" "_di"hp
 vnoremap <leader>ct :!column -t<CR>gv>
+nnoremap <leader>pp 0hwyt<space>oprint(<C-r>")<ESC>
+
 nmap <F1> <nop>
 imap <F1> <nop>
 
@@ -198,7 +207,7 @@ nnoremap <silent>[b :BufferLineCyclePrev<CR>
 " Telescope mappings TODO: Move to telescope.lua
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep path_display={"tail"}<cr>
-nnoremap <leader>fw <cmd>Telescope grep_string<cr>
+nnoremap <leader>fw <cmd>Telescope grep_string initial_mode=normal<cr>
 nnoremap <leader>bf <cmd>Telescope buffers<cr>
 nnoremap <leader>fb <cmd>Telescope file_browser<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

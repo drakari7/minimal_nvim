@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines
 
   use 'nvim-tree/nvim-tree.lua'             -- File tree
-  use 'nvim-tree/nvim-web-devicons'         -- Icons
+  -- use 'nvim-tree/nvim-web-devicons'         -- Icons
 
   -- Git integration
   use 'lewis6991/gitsigns.nvim'
@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
   -- use 'jose-elias-alvarez/null-ls.nvim'     -- Formatting
 
   -- Miscellaneous
-  use 'christoomey/vim-tmux-navigator'      -- Tmux integration
+  -- use 'christoomey/vim-tmux-navigator'      -- Tmux integration
 
   -- Debugging
   -- use 'mfussenegger/nvim-dap'               -- Debugging engine
