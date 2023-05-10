@@ -2,7 +2,7 @@ local telescope = require('telescope')
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 
-require('telescope').setup{
+telescope.setup{
   defaults = {
    layout_strategy = 'horizontal',
     layout_config = {
@@ -45,18 +45,18 @@ local function find_scripts()
   }
 end
 
--- TODO: Add descriptions to all keybindings for which key
 -- Keybindings
-vim.keymap.set('n', '<leader>ff', builtin.find_files)
-vim.keymap.set('n', '<leader>fg', function () builtin.live_grep{path_display='tail'} end)
-vim.keymap.set('n', '<leader>fw', function () builtin.grep_string{initial_mode="normal"} end)
-vim.keymap.set('n', '<leader>bf', builtin.buffers)
-vim.keymap.set('n', '<leader>fh', builtin.help_tags)
-vim.keymap.set('n', '<leader>fr', function () builtin.resume{initial_mode="normal"} end)
-vim.keymap.set('n', '<leader>fa', telescope.extensions.aerial.aerial)
-vim.keymap.set('n', '<leader>fl', builtin.lsp_document_symbols)
-vim.keymap.set('n', '<leader>fo', builtin.vim_options)
-vim.keymap.set('n', '<leader>fv', nvim_config_files)
-vim.keymap.set('n', '<leader>fs', find_scripts)
-vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find)
+local map = require('confs.utils').map
 
+map('n', '<leader>ff', builtin.find_files, 'Find files')
+map('n', '<leader>fb', builtin.buffers, 'Buffers')
+map('n', '<leader>fh', builtin.help_tags, 'Help tags')
+map('n', '<leader>fa', telescope.extensions.aerial.aerial, 'Aerial symbols')
+map('n', '<leader>fl', builtin.lsp_document_symbols, 'Document Symbols [LSP]')
+map('n', '<leader>fo', builtin.vim_options, 'Vim options')
+map('n', '<leader>fv', nvim_config_files, 'Nvim config directory')
+map('n', '<leader>fs', find_scripts, 'Scripts directory')
+map('n', '<leader>fc', builtin.current_buffer_fuzzy_find, 'Current buffer search')
+map('n', '<leader>fg', function () builtin.live_grep{path_display='tail'} end, 'Live grep')
+map('n', '<leader>fw', function () builtin.grep_string{initial_mode="normal"} end, 'Grep word under cursor')
+map('n', '<leader>fr', function () builtin.resume{initial_mode="normal"} end, 'Resume last picker')

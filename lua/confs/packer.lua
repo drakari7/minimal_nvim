@@ -1,6 +1,13 @@
 vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
 
-return require('packer').startup(function(use)
+local packer = require('packer')
+
+local map = require('confs.utils').map
+map('n', '<leader>ps', packer.sync, 'Packer Sync')
+map('n', '<leader>pc', packer.clean, 'Packer Clean')
+map('n', '<leader>pu', packer.update, 'Packer Update')
+
+return packer.startup(function(use)
   use 'wbthomason/packer.nvim'              -- Packer manages itself
 
   -- LSP and nvim core
@@ -76,3 +83,5 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
 end)
+
+

@@ -4,6 +4,8 @@ vim.loader.enable()
 -----------------------------------------------------------
 
 require('confs.options')
+require('confs.keybindings')
+
 require('confs.packer')
 require('confs.aerial')
 require('confs.tree_sitter')
@@ -21,6 +23,7 @@ require('confs.telescope')
 require('confs.colorizer')
 require('confs.mini')
 require('confs.misc')
+
 
 
 vim.cmd([[
@@ -64,52 +67,16 @@ let g:startify_bookmarks = [
 "-----------------------------------------------------------
 " Mappings for different plugins
 "-----------------------------------------------------------
-" General purpose vim shortcuts
-nnoremap <silent> <leader>qh :noh<CR>
-nnoremap <leader>no :e ~/notes/notes.md<CR>
-nnoremap <leader>lc :lclose<CR>
-nnoremap <leader>qc :cclose<CR>
-vnoremap <leader>bb "_d
-nnoremap <leader>ya mmggVGy'm
-nnoremap gb :ls<CR>:b<space>
-nnoremap <leader>bd :Bd<CR>
-nnoremap <leader>cd :cd %:p:h<CR>
-nnoremap <leader>cr :cd ~/crypto/<CR>
-nnoremap <leader>ps :PackerSync<CR>
-nnoremap <leader>cf :w<CR>:!clang-format -i %<CR><CR>
-nnoremap <leader>cs :e ~/crypto/subprojects/config/dev.shreyash.py<CR>
-nnoremap <leader>cm :e ~/prod-config/crypto_prod.main.py<CR>
-nnoremap <leader>ss :e ~/.ssh/config<CR>
-nnoremap <leader>nw :set nowrap!<CR>
-nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>hi :Inspect<CR>
-nnoremap <leader>rp' "_di'hp
-nnoremap <leader>rp" "_di"hp
-vnoremap <leader>ct :!column -t<CR>gv>
-nnoremap <leader>pp 0hwyt<space>oprint(<C-r>")<ESC>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-
-nmap <F1> <nop>
-imap <F1> <nop>
-
-" Move text around
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-" Shortcuts for file tree
-nnoremap <leader>nn :NvimTreeToggle<CR>
-nnoremap <leader>nr :NvimTreeRefresh<CR>
-
 " Bufferline commands
-nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 nnoremap <silent>]b :BufferLineCycleNext<CR>
 nnoremap <silent>[b :BufferLineCyclePrev<CR>
 
@@ -120,9 +87,6 @@ source ~/.config/nvim/after/telescope_theme.vim
 ]])
 
 
--- Strip trailing whitespaces
-vim.api.nvim_set_keymap("n", "<leader>st", ":% s#\\s\\+$##e<CR>:w<CR>", {silent = true, noremap = true})
-
 -- Kill xsel on leaving an instance of neovim
 vim.api.nvim_create_autocmd("VimLeave", {
     group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
@@ -131,9 +95,3 @@ vim.api.nvim_create_autocmd("VimLeave", {
     end
 })
 
-
--- Get git history of current and surrounding lines
--- local function get_line_git_history()
---   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
--- end
--- vim.keymap.set("n", "<leader>gh", get_line_git_history)

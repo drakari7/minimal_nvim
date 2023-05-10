@@ -1,4 +1,7 @@
-require'nvim-tree'.setup {
+local tree = require('nvim-tree')
+local api = require('nvim-tree.api')
+
+tree.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
 
@@ -41,3 +44,10 @@ require'nvim-tree'.setup {
     }
   },
 }
+
+-- Keybindings
+local map = require('confs.utils').map
+
+map('n', '<leader>nn', function() api.tree.toggle{focus=false} end, 'NvimTree toggle')
+map('n', '<leader>nf', api.tree.focus, 'NvimTree focus')
+map('n', '<leader>nr', api.tree.reload, 'NvimTree refresh')
