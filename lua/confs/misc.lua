@@ -1,4 +1,4 @@
--- File for miscellaneous stuff that doesn't fit anywhere
+-- Miscellaneous plugin setups and keybindings
 
 -- Call simple plugin setups
 require('leap').add_default_mappings()

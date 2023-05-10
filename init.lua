@@ -31,9 +31,6 @@ au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a
 "----------------------------------------------------------
 " Plugin options
 "----------------------------------------------------------
-" Aerial
-nnoremap <silent> <leader>a :AerialToggle!<CR>
-
 " Startify options
 let g:startify_change_to_dir = 1
 let g:startify_lists = [
@@ -64,14 +61,6 @@ let g:startify_bookmarks = [
           \ { 'tb' : '~/random/test.sh'},
           \ { 'tm' : '~/.config/tmux/tmux.conf'},
           \ ]
-
-" Vim tmux navigator
-" let g:tmux_navigator_no_mappings = 1
-"
-"  noremap <silent> <C-space>h :<C-U>TmuxNavigateLeft<cr>
-"  noremap <silent> <C-space>j :<C-U>TmuxNavigateDown<cr>
-"  noremap <silent> <C-space>k :<C-U>TmuxNavigateUp<cr>
-"  noremap <silent> <C-space>l :<C-U>TmuxNavigateRight<cr>
 "-----------------------------------------------------------
 " Mappings for different plugins
 "-----------------------------------------------------------
