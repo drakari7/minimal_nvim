@@ -30,8 +30,10 @@ aerial.setup({
   -- link_folds_to_tree = true,
 })
 
-vim.keymap.set('n', '<leader>ao', function() aerial.toggle{focus=false} end)
-vim.keymap.set('n', '<leader>an', aerial.nav_toggle)
-vim.keymap.set('n', '<leader>af', aerial.focus)
-vim.keymap.set('n', ']a', aerial.next)
-vim.keymap.set('n', '[a', aerial.prev)
+local map = require('confs.utils').map
+map('n', '<leader>ao', function() aerial.toggle{focus=false} end, 'Aerial toggle')
+map('n', '<leader>an', aerial.nav_toggle, 'Aerial nav toggle')
+map('n', '<leader>af', aerial.focus, 'Aerial focus')
+map('n', '<leader>ac', aerial.close_all, 'Aerial Close all')
+map('n', ']a', aerial.next, 'Aerial next')
+map('n', '[a', aerial.prev, 'Aerial prev')

@@ -9,7 +9,7 @@ opt.number = true
 opt.cursorline = true
 opt.signcolumn = "yes"
 opt.showmode = false
-opt.mouse = "n"
+opt.mouse = ""
 -- opt.clipboard = "unnamedplus"
 
 -- Wrap
