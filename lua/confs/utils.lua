@@ -15,7 +15,7 @@ end
 
 function M.get_git_root()
   local dot_git_path = vim.fn.findfile(".git", ".;")
-  if not dot_git_path then
+  if dot_git_path == "" then
     dot_git_path = vim.fn.finddir(".git", ".;")
   end
   return vim.fn.fnamemodify(dot_git_path, ":h")
