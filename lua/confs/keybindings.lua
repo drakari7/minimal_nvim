@@ -1,16 +1,6 @@
 local map = require('confs.utils').map
 local silent_opt = {silent = true}
 
-
--- Opening files (Move to startup plugin)
-map('n', '<leader>no', ':e ~/notes/notes.md<CR>', 'Open notes')
-map('n', '<leader>cm', ':e ~/prod-config/crypto_prod.main.py<CR>', 'Prod config')
-map('n', '<leader>cb', ':e ~/master-config/crypto.beta.py<CR>', 'Prod config')
-
--- Quickfix and loclist
-map('n', '<leader>lc', ':lclose<CR>', 'Close loclist')
-map('n', '<leader>qc', ':cclose<CR>', 'Close quickfixlist')
-
 -- Useful mappings
 map('n', '<leader>qh', ':noh<CR>', 'Quiet highlight', silent_opt)
 map('n', '<leader>nw', ':set wrap!<CR>', 'Toggle wrap', silent_opt)
@@ -20,6 +10,15 @@ map('n', '<leader>sv', ':source $MYVIMRC<CR>', 'Source init.lua')
 map('n', '<leader>st', ':% s#\\s\\+$##e<CR>:w<CR>', 'Strip trailing whitespace')
 map('n', '<leader>ya', "mmggVGy'm", 'Yank entire file')
 map('n', '<leader>cd', ':cd %:p:h<CR>', 'cd to current file dir')
+
+-- Opening files (Move to startup plugin)
+map('n', '<leader>no', ':e ~/notes/notes.md<CR>', 'Open notes')
+map('n', '<leader>cm', ':e ~/prod-config/crypto_prod.main.py<CR>', 'Prod config')
+map('n', '<leader>cb', ':e ~/master-config/crypto.beta.py<CR>', 'Prod config')
+
+-- Quickfix and loclist
+map('n', '<leader>lc', ':lclose<CR>', 'Close loclist')
+map('n', '<leader>qc', ':cclose<CR>', 'Close quickfixlist')
 
 -- Visual mode
 map('v', '<leader>ct', ':!column -t<CR>gv>', 'Column table')
