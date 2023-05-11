@@ -76,7 +76,7 @@ source ~/.config/nvim/after/telescope_theme.vim
 
 -- Kill xsel on leaving an instance of neovim
 vim.api.nvim_create_autocmd("VimLeave", {
-    group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
+    group = vim.api.nvim_create_augroup("KillXSel", {clear=true}),
     callback =  function()
         os.execute("killall xsel")
     end

@@ -14,7 +14,8 @@ function M.is_git_repo()
 end
 
 function M.get_git_root()
-  local dot_git_path = vim.fn.findfile(".git", ".;")
+  local pwd = vim.fn.getcwd() .. ';'
+  local dot_git_path = vim.fn.findfile(".git", pwd)
   if dot_git_path == "" then
     dot_git_path = vim.fn.finddir(".git", ".;")
   end
