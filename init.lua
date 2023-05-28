@@ -22,12 +22,12 @@ require('confs.bufferline')
 require('confs.telescope')
 require('confs.colorizer')
 require('confs.mini')
+require('confs.alpha')
 require('confs.misc')
 
 
 
 vim.cmd([[
-" Executing code from within nvim
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
 au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a.out<CR>
 

@@ -27,6 +27,10 @@ map('v', '<leader>ct', ':!column -t<CR>gv>', 'Column table')
 map('v', 'K', ":m '<-2<CR>gv=gv", 'Move line up')
 map('v', 'J', ":m '>+1<CR>gv=gv", 'Move line down')
 
+-- Paste in quotes without overwriting yanked content
+map('n', "<leader>pi'", "\"_di'hp")
+map('n', '<leader>pi"', '"_di"hp')
+
 -- Misc
 map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
 map('n', '<leader>cf', ':w<CR>:!clang-format -i %<CR><CR>', 'Run clang format')

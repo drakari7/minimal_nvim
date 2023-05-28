@@ -26,12 +26,16 @@ return packer.startup(function(use)
   use 'kylechui/nvim-surround'              -- change surroundings
   use 'tpope/vim-repeat'                    -- For repeating stuff
   use 'tpope/vim-abolish'                   -- For better substitution
-  use 'mhinz/vim-startify'                  -- Startpage
   use 'folke/which-key.nvim'                -- easy keymap guide
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines
 
   use 'nvim-tree/nvim-tree.lua'             -- File tree
   use 'nvim-tree/nvim-web-devicons'         -- Icons
+
+  -- Greeter
+  -- use 'mhinz/vim-startify'                  -- Startpage
+  use 'goolord/alpha-nvim'                  -- Startpage
+  -- use 'nvimdev/dashboard-nvim'                  -- Startpage
 
   -- Git integration
   use 'lewis6991/gitsigns.nvim'
