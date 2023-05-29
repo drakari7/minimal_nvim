@@ -11,7 +11,6 @@ map('n', '<leader>so', ':source %<CR>', 'Source current file')
 map('n', '<leader>st', ':% s#\\s\\+$##e<CR>:w<CR>', 'Strip trailing whitespace')
 map('n', '<leader>ya', "mmggVGy'm", 'Yank entire file')
 map('n', '<leader>cd', ':cd %:p:h<CR>', 'cd to current file dir')
-map('n', '<leader>bd', ':Bd<CR>', 'Close buffer')
 
 -- Opening files (Move to startup plugin)
 map('n', '<leader>no', ':e ~/notes/notes.md<CR>', 'Open notes')

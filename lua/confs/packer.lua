@@ -20,14 +20,15 @@ return packer.startup(function(use)
 
   -- Functionality plugins
   use 'windwp/nvim-autopairs'               -- Autoclose brackets
-  use 'famiu/bufdelete.nvim'                -- Delete buffers nicely
-  use 'echasnovski/mini.bracketed'          -- Square bracket navigation
   use 'numToStr/Comment.nvim'               -- Easy comments
   use 'kylechui/nvim-surround'              -- change surroundings
   use 'tpope/vim-repeat'                    -- For repeating stuff
   use 'tpope/vim-abolish'                   -- For better substitution
   use 'folke/which-key.nvim'                -- easy keymap guide
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines
+
+  -- Mini nvim
+  use 'echasnovski/mini.nvim'               -- Collection of plugins
 
   use 'nvim-tree/nvim-tree.lua'             -- File tree
   use 'nvim-tree/nvim-web-devicons'         -- Icons
