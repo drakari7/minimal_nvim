@@ -48,7 +48,7 @@ return packer.startup(function(use)
   -- LSP related plugins
   use 'stevearc/aerial.nvim'                -- Symbol table
   use 'onsails/lspkind.nvim'                -- Icons
-  use 'ray-x/lsp_signature.nvim'            -- Function signatures
+  -- use 'ray-x/lsp_signature.nvim'            -- Function signatures
   use 'ggandor/leap.nvim'                   -- Code navigation
   use 'folke/neodev.nvim'                   -- Nvim lua api completions and setup
   -- use 'jose-elias-alvarez/null-ls.nvim'     -- Formatting
