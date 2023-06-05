@@ -10,7 +10,7 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.showmode = false
 opt.mouse = ""
--- opt.clipboard = "unnamedplus"
+opt.clipboard = "unnamedplus"
 
 -- Wrap
 opt.wrap = true

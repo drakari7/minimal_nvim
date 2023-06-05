@@ -29,7 +29,8 @@ require('confs.misc')
 
 vim.cmd([[
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
-au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!g++ -std=c++20 % && ./a.out<CR>
+au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!source ~/scripts/gcc10_env && g++ -std=c++20 % && ./a.out<CR>
+au FileType sh,bash nnoremap <buffer> <leader>rr :w<CR>:!./%<CR>
 
 " Manually source at the end
 colorscheme gruvbox
