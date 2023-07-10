@@ -41,7 +41,7 @@ opt.incsearch = true
 opt.pumheight = 15
 
 -- Scrolloff and splits
-opt.scrolloff = 10
+opt.scrolloff = 20
 opt.sidescrolloff = 20
 opt.splitbelow = true
 opt.splitright = true

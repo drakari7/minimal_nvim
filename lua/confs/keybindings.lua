@@ -34,7 +34,9 @@ map('n', '<leader>pi"', '"_di"hp')
 map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
 map('n', '<leader>cf', ':w<CR>:!clang-format -i %<CR><CR>', 'Run clang format')
 map('n', '<leader>gb', ':Git blame<CR>', 'Git blame')   -- TODO: Move to a git plugin
+map('n', '<leader>jq', 'V:!jq .<CR>', 'Run jq')
 map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
+map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
 
 -- Get git history of current and surrounding lines
 -- local function get_line_git_history()

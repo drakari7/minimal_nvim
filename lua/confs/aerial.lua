@@ -28,6 +28,18 @@ aerial.setup({
   manage_folds = true,
   link_tree_to_folds = true,
   -- link_folds_to_tree = true,
+
+  highlight_on_jump = false,     -- Set a value in milliseconds or false to disable
+  nav = {
+    min_height = {30, 0.6},
+    preview = true,
+    win_opts = {
+      cursorline = false,
+    },
+    keymaps = {
+      ["q"] = "actions.close",
+    }
+  }
 })
 
 local map = require('confs.utils').map

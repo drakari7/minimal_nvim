@@ -17,4 +17,12 @@ require'nvim-treesitter.configs'.setup {
 
     additional_vim_regex_highlighting = false,
   },
+
+  -- Extension from vim-matchup plugin
+  matchup = {
+    enable = true,
+    -- disable = {"c", "cpp"} -- list of languages to disable
+    -- disable_virtual_text = false,
+    -- include_match_words = true,
+  }
 }
