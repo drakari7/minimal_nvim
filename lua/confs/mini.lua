@@ -7,4 +7,4 @@ require('mini.bracketed').setup({
 require('mini.bufremove').setup()
 map('n', '<leader>bd', require('mini.bufremove').delete, "Delete buffer")
 
-
+require('mini.ai').setup()
