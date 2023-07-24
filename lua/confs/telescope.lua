@@ -38,7 +38,7 @@ telescope.setup{
 }
 -- Extensions
 telescope.load_extension('fzf')
-telescope.load_extension('aerial')
+-- telescope.load_extension('aerial')
 
 -- Custom pickers
 local function nvim_config_files()
