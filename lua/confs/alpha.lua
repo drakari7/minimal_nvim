@@ -48,23 +48,4 @@ vim.g.startify_lists = {
 
 vim.g.startify_bookmarks = {
   { cv = '~/.config/nvim/init.lua' },
-  { ca = '~/prod-config/subprojects/product_config/product_config_all.toml' },
-  { cg = '~/prod-config/subprojects/product_config/generators/generate_product_config.py' },
-  { sc = '~/prod-config/crypto_prod.main.py' },
-  { mc = '~/master-config/crypto.beta.py' },
-  { ac = '~/alpha-config/crypto_alpha.alpha.py' },
-  { cq = '~/crypto/subprojects/config/prod.crypto_quoting.py' },
-  { cs = '~/crypto/subprojects/config/dev.shreyash.py' },
-  { mf = '~/scripts/my_funcs.sh' },
-  { no = '~/notes/notes.md' },
-  { dq = '~/notes/david_quotes.md' },
-  { sp = '~/notes/scratchpad.md' },
-  { al = '~/.config/zsh/aliasrc' },
-  { zrc = '~/.config/zsh/.zshrc' },
-  { ss = '~/.ssh/config' },
-  { gc = '~/.gitconfig' },
-  { tc = '~/random/colo_test_env/test.cpp' },
-  { tp = '~/random/test.py' },
-  { tb = '~/random/test.sh' },
-  { tm = '~/.config/tmux/tmux.conf' },
 }

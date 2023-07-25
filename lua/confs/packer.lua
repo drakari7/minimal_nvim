@@ -45,7 +45,6 @@ return packer.startup(function(use)
   use 'nvim-tree/nvim-web-devicons'         -- Icons
 
   -- Greeter
-  use 'mhinz/vim-startify'                  -- Startpage
   use 'goolord/alpha-nvim'                  -- Startpage
   -- use 'nvimdev/dashboard-nvim'                  -- Startpage
 
