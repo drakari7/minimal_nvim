@@ -4,7 +4,7 @@
 require('neodev').setup()           -- Must be included before lspconfig.setup
 require("mason").setup {}
 require("mason-lspconfig").setup {
-  automatic_installation = true,
+  automatic_installation = false,
 }
 local nvim_lsp = require('lspconfig')
 
