@@ -1,6 +1,6 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   -- One of "all", or a list of languages
-  ensure_installed = "all",
+  ensure_installed = { "cpp", "lua", "bash", "python", },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -17,12 +17,4 @@ require'nvim-treesitter.configs'.setup {
 
     additional_vim_regex_highlighting = false,
   },
-
-  -- Extension from vim-matchup plugin
-  matchup = {
-    enable = true,
-    -- disable = {"c", "cpp"} -- list of languages to disable
-    -- disable_virtual_text = false,
-    -- include_match_words = true,
-  }
 }
