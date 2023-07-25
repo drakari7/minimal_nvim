@@ -14,10 +14,13 @@ opt.clipboard = "unnamedplus"
 
 -- Wrap
 opt.wrap = true
-opt.whichwrap = "h,l"
+opt.whichwrap = ""
 opt.breakindent = true
 opt.linebreak = true
 opt.showbreak = "  > "
+
+-- Format options
+opt.formatoptions = "c,r,j"
 
 -- Tabs and indentation
 opt.autoindent = true
