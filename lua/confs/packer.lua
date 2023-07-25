@@ -34,7 +34,7 @@ return packer.startup(function(use)
   -- use 'andymass/vim-matchup'                -- Language aware % commands
   use 'numToStr/Comment.nvim'               -- Easy comments
   use 'tpope/vim-repeat'                    -- For repeating stuff
-  use 'tpope/vim-abolish'                   -- For better substitution
+  use 'tpope/vim-abolish'                   -- For substitution with upper and lowercase
   use 'folke/which-key.nvim'                -- easy keymap guide
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines
 
@@ -44,22 +44,13 @@ return packer.startup(function(use)
   use 'nvim-tree/nvim-tree.lua'             -- File tree
   use 'nvim-tree/nvim-web-devicons'         -- Icons
 
-  -- Greeter
-  use 'goolord/alpha-nvim'                  -- Startpage
-  -- use 'nvimdev/dashboard-nvim'                  -- Startpage
-
   -- Git integration
   use 'lewis6991/gitsigns.nvim'
-  use 'tpope/vim-fugitive'                  -- Git commands in nvim
-
-  -- SpeedUp
-  use 'dstein64/vim-startuptime'
 
   -- LSP related plugins
   use 'stevearc/aerial.nvim'                -- Symbol table
   use 'onsails/lspkind.nvim'                -- Icons
   use 'ray-x/lsp_signature.nvim'            -- Function signatures
-  use 'ggandor/leap.nvim'                   -- Code navigation
   use 'folke/neodev.nvim'                   -- Nvim lua api completions and setup
   -- use 'jose-elias-alvarez/null-ls.nvim'     -- Formatting
 
@@ -97,7 +88,7 @@ return packer.startup(function(use)
   -- Statusline and bufferline
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
-  
+
   -- Automatically install packer if not installed
   if packer_bootstrap then
     packer.sync()
