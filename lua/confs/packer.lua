@@ -27,7 +27,7 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason.lspconfig.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Functionality plugins
   use 'windwp/nvim-autopairs'               -- Autoclose brackets
