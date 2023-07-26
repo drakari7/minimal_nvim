@@ -23,6 +23,7 @@ require('confs.telescope')
 require('confs.colorizer')
 require('confs.mini')
 require('confs.alpha')
+require('confs.flash')
 require('confs.misc')
 
 

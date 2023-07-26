@@ -15,5 +15,10 @@ require('mini.bufremove').setup()
 map('n', '<leader>bd', require('mini.bufremove').delete, "Delete buffer")
 
 require('mini.ai').setup()
-require('mini.splitjoin').setup()
+require('mini.splitjoin').setup({
+  mappings = {
+    toggle = 'gs'
+  }
+})
+
 require('mini.comment').setup()

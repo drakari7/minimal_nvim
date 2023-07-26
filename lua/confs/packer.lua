@@ -34,6 +34,7 @@ return packer.startup(function(use)
   use 'tpope/vim-repeat'                    -- For repeating stuff
   use 'tpope/vim-abolish'                   -- For better substitution
   use 'folke/which-key.nvim'                -- easy keymap guide
+  use 'folke/flash.nvim'                    -- Navigation
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines
 
   -- Mini nvim
