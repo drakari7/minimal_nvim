@@ -8,4 +8,8 @@ require('mini.bufremove').setup()
 map('n', '<leader>bd', require('mini.bufremove').delete, "Delete buffer")
 
 require('mini.ai').setup()
-require('mini.surround').setup()
+require('mini.surround').setup({
+  mappings = {
+    replace = 'sc', -- Replace surrounding
+  },
+})
