@@ -38,7 +38,6 @@ telescope.setup{
 }
 -- Extensions
 telescope.load_extension('fzf')
--- telescope.load_extension('aerial')
 
 -- Custom pickers
 local function nvim_config_files()
@@ -80,7 +79,6 @@ map('n', '<leader>ff', find_files_from_git_root, 'Find files')
 map('n', '<leader>fg', live_grep_from_git_root, 'Live grep')
 map('n', '<leader>fb', builtin.buffers, 'Buffers')
 map('n', '<leader>fh', builtin.help_tags, 'Help tags')
-map('n', '<leader>fa', telescope.extensions.aerial.aerial, 'Aerial symbols')
 map('n', '<leader>fl', builtin.lsp_document_symbols, 'Document Symbols [LSP]')
 map('n', '<leader>fo', builtin.vim_options, 'Vim options')
 map('n', '<leader>fv', nvim_config_files, 'Nvim config directory')
