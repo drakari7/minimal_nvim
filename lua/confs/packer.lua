@@ -36,6 +36,7 @@ return packer.startup(function(use)
   use 'folke/which-key.nvim'                -- easy keymap guide
   use 'folke/flash.nvim'                    -- Navigation
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines
+  use 'nvim-orgmode/orgmode'                -- Orgmode
 
   -- Mini nvim
   use 'echasnovski/mini.nvim'               -- Collection of plugins
@@ -45,7 +46,7 @@ return packer.startup(function(use)
 
   -- Greeter
   use 'mhinz/vim-startify'                  -- Startpage
-  use 'goolord/alpha-nvim'                  -- Startpage
+  use 'goolord/alpha-nvim'                  -- Startpage TODO: replace vim startify
   -- use 'nvimdev/dashboard-nvim'                  -- Startpage
 
   -- Git integration
@@ -60,7 +61,6 @@ return packer.startup(function(use)
   use 'onsails/lspkind.nvim'                -- Icons
   use 'ray-x/lsp_signature.nvim'            -- Function signatures
   use 'folke/neodev.nvim'                   -- Nvim lua api completions and setup
-  -- use 'jose-elias-alvarez/null-ls.nvim'     -- Formatting
 
   -- Miscellaneous
   -- use 'christoomey/vim-tmux-navigator'      -- Tmux integration
