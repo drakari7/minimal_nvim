@@ -75,6 +75,7 @@ end
 
 -- Keybindings
 local map = utils.map
+map('n', '<leader>ft', builtin.builtin, 'Telescope Pickers')
 map('n', '<leader>ff', find_files_from_git_root, 'Find files')
 map('n', '<leader>fg', live_grep_from_git_root, 'Live grep')
 map('n', '<leader>fb', builtin.buffers, 'Buffers')

@@ -1,7 +1,8 @@
 local map = require('confs.utils').map
 
 require('mini.bracketed').setup({
-  diagnostic = { suffix = '' }
+  diagnostic = {suffix = ''},
+  buffer = {suffix = ''}
 })
 
 

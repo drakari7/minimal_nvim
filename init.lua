@@ -1,4 +1,9 @@
 vim.loader.enable()
+vim.cmd([[
+colorscheme gruvbox
+source ~/.config/nvim/after/colors.vim
+source ~/.config/nvim/after/telescope_theme.vim
+]])
 --------------------------------------------------------------
 -- Sourcing config files
 -----------------------------------------------------------
@@ -27,20 +32,13 @@ require('confs.flash')
 require('confs.misc')
 
 
-
 vim.cmd([[
 au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
 au FileType sh,bash nnoremap <buffer> <leader>rr :w<CR>:!./%<CR>
 
 " Special for colo test file
 au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!~/random/colo_test_env/test.sh<CR>
-
-" Manually source at the end
-colorscheme gruvbox
-source ~/.config/nvim/after/colors.vim
-source ~/.config/nvim/after/telescope_theme.vim
 ]])
-
 
 -- Kill xsel on leaving an instance of neovim
 vim.api.nvim_create_autocmd("VimLeave", {

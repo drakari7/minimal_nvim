@@ -96,7 +96,7 @@ return packer.startup(function(use)
   -- Statusline and bufferline
   use 'nvim-lualine/lualine.nvim'
   use 'akinsho/bufferline.nvim'
-  
+
   -- Automatically install packer if not installed
   if packer_bootstrap then
     packer.sync()
