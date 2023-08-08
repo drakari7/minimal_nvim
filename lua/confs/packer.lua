@@ -36,7 +36,9 @@ return packer.startup(function(use)
   use 'folke/which-key.nvim'                -- easy keymap guide
   use 'folke/flash.nvim'                    -- Navigation
   use 'lukas-reineke/indent-blankline.nvim' -- Indentation lines
-  use 'nvim-orgmode/orgmode'                -- Orgmode
+  -- use 'nvim-orgmode/orgmode'                -- Orgmode
+  use {'nvim-neorg/neorg',
+    run = ':Neorg sync-parsers'}
 
   -- Mini nvim
   use 'echasnovski/mini.nvim'               -- Collection of plugins

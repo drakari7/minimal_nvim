@@ -29,7 +29,8 @@ require('confs.colorizer')
 require('confs.mini')
 require('confs.alpha')
 require('confs.flash')
-require('confs.orgmode')
+-- require('confs.orgmode')
+require('confs.neorg')
 require('confs.misc')
 
 
