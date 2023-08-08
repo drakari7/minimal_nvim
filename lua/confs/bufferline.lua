@@ -3,7 +3,11 @@ bufferline.setup({
   options = {
       show_buffer_close_icons = false,
       move_wraps_at_ends = true,
-    }
+      custom_filter = function (buf, buf_nums)
+        return vim.bo[buf].filetype ~= "qf"
+      end
+    },
+
 })
 
 local map = require('confs.utils').map
@@ -20,9 +24,3 @@ map('n', '<leader>bN', function() bufferline.move(-1) end, 'Move buffer prev')
 
 map('n', '<leader>bp', '<cmd>BufferLineTogglePin<CR>', 'Pin buffer')
 map('n', '<leader>bs', function() bufferline.sort_by('directory') end, 'Sort buffers by directory')
-
-vim.cmd([[
-colorscheme gruvbox
-source ~/.config/nvim/after/colors.vim
-source ~/.config/nvim/after/telescope_theme.vim
-]])
