@@ -1,14 +1,8 @@
--- require("nvim-lsp-installer").setup{
---   automatic_installation = true,
--- }
 require('neodev').setup()           -- Must be included before lspconfig.setup
-require("mason").setup {}
-require("mason-lspconfig").setup {
+require('mason').setup()
+require('mason-lspconfig').setup {
   automatic_installation = true,
 }
-local nvim_lsp = require('lspconfig')
-
-local opts = { noremap=true, silent=true }
 
 -- ['─', '│', '─', '│', '┌', '┐', '┘', '└']
 local border = {
@@ -22,18 +16,15 @@ local border = {
     {"│", "FloatBorder"},
 }
 
+
+-- TODO: check if its possible to simplify this
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'}),
-  ["textDocument/signature_help"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = 'rounded'}),
-  -- ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {virtual_text = false,}),
 }
 
 -- Change diagnostic settings
-vim.diagnostic.config({
-  signs = false,
-  underline = true,
-})
 
+-- TODO: This can probably be removed by using native lsp techniques
 -- lsp_signature options and settings
 local lsp_signature_cfg = {
   bind = true,
@@ -51,43 +42,44 @@ local lsp_signature_cfg = {
   },
 }
 
+local float_table = {float={border="rounded"}}
+local map = require('confs.utils').map
 
-vim.api.nvim_set_keymap('n', '<leader>de', '<cmd>lua vim.diagnostic.open_float({border = "rounded"})<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev({float = { border = "rounded" }})<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next({float = { border = "rounded" }})<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>dl', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+-- TODO: Look into replacing this with lsp saga
+vim.diagnostic.config({signs = false, underline = true})
+map('n', '[d', function() vim.diagnostic.goto_prev(float_table) end, 'Prev diagnostic')
+map('n', ']d', function() vim.diagnostic.goto_next(float_table) end, 'Next diagnostic')
+map('n', '<leader>dl', vim.diagnostic.setloclist, 'Populate diagnostics in loclist')
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
+    map('n', 'gd', vim.lsp.buf.definition, 'Goto definition', opts)
+    map('n', 'gr', '<cmd>Telescope lsp_references initial_mode=normal<CR>', 'LSP references', opts)
+    map('n', 'K', vim.lsp.buf.hover, 'Hover', opts)
+    map('n', 'gf', vim.lsp.buf.format, 'LSP Format', opts)
+    map('n', '<leader>sr', vim.lsp.buf.rename, 'Rename symbol', opts)
+    map({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, 'Code action', opts)
+
+    map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add workspace folder', opts)
+    map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Remove workspace folder', opts)
+    map('n', '<leader>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, 'List workspace folders', opts)
+  end,
+})
+
 local function on_attach(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
   client.server_capabilities.semanticTokensProvider = nil       -- Disable semantic highlighting for now
-  -- attaching lsp_signature
-  require('lsp_signature').on_attach(lsp_signature_cfg)
-
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>Telescope lsp_references initial_mode=normal<CR>', opts)
-  buf_set_keymap('n', '<leader>sr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap("n", "gf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-
-  -- buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  require('lsp_signature').on_attach(lsp_signature_cfg)     -- Attach lsp signature
 end
-
-
--- capabilities from nvim cmp
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local servers = {
   "pyright",
   "clangd",
   "bashls",
-  "lua_ls"
+  "lua_ls",
   -- "vimls",
   -- "tsserver",
   -- "texlab",
@@ -96,11 +88,14 @@ local servers = {
   -- "cssls",
 }
 
+-- capabilities from nvim cmp
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+  require('lspconfig')[lsp].setup ({
     on_attach = on_attach,
     single_file_support = true,
     capabilities = capabilities,
     handlers = handlers,
-  }
+  })
 end
