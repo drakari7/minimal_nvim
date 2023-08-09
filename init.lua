@@ -34,14 +34,6 @@ require('confs.neorg')
 require('confs.misc')
 
 
-vim.cmd([[
-au FileType python  nnoremap <buffer> <leader>rr :w<CR>:!python3 %<CR>
-au FileType sh,bash nnoremap <buffer> <leader>rr :w<CR>:!./%<CR>
-
-" Special for colo test file
-au FileType cpp     nnoremap <buffer> <leader>rr :w<CR>:!~/random/colo_test_env/test.sh<CR>
-]])
-
 -- Kill xsel on leaving an instance of neovim
 vim.api.nvim_create_autocmd("VimLeave", {
     group = vim.api.nvim_create_augroup("KillXSel", {clear=true}),
