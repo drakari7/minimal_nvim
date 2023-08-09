@@ -13,9 +13,9 @@ map('n', '<leader>ya', "mmggVGy'm", 'Yank entire file')
 map('n', '<leader>cd', '<cmd>cd %:p:h<CR>', 'cd to current file dir')
 
 -- Opening files (Move to startup plugin)
-map('n', '<leader>no', '<cmd>e ~/notes/notes.md<CR>', 'Open notes')
-map('n', '<leader>cm', '<cmd>e ~/prod-config/crypto_prod.main.py<CR>', 'Prod config')
-map('n', '<leader>cb', '<cmd>e ~/master-config/crypto.beta.py<CR>', 'Prod config')
+map('n', '<leader>no', '<cmd>e ~/notes/notes.norg<CR>', 'Open notes')
+map('n', '<leader>sc', '<cmd>e ~/prod-config/crypto_prod.main.py<CR>', 'Prod config')
+map('n', '<leader>mc', '<cmd>e ~/master-config/crypto.beta.py<CR>', 'Beta config')
 
 -- Quickfix and loclist
 map('n', '<leader>lc', '<cmd>lclose<CR>', 'Close loclist')
@@ -32,7 +32,6 @@ map('n', '<leader>pi"', '"_di"hp')
 
 -- Misc
 map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
-map('n', '<leader>cf', '<cmd>w<CR>:!clang-format -i %<CR><CR>', 'Run clang format')
 map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame')   -- TODO: Move to a git plugin
 map('n', '<leader>jq', 'V:!jq .<CR>', 'Run jq')
 map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
