@@ -13,5 +13,3 @@ neorg.setup({
     },
   }
 })
-
-local map = require('confs.utils').map
