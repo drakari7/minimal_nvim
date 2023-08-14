@@ -13,7 +13,6 @@ map('n', '<leader>ya', "mmggVGy'm", 'Yank entire file')
 map('n', '<leader>cd', '<cmd>cd %:p:h<CR>', 'cd to current file dir')
 
 -- Opening files (Move to startup plugin)
-map('n', '<leader>no', '<cmd>e ~/notes/index.norg<CR>', 'Open notes')
 map('n', '<leader>sc', '<cmd>e ~/prod-config/crypto_prod.main.py<CR>', 'Prod config')
 map('n', '<leader>mc', '<cmd>e ~/master-config/crypto.beta.py<CR>', 'Beta config')
 
