@@ -8,7 +8,8 @@ neorg.setup({
       config = {
         workspaces = {
           notes = "~/notes"
-        }
+        },
+        default_workspace = 'notes',
       }
     },
   }
