@@ -29,10 +29,6 @@ tree.setup {
   view = {
     -- width = math.floor(vim.o.columns * 0.2),
     side = 'left',
-    mappings = {
-      custom_only = false,
-      list = {}
-    }
   },
   git = {
     enable = false,
