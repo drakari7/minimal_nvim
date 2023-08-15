@@ -33,7 +33,7 @@ cmp.setup({
     { name = 'nvim_lua'},
     -- { name = 'ultisnips' },
     { name = 'luasnip' },
-    { name = 'orgmode' },
+    { name = 'neorg' },
     { name = 'path' },
     { name = 'buffer', keyword_length = 3 },
   },
