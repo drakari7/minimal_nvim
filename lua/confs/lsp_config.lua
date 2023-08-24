@@ -67,6 +67,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', '<leader>wl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, 'List workspace folders', opts)
+
+    map('n', '<leader>ls', '<cmd>LspStop<CR>', 'Stop LSP', opts)
+    map('n', '<leader>lr', '<cmd>LspRestart<CR>', 'Restart LSP', opts)
   end,
 })
 

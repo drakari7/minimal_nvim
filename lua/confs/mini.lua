@@ -10,6 +10,7 @@ require('mini.surround').setup({
   mappings = {
     replace = 'sc', -- Replace surrounding
   },
+  search_method = 'cover'
 })
 
 require('mini.bufremove').setup()

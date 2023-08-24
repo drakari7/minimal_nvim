@@ -22,8 +22,8 @@ map('n', '<leader>qc', '<cmd>cclose<CR>', 'Close quickfixlist')
 
 -- Visual mode
 map('v', '<leader>ct', ':!column -t -o " "<CR>gv>', 'Column table')
-map('v', 'K', "<cmd>m '<-2<CR>gv=gv", 'Move line up')
-map('v', 'J', "<cmd>m '>+1<CR>gv=gv", 'Move line down')
+map('v', 'K', ":m '<-2<CR>gv=gv", 'Move line up', silent_opt)
+map('v', 'J', ":m '>+1<CR>gv=gv", 'Move line down', silent_opt)
 
 -- Paste in quotes without overwriting yanked content
 map('n', "<leader>pi'", "\"_di'hp")
@@ -32,9 +32,18 @@ map('n', '<leader>pi"', '"_di"hp')
 -- Misc
 map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
 map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame')   -- TODO: Move to a git plugin
-map('n', '<leader>jq', 'V:!jq .<CR>', 'Run jq')
 map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
 map('n', '<leader>hw', "<cmd>let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
+-- map('v', '<leader>na', function ()
+--   local vstart = vim.fn.getpos("'<")
+--   local vend = vim.fn.getpos("'<")
+--
+--   local line_start = vstart[2]
+--   local line_end = vend[2]
+--
+--   -- or use api.nvim_buf_get_lines
+--   local lines = vim.fn.getline(line_start,line_end)
+-- end, '')
 
 -- Get git history of current and surrounding lines
 -- local function get_line_git_history()

@@ -32,7 +32,7 @@ opt.shiftwidth = 4
 opt.softtabstop = 4
 
 -- File format
-opt.fileformats = {'unix', 'dos'}
+opt.fileformats = {'unix'}
 opt.fileencoding = "utf-8"
 
 -- Search

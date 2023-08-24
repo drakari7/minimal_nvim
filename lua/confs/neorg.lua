@@ -5,6 +5,7 @@ neorg.setup({
     ['core.defaults'] = {},
     ['core.concealer'] = {},
     ['core.summary'] = {},
+    ['core.integrations.telescope'] = {},
     ['core.completion'] = {
       config = {
         engine = 'nvim-cmp',
