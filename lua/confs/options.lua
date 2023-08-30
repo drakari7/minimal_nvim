@@ -2,56 +2,54 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 
-local opt = vim.opt
-
 -- Basic options
-opt.number = true
-opt.cursorline = true
-opt.signcolumn = "yes"
-opt.showmode = false
-opt.mouse = ""
-opt.clipboard = "unnamedplus"
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.signcolumn = "yes"
+vim.opt.showmode = false
+vim.opt.mouse = ""
+vim.opt.clipboard = "unnamedplus"
 
 -- Wrap
-opt.wrap = true
-opt.whichwrap = ""
-opt.breakindent = true
-opt.linebreak = true
-opt.showbreak = "  > "
+vim.opt.wrap = true
+vim.opt.whichwrap = ""
+vim.opt.breakindent = true
+vim.opt.linebreak = true
+vim.opt.showbreak = "  > "
 
 -- Format options
-opt.formatoptions = "c,r,j"
+vim.opt.formatoptions = "c,r,j"
 
 -- Tabs and indentation
-opt.autoindent = true
-opt.cindent = true
-opt.expandtab = true
-opt.shiftround = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+vim.opt.autoindent = true
+vim.opt.cindent = true
+vim.opt.expandtab = true
+vim.opt.shiftround = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 
 -- File format
-opt.fileformats = {'unix'}
-opt.fileencoding = "utf-8"
+vim.opt.fileformats = {'unix'}
+vim.opt.fileencoding = "utf-8"
 
 -- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
 
 -- Popup menu options
-opt.pumheight = 15
+vim.opt.pumheight = 15
 
 -- Scrolloff and splits
-opt.scrolloff = 20
-opt.sidescrolloff = 20
-opt.splitbelow = true
-opt.splitright = true
+vim.opt.scrolloff = 20
+vim.opt.sidescrolloff = 20
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- List chars
-opt.list = true
-opt.listchars = {
+vim.opt.list = true
+vim.opt.listchars = {
   eol='¬',
   tab='»·',
   trail='·',
@@ -62,4 +60,4 @@ opt.listchars = {
 }
 
 -- Miscellaneous
-opt.termguicolors = true
+vim.opt.termguicolors = true
