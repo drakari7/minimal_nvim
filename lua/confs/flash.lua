@@ -1,5 +1,5 @@
 local flash = require('flash')
-flash.setup()
+-- flash.setup()
 
 local map = require('confs.utils').map
 

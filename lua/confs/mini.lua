@@ -22,5 +22,3 @@ require('mini.splitjoin').setup({
     toggle = 'gs'
   }
 })
-
-require('mini.comment').setup()

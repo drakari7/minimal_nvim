@@ -31,6 +31,7 @@ return packer.startup(function(use)
 
   -- Functionality plugins
   use 'windwp/nvim-autopairs'               -- Autoclose brackets
+  use 'numToStr/Comment.nvim'               -- Comments
   use 'tpope/vim-repeat'                    -- For repeating stuff
   use 'tpope/vim-abolish'                   -- For better substitution
   use 'folke/which-key.nvim'                -- easy keymap guide
