@@ -1,5 +1,10 @@
-local map = require('confs.utils').map
+local utils = require('confs.utils')
+local map = utils.map
 local silent_opt = {silent = true}
+
+-- Smoother scrolling
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
 
 -- Useful mappings
 map('n', '<leader>qh', '<cmd>noh<CR>', 'Quiet highlight', silent_opt)
@@ -33,14 +38,9 @@ map('n', '<leader>pi"', '"_di"hp')
 map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
 map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame')   -- TODO: Move to a git plugin
 map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
-map('n', '<leader>hw', "<cmd>let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
--- map('v', '<leader>js', ":s/'/\"/g<CR>gv:s/False/false/g<CR>gv:s/True/true/g<CR>gv:s/None/null/g<CR>", "Convert to json")
--- map('v', '<leader>js', function ()
-  -- vim.cmd("'<,'>s/'/\"/g")
-  -- vim.cmd("'<,'>s/True/true/g")
-  -- vim.cmd("'<,'>s/False/false/g")
-  -- vim.cmd("'<,'>s/None/null/g")
--- end, "Convert to json")
+map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
+map('n', '<leader>js', ":s/'/\"/ge | s/False/false/ge | s/True/true/ge | s/None/null/ge<CR>", "Convert to json")
+map('v', '<leader>js', ":g/^/ s#'#\"#ge | s#False#false#ge | s#True#true#ge | s#None#null#ge<CR>", "Convert to json")
 
 -- map('v', '<leader>na', function ()
 --   local vstart = vim.fn.getpos("'<")

@@ -54,6 +54,13 @@ local function find_scripts()
   }
 end
 
+local function find_notes()
+  builtin.find_files{
+    cwd = "~/notes",
+    prompt_title = "My Notes",
+  }
+end
+
 local function find_files_from_git_root()
   local opts = {}
   if utils.is_git_repo() then
@@ -84,6 +91,7 @@ map('n', '<leader>fl', builtin.lsp_document_symbols, 'Document Symbols [LSP]')
 map('n', '<leader>fo', builtin.vim_options, 'Vim options')
 map('n', '<leader>fv', nvim_config_files, 'Nvim config directory')
 map('n', '<leader>fs', find_scripts, 'Scripts directory')
+map('n', '<leader>fn', find_notes, 'Notes directory')
 map('n', '<leader>fc', builtin.current_buffer_fuzzy_find, 'Current buffer search')
 map('n', '<leader>fw', function() builtin.grep_string{initial_mode="normal"} end, 'Grep word under cursor')
 map('n', '<leader>fr', function() builtin.resume{initial_mode="normal"} end, 'Resume last picker')
