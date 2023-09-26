@@ -8,6 +8,14 @@ function M.map(mode, lhs, rhs, description, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
+function M.buf_map(mode, lhs, rhs, description, opts)
+  local options = {buffer=true, desc = description}
+  if opts then
+    options = vim.tbl_extend("keep", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
+end
+
 function M.is_git_repo()
   vim.fn.system("git rev-parse --is-inside-work-tree")
   return vim.v.shell_error == 0

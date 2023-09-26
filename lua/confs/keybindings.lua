@@ -9,7 +9,6 @@ map('n', 'k', 'gk')
 -- Useful mappings
 map('n', '<leader>qh', '<cmd>noh<CR>', 'Quiet highlight', silent_opt)
 map('n', '<leader>nw', '<cmd>set wrap!<CR>', 'Toggle wrap', silent_opt)
-map('n', '<leader>pr', '0hwyt<space>oprint(<C-r>")<ESC>', 'Print variable')
 map('n', '<leader>hi', vim.show_pos, 'Inspect under cursor')
 map('n', '<leader>sv', '<cmd>source $MYVIMRC<CR>', 'Source vimrc')
 map('n', '<leader>so', '<cmd>source %<CR>', 'Source current file')

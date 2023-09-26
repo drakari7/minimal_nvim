@@ -49,6 +49,7 @@ vim.g.startify_lists = {
 vim.g.startify_bookmarks = {
   { cv = '~/.config/nvim/init.lua' },
   { ca = '~/prod-config/subprojects/product_config/product_config_all.toml' },
+  { ka = '~/master-config/subprojects/exchange_configs/keys.toml' },
   { cg = '~/prod-config/subprojects/product_config/generators/generate_product_config.py' },
   { sc = '~/prod-config/crypto_prod.main.py' },
   { mc = '~/master-config/crypto.beta.py' },
@@ -67,3 +68,6 @@ vim.g.startify_bookmarks = {
   { tb = '~/random/test.sh' },
   { tm = '~/.config/tmux/tmux.conf' },
 }
+
+local map = require('confs.utils').map
+map('n', '<leader>sa', '<CMD>Startify<CR>', "Start page")
