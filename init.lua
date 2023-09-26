@@ -1,9 +1,4 @@
 vim.loader.enable()
-vim.cmd([[
-colorscheme gruvbox
-source ~/.config/nvim/after/colors.vim
-source ~/.config/nvim/after/telescope_theme.vim
-]])
 --------------------------------------------------------------
 -- Sourcing config files
 -----------------------------------------------------------
@@ -33,6 +28,12 @@ require('confs.flash')
 require('confs.neorg')
 require('confs.misc')
 
+-- Needs to be below requires so that packer can load configs
+vim.cmd([[
+colorscheme gruvbox
+source ~/.config/nvim/after/colors.vim
+source ~/.config/nvim/after/telescope_theme.vim
+]])
 
 -- Kill xsel on leaving an instance of neovim
 vim.api.nvim_create_autocmd("VimLeave", {
