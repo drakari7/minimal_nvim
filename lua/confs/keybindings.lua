@@ -5,6 +5,8 @@ local silent_opt = {silent = true}
 -- Smoother scrolling
 map('n', 'j', 'gj')
 map('n', 'k', 'gk')
+map('n', '<c-d>', '<c-d>zz')
+map('n', '<c-u>', '<c-u>zz')
 
 -- Useful mappings
 map('n', '<leader>qh', '<cmd>noh<CR>', 'Quiet highlight', silent_opt)

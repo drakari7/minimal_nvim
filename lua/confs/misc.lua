@@ -4,5 +4,6 @@
 require('neodev').setup()
 require('Comment').setup()
 require('ibl').setup({
-  exclude = { filetypes = { 'norg', 'help' } }
+  exclude = { filetypes = { 'norg', 'help' } },
+  scope = { enabled = false },
 })
