@@ -1,7 +1,9 @@
-local flash = require('flash')
+return {}
+-- TODO: flash config file if i re enable flash
+-- local flash = require('flash')
 -- flash.setup()
 
-local map = require('confs.utils').map
+-- local map = require('confs.utils').map
 
 -- map('n', 's', flash.jump, 'Flash')
 -- map('n', 'S', flash.treesitter, 'Flash Treesitter')
