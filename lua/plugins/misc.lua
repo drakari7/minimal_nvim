@@ -9,9 +9,11 @@ return {
     priority = 1000,
     init = function ()
       vim.o.background = "dark"
-      vim.cmd("colorscheme gruvbox")
-      vim.cmd("source ~/.config/nvim/after/colors.vim")
-      vim.cmd("source ~/.config/nvim/after/telescope_theme.vim")
+      vim.cmd([[
+        colorscheme gruvbox
+        source ~/.config/nvim/after/colors.vim
+        source ~/.config/nvim/after/telescope_theme.vim
+      ]])
     end
   },
 
