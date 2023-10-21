@@ -3,6 +3,7 @@ return {
   'nvim-lua/plenary.nvim',
   'dstein64/vim-startuptime',
   'onsails/lspkind.nvim',
+  'tpope/vim-fugitive',
 
   {
     'ellisonleao/gruvbox.nvim',
