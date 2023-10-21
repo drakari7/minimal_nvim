@@ -45,7 +45,7 @@ return {
       names = false
     },
     keys = {
-      { "<leader>co", ":ColorizerToggle<CR>" }
+      { "<leader>co", ":ColorizerToggle<CR>", desc = "Toggle colorizer" }
     }
   },
 }
