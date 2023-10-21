@@ -10,6 +10,7 @@ local border = {
   { "│", "FloatBorder" },
 }
 
+
 -- TODO: check if its possible to simplify this
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
