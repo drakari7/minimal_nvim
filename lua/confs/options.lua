@@ -58,6 +58,3 @@ vim.opt.listchars = {
   conceal='┊',
   nbsp='␣',
 }
-
--- Miscellaneous
-vim.opt.termguicolors = true
