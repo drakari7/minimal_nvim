@@ -5,6 +5,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-neorg/neorg-telescope',
   },
+  lazy = false,
   keys = {
     {'<leader>ni', '<cmd>Neorg index<cr>', desc = "Neorg index file"}
   },
@@ -28,6 +29,6 @@ return {
         }
       },
     }
-  }
+  },
 
 }
