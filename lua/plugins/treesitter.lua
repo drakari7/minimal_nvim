@@ -14,6 +14,7 @@ return {
         'json',
         'meson',
         'norg',
+        'vim',
       },
       sync_install = false,
       highlight = { enable = true },

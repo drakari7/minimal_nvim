@@ -7,8 +7,7 @@ return {
       require("nvim-autopairs").setup()
       -- Adds brackets when functions/methods are selected in nvim-cmp
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+      require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
     end
   }
 }
