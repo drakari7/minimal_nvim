@@ -13,3 +13,5 @@ require("lazy").setup({
   checker = { enabled = false }, -- automatically check for plugin updates
 })
 
+local map = require('confs.utils').map
+map('n', '<leader>la', '<cmd>Lazy<CR>', "Open Lazy manager")
