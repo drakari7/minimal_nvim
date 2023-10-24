@@ -51,7 +51,7 @@ return {
         lualine_z = {}
       },
       tabline = {},
-      extensions = {'nvim-tree', 'symbols-outline', 'quickfix'}
+      extensions = {'nvim-tree', 'quickfix'}
 
     }
   }
