@@ -1,5 +1,4 @@
-local utils = require('confs.utils')
-local map = utils.map
+local map = require('confs.utils').map
 local silent_opt = {silent = true}
 
 -- Smoother scrolling
