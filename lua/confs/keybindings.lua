@@ -25,7 +25,7 @@ map('n', '<leader>lc', '<cmd>lclose<CR>', 'Close loclist')
 map('n', '<leader>qc', '<cmd>cclose<CR>', 'Close quickfixlist')
 
 -- Visual mode
-map('v', '<leader>ct', ':!column -t -o " "<CR>gv>', 'Column table')
+map('v', '<leader>ct', ':!column -t<CR>gv>', 'Column table')
 map('v', 'K', ":m '<-2<CR>gv=gv", 'Move line up', silent_opt)
 map('v', 'J', ":m '>+1<CR>gv=gv", 'Move line down', silent_opt)
 
