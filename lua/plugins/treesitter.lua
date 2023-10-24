@@ -14,8 +14,6 @@ return {
         'json',
         'meson',
         'norg',
-        'norg_meta',
-
       },
       sync_install = false,
       highlight = { enable = true },
