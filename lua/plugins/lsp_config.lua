@@ -1,4 +1,3 @@
-local map = require('confs.utils').map
 local border = {
   { "┌", "FloatBorder" },
   { "─", "FloatBorder" },
@@ -45,13 +44,9 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       'ray-x/lsp_signature.nvim',
     },
-    opts = {
-      diagnostics = {
-        signs = false,
-        underline = true,
-      },
-    },
     config = function ()
+      local map = require('confs.utils').map
+      vim.diagnostic.config({signs = false, underline = true})
       map('n', '[d', function() vim.diagnostic.goto_prev(float_table) end, 'Prev diagnostic')
       map('n', ']d', function() vim.diagnostic.goto_next(float_table) end, 'Next diagnostic')
       map('n', '<leader>dl', vim.diagnostic.setloclist, 'Populate diagnostics in loclist')
@@ -69,9 +64,7 @@ return {
 
           map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add workspace folder', opts)
           map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Remove workspace folder', opts)
-          map('n', '<leader>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, 'List workspace folders', opts)
+          map('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, 'List workspace folders', opts)
 
           map('n', '<leader>ls', '<cmd>LspStop<CR>', 'Stop LSP', opts)
           map('n', '<leader>lr', '<cmd>LspRestart<CR>', 'Restart LSP', opts)
