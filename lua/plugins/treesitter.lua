@@ -15,6 +15,7 @@ return {
         'meson',
         'norg',
         'vim',
+        'csv',
       },
       sync_install = false,
       highlight = { enable = true },
