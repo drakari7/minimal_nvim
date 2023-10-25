@@ -2,18 +2,17 @@ return {
   "ray-x/lsp_signature.nvim",
   event = "VeryLazy",
   opts = {
-    bind = true,
+    bind = true,    -- set to false if using lsp saga
     doc_lines = 7,
     floating_window = false,
     fix_pos = true,
     hint_enable = true,
     hint_prefix = "> ",
-    hint_scheme = "String",
-    hi_parameter = "Search",
     max_height = 3,
     max_width = 40,
-    handler_opts = {
-      border = "rounded"
-    },
+    select_signature_key = "<C-J>",
+  },
+  keys = {
+    { '<C-k>', function() require('lsp_signature').toggle_float_win() end, mode = {'n', 'i'}, desc = "Toggle signature" },
   },
 }
