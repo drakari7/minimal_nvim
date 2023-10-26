@@ -16,6 +16,7 @@ return {
         'norg',
         'vim',
         'csv',
+        'toml',
       },
       sync_install = false,
       highlight = { enable = true },
