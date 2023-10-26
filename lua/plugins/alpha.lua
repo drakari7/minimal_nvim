@@ -62,6 +62,7 @@ return {
       { ni = '~/notes/index.norg' },
       { sp = '~/notes/scratchpad.md' },
       { al = '~/.config/zsh/aliasrc' },
+      { ae = '~/.config/zsh/extra_aliasrc' },
       { zrc = '~/.config/zsh/.zshrc' },
       { ss = '~/.ssh/config' },
       { gc = '~/.gitconfig' },
