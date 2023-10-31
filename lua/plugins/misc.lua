@@ -4,6 +4,7 @@ return {
   'dstein64/vim-startuptime',
   'onsails/lspkind.nvim',
   'tpope/vim-fugitive',
+  'tpope/vim-abolish',
 
   {
     'ellisonleao/gruvbox.nvim',
