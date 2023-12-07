@@ -11,7 +11,7 @@ vim.opt.mouse = ""
 vim.opt.clipboard = "unnamedplus"
 
 -- Wrap
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.whichwrap = ""
 vim.opt.breakindent = true
 vim.opt.linebreak = true

@@ -13,7 +13,7 @@ return {
       mappings = {
         replace = 'sc', -- Replace surrounding
       },
-      search_method = 'cover'
+      search_method = 'cover_or_next'
     }
   },
 
