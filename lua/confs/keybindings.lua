@@ -12,6 +12,7 @@ map('n', '<leader>hi', vim.show_pos, 'Inspect under cursor')
 map('n', '<leader>sv', '<cmd>source $MYVIMRC<CR>', 'Source vimrc')
 map('n', '<leader>so', '<cmd>source %<CR>', 'Source current file')
 map('n', '<leader>st', '<cmd>% s#\\s\\+$##e<CR>:w<CR>', 'Strip trailing whitespace')
+map('n', '<leader>sm', ':%s/\\r//g', 'Remove carriage returns')
 map('n', '<leader>ya', "mmggVGy'm", 'Yank entire file')
 map('n', '<leader>cd', '<cmd>cd %:p:h<CR>', 'cd to current file dir')
 
@@ -28,19 +29,17 @@ map('v', '<leader>ct', ':!column -t<CR>gv>', 'Column table')
 map('v', 'K', ":m '<-2<CR>gv=gv", 'Move line up', silent_opt)
 map('v', 'J', ":m '>+1<CR>gv=gv", 'Move line down', silent_opt)
 
--- Paste in quotes without overwriting yanked content
-map('n', "<leader>pi'", "\"_di'hp")
-map('n', '<leader>pi"', '"_di"hp')
+-- Json and python conversions
+map('n', '<leader>js', ":s/'/\"/ge | s/False/false/ge | s/True/true/ge | s/None/null/ge<CR>", "Convert to json")
+map('v', '<leader>js', ":g/^/ s#'#\"#ge | s#False#false#ge | s#True#true#ge | s#None#null#ge<CR>", "Convert to json")
+map('v', '<leader>jp', ":g/^/ s#\"#'#ge | s#false#False#ge | s#true#True#ge | s#null#None#ge<CR>", "Convert json to python")
 
 -- Misc
 map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
 map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame')   -- TODO: Move to a git plugin
 map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
 map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
-map('n', '<leader>js', ":s/'/\"/ge | s/False/false/ge | s/True/true/ge | s/None/null/ge<CR>", "Convert to json")
-map('v', '<leader>js', ":g/^/ s#'#\"#ge | s#False#false#ge | s#True#true#ge | s#None#null#ge<CR>", "Convert to json")
 
-map('v', '<leader>jp', ":g/^/ s#\"#'#ge | s#false#False#ge | s#true#True#ge | s#null#None#ge<CR>", "Convert json to python")
 
 
 -- map('v', '<leader>na', function ()
