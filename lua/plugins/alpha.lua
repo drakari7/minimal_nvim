@@ -54,7 +54,7 @@ return {
       { ka = '~/master-config/subprojects/exchange_configs/keys.toml' },
       { cg = '~/master-config/subprojects/product_config/generators/generate_product_config.py' },
       { sc = '~/prod-config/crypto_prod.main.py' },
-      { mc = '~/master-config/crypto.beta.py' },
+      { mc = '~/master-config/beta.py' },
       { ac = '~/alpha-config/crypto_alpha.alpha.py' },
       { cq = '~/crypto/subprojects/config/prod.crypto_quoting.py' },
       { cs = '~/crypto/subprojects/config/dev.shreyash.py' },

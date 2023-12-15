@@ -12,7 +12,7 @@ map('n', '<leader>hi', vim.show_pos, 'Inspect under cursor')
 map('n', '<leader>sv', '<cmd>source $MYVIMRC<CR>', 'Source vimrc')
 map('n', '<leader>so', '<cmd>source %<CR>', 'Source current file')
 map('n', '<leader>st', '<cmd>% s#\\s\\+$##e<CR>:w<CR>', 'Strip trailing whitespace')
-map('n', '<leader>sm', ':%s/\\r//g', 'Remove carriage returns')
+map('n', '<leader>sm', ':%s/\\r//g<CR>', 'Remove carriage returns')
 map('n', '<leader>ya', "mmggVGy'm", 'Yank entire file')
 map('n', '<leader>cd', '<cmd>cd %:p:h<CR>', 'cd to current file dir')
 
