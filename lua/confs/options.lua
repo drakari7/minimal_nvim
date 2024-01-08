@@ -50,7 +50,7 @@ vim.opt.splitright = true
 -- List chars
 vim.opt.list = true
 vim.opt.listchars = {
-  eol='¬',
+  -- eol='¬',   -- comment out to make it easier to copy from terminal
   tab='»·',
   trail='·',
   extends='<',
