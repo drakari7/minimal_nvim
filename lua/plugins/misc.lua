@@ -5,6 +5,7 @@ return {
   'onsails/lspkind.nvim',
   'tpope/vim-fugitive',
   'tpope/vim-abolish',
+  'LunarVim/bigfile.nvim',
 
   {
     'ellisonleao/gruvbox.nvim',

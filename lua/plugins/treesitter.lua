@@ -20,7 +20,12 @@ return {
         'markdown',
       },
       sync_install = false,
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        -- disable = function (lang, bufnr) -- Disable in files with more than 5k lines
+        --   return vim.api.nvim_buf_line_count(bufnr) > 5000
+        -- end
+      },
       indent = { enable = true },
     }
   }
