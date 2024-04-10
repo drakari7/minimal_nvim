@@ -18,6 +18,7 @@ return {
         'csv',
         'toml',
         'markdown',
+        'vimdoc',
       },
       sync_install = false,
       highlight = {
