@@ -16,25 +16,23 @@ local handlers = {
 
 local float_table = { float = { border = "rounded" } }
 
+local servers = {
+  "pyright",
+  "clangd",
+  "bashls",
+  "lua_ls",
+}
+
 return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "folke/neodev.nvim",
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      { "folke/neodev.nvim",                 opts = {} },
+      { "williamboman/mason.nvim",           opts = {} },
+      { "williamboman/mason-lspconfig.nvim", opts = { ensure_installed = servers } },
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local servers = {
-        "pyright",
-        "clangd",
-        "bashls",
-        "lua_ls",
-      }
-      require("mason").setup()
-      require("mason-lspconfig").setup({ ensure_installed = servers })
-
       local map = require('confs.utils').map
       vim.diagnostic.config({ signs = false, underline = true })
       map('n', '[d', function() vim.diagnostic.goto_prev(float_table) end, 'Prev diagnostic')
