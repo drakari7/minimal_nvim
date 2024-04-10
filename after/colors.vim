@@ -62,8 +62,8 @@ hi  @keyword.conditional   guifg=#AF87D7
 hi  @keyword.repeat        guifg=#AF87D7
 hi  @keyword.operator      guifg=#AF87D7
 hi  @keyword.return        guifg=#AF87D7
-hi  @operator              guifg=#de671d
 hi  @keyword.import        guifg=#5ade18
+hi  @operator              guifg=#de671d
 hi  @variable.builtin      guifg=#adadad    gui=italic
 hi  @variable              guifg=#efefef
 
