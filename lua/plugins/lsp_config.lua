@@ -16,7 +16,7 @@ local handlers = {
 
 local float_table = { float = { border = "rounded" } }
 
-local servers = {
+local lsp_servers = {
   "pyright",
   "clangd",
   "bashls",
@@ -27,12 +27,38 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "folke/neodev.nvim",                 opts = {} },
-      { "williamboman/mason.nvim",           opts = {} },
-      { "williamboman/mason-lspconfig.nvim", opts = { ensure_installed = servers } },
+      { "folke/neodev.nvim",       opts = {} },
+      { "williamboman/mason.nvim", opts = {} },
+      "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
+
     config = function()
+      require("mason-lspconfig").setup({ ensure_installed = lsp_servers })
+
+      -- Setup servers here instead of in lsp config
+      require("mason-lspconfig").setup_handlers({
+        -- Default handler
+        function(server_name)
+          require('lspconfig')[server_name].setup({
+            single_file_support = true,
+
+            -- capabilities from nvim cmp
+            capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+            handlers = handlers,
+            on_attach = function(client, bufnr)
+              client.server_capabilities.semanticTokensProvider = nil -- Disable semantic highlighting for now
+            end,
+          })
+        end
+
+        -- Next, you can provide a dedicated handler for specific servers.
+        -- For example, a handler override for the `rust_analyzer`:
+        -- ["rust_analyzer"] = function ()
+        --     require("rust-tools").setup {}
+        -- end
+      })
+
       local map = require('confs.utils').map
       vim.diagnostic.config({ signs = false, underline = true })
       map('n', '[d', function() vim.diagnostic.goto_prev(float_table) end, 'Prev diagnostic')
@@ -60,23 +86,6 @@ return {
           map('n', '<leader>lr', '<cmd>LspRestart<CR>', 'Restart LSP', opts)
         end,
       })
-
-      local function on_attach(client, bufnr)
-        client.server_capabilities.semanticTokensProvider = nil -- Disable semantic highlighting for now
-      end
-
-
-      -- capabilities from nvim cmp
-      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-      for _, lsp in ipairs(servers) do
-        require('lspconfig')[lsp].setup({
-          on_attach = on_attach,
-          single_file_support = true,
-          capabilities = capabilities,
-          handlers = handlers,
-        })
-      end
     end
   }
 }
