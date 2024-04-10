@@ -20,17 +20,23 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "folke/neodev.nvim",                 opts = {} },
-      { "williamboman/mason.nvim",           opts = {} },
-      { "williamboman/mason-lspconfig.nvim", opts = { automatic_installation = true } },
+      "folke/neodev.nvim",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
+      local servers = {
+        "pyright",
+        "clangd",
+        "bashls",
+        "lua_ls",
+      }
+      require("mason").setup()
+      require("mason-lspconfig").setup({ ensure_installed = servers })
+
       local map = require('confs.utils').map
-      vim.diagnostic.config({
-        signs = false,
-        underline = true
-      })
+      vim.diagnostic.config({ signs = false, underline = true })
       map('n', '[d', function() vim.diagnostic.goto_prev(float_table) end, 'Prev diagnostic')
       map('n', ']d', function() vim.diagnostic.goto_next(float_table) end, 'Next diagnostic')
       map('n', '<leader>dl', vim.diagnostic.setloclist, 'Populate diagnostics in loclist')
@@ -61,12 +67,6 @@ return {
         client.server_capabilities.semanticTokensProvider = nil -- Disable semantic highlighting for now
       end
 
-      local servers = {
-        "pyright",
-        "clangd",
-        "bashls",
-        "lua_ls",
-      }
 
       -- capabilities from nvim cmp
       local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
