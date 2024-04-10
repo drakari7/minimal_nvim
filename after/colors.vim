@@ -1,50 +1,3 @@
-" ----------------------------- Compatibility links for treesitter changes ---------------------
-" tree-sitter "standard capture names"
-hi link @variable.parameter         @parameter
-hi link @variable.member            @field
-hi link @module                     @namespace
-hi link @number.float               @float
-hi link @string.special.symbol      @symbol
-hi link @string.regexp              @string.regex
-hi link @markup.strong              @text.strong
-hi link @markup.italic              @text.emphasis
-hi link @markup.underline           @text.underline   " note: some are changed to @string.special
-hi link @markup.strikethrough       @text.strike
-hi link @markup.heading             @text.title
-hi link @markup.quote               @text.quote
-hi link @markup.link.url            @text.uri
-hi link @markup.math                @text.math
-hi link @markup.environment         @text.environment
-hi link @markup.environment.name    @text.environment.name
-hi link @markup.link                @text.reference
-hi link @markup.raw                 @text.literal
-hi link @markup.raw.block           @text.literal.block
-hi link @markup.link.label          @string.special
-hi link @markup.list                @punctuation.special
-
-" Helix captures
-hi link @function.method            @method
-hi link @function.method.call       @method.call
-hi link @comment.todo               @text.todo
-hi link @comment.error              @text.danger
-hi link @comment.warning            @text.warning
-hi link @comment.hint               @text.note
-hi link @comment.info               @text.note
-hi link @comment.note               @text.note
-hi link @comment.ok                 @text.note
-hi link @diff.plus                  @text.diff.add
-hi link @diff.minus                 @text.diff.delete
-hi link @diff.delta                 @text.diff.change
-hi link @string.special.url         @text.uri
-hi link @keyword.directive          @preproc
-hi link @keyword.storage            @storageclass
-hi link @keyword.directive          @define
-hi link @keyword.conditional        @conditional
-hi link @keyword.debug              @debug
-hi link @keyword.exception          @exception
-hi link @keyword.import             @include
-hi link @keyword.repeat             @repeat
-
 " ---------------------------------- My Custom color overrides ---------------------------------
 " Overwrites the color scheme
 " Background is 1f1f1f
@@ -87,31 +40,30 @@ hi @punctuation.bracket       guifg=#d94311
 " hi TSPunctSpecial
 
 " Constants
-hi @string             guifg=#b8bb26
-hi @string.escape      guifg=#619fff
-hi @character          guifg=#63ffb9
-hi @boolean            guifg=#63ffb9        gui=italic
-hi @number             guifg=#e9875f
-hi @float              guifg=#e9875f
-
+hi  @string                guifg=#b8bb26
+hi  @string.escape         guifg=#619fff
+hi  @character             guifg=#63ffb9
+hi  @boolean               guifg=#63ffb9    gui=italic
+hi  @number                guifg=#e9875f
+hi  @number.float          guifg=#e9875f
 
 " Functions
-hi @function.builtin    guifg=#50e1ff        gui=italic
-hi @function            guifg=#829fff
-hi @function.call       guifg=#829fff
-hi @method              guifg=#829fff
-hi @method.call         guifg=#829fff
-hi @field               guifg=#fa6950
-hi @constructor         guifg=#829fff        gui=italic
+hi  @function.builtin      guifg=#50e1ff    gui=italic
+hi  @function              guifg=#829fff
+hi  @function.call         guifg=#829fff
+hi  @function.method       guifg=#829fff
+hi  @function.method.call  guifg=#829fff
+hi  @variable.member       guifg=#fa6950
+hi  @constructor           guifg=#829fff    gui=italic
 
 " Keywords
-hi @conditional        guifg=#AF87D7
-hi @repeat             guifg=#AF87D7
-hi @keyword            guifg=#AF87D7        gui=italic
-hi @keyword.operator   guifg=#AF87D7
-hi @keyword.return     guifg=#AF87D7
-hi @operator           guifg=#de671d
-hi @include            guifg=#5ade18
-hi @variable.builtin   guifg=#adadad        gui=italic
-hi @variable           guifg=#efefef
+hi  @keyword               guifg=#AF87D7    gui=italic
+hi  @keyword.conditional   guifg=#AF87D7
+hi  @keyword.repeat        guifg=#AF87D7
+hi  @keyword.operator      guifg=#AF87D7
+hi  @keyword.return        guifg=#AF87D7
+hi  @operator              guifg=#de671d
+hi  @keyword.import        guifg=#5ade18
+hi  @variable.builtin      guifg=#adadad    gui=italic
+hi  @variable              guifg=#efefef
 
