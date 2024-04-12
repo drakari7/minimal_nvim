@@ -5,7 +5,7 @@ return {
   'lewis6991/gitsigns.nvim',
   config = function()
     local gs = require('gitsigns')
-    gs.setup {
+    gs.setup({
       signs = {
         add          = { text = '+' },
         change       = { text = '~' },
@@ -45,6 +45,6 @@ return {
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
       end
-    }
+    })
   end
 }
