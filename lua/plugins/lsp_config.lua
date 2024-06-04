@@ -27,7 +27,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "folke/neodev.nvim",       opts = {} },
+      { "folke/lazydev.nvim",      opts = {}, ft = "lua" },
       { "williamboman/mason.nvim", opts = {} },
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
