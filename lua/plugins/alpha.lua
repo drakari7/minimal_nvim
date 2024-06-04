@@ -50,7 +50,6 @@ return {
 
     vim.g.startify_bookmarks = {
       { cv = '~/.config/nvim/init.lua' },
-      { ca = '/mnt/releases/crypto_tools/data/product_config_all.toml' },
       { ka = '~/projects/exchange_configs/keys.toml' },
       { cg = '~/projects/product_definitions/generators/generate_product_config.py' },
       { mc = '~/configs/main/main.py' },
