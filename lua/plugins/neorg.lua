@@ -1,6 +1,6 @@
 return {
   'nvim-neorg/neorg',
-  version = "7.0.0",    -- TODO: Pinned to this version as 8.0.0 has breaking changes
+  version = "*",
   build = ":Neorg sync-parsers",
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -15,6 +15,8 @@ return {
       ['core.defaults'] = {},
       ['core.concealer'] = {},
       ['core.summary'] = {},
+      ['core.keybinds'] = {},
+      ['core.ui'] = {},
       ['core.integrations.telescope'] = {},
       ['core.completion'] = {
         config = {
@@ -33,3 +35,11 @@ return {
   },
 
 }
+
+-- Trying to upgrade to 9.0.0
+-- return {
+--   "nvim-neorg/neorg",
+--   lazy = false,
+--   version = "*",
+--   config = true
+-- }
