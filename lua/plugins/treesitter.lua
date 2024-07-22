@@ -19,6 +19,7 @@ return {
         'toml',
         'markdown',
         'vimdoc',
+        'yaml',
       },
       sync_install = false,
       highlight = {

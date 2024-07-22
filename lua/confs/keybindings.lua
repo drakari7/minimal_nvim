@@ -9,11 +9,9 @@ map('n', 'k', 'gk')
 map('n', '<leader>qh', '<cmd>noh<CR>', 'Quiet highlight', silent_opt)
 map('n', '<leader>nw', '<cmd>set wrap!<CR>', 'Toggle wrap', silent_opt)
 map('n', '<leader>hi', vim.show_pos, 'Inspect under cursor')
-map('n', '<leader>sv', '<cmd>source $MYVIMRC<CR>', 'Source vimrc')
 map('n', '<leader>so', '<cmd>source %<CR>', 'Source current file')
-map('n', '<leader>st', '<cmd>% s#\\s\\+$##e<CR>:w<CR>', 'Strip trailing whitespace')
-map('n', '<leader>sm', ':%s/\\r//g<CR>', 'Remove carriage returns')
-map('n', '<leader>ya', "mmggVGy'm", 'Yank entire file')
+map('n', '<leader>sw', '<cmd>% s#\\s\\+$##e<CR>:w<CR>', 'Strip trailing whitespace')
+map('n', '<leader>sm', ':%s/\\r//g<CR>', 'Strip carriage returns')
 map('n', '<leader>cd', '<cmd>cd %:p:h<CR>', 'cd to current file dir')
 
 -- Quickfix and loclist
@@ -39,6 +37,7 @@ map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
 map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame')   -- TODO: Move to a git plugin
 map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
 map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
+map('n', '<leader>va', 'ggVG', 'Visual select entire file')
 
 
 
