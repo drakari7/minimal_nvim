@@ -1,28 +1,3 @@
-local border = {
-  { "┌", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "┐", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "┘", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "└", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
-
--- TODO: check if its possible to simplify this
-local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),
-}
-
-local float_table = { float = { border = "rounded" } }
-
-local lsp_servers = {
-  "pyright",
-  "clangd",
-  "bashls",
-  "lua_ls",
-}
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -34,7 +9,14 @@ return {
     },
 
     config = function()
-      require("mason-lspconfig").setup({ ensure_installed = lsp_servers })
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "pyright",
+          "clangd",
+          "bashls",
+          "lua_ls",
+        }
+      })
 
       -- Setup servers here instead of in lsp config
       require("mason-lspconfig").setup_handlers({
@@ -45,7 +27,7 @@ return {
 
             -- capabilities from nvim cmp
             capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-            handlers = handlers,
+            -- handlers = handlers,
             on_attach = function(client, bufnr)
               client.server_capabilities.semanticTokensProvider = nil -- Disable semantic highlighting for now
             end,
@@ -53,16 +35,23 @@ return {
         end
 
         -- Next, you can provide a dedicated handler for specific servers.
-        -- For example, a handler override for the `rust_analyzer`:
         -- ["rust_analyzer"] = function ()
-        --     require("rust-tools").setup {}
+        --     require("rust-tools").setup({})
         -- end
       })
 
       local map = require('confs.utils').map
-      vim.diagnostic.config({ signs = false, underline = true })
-      map('n', '[d', function() vim.diagnostic.goto_prev(float_table) end, 'Prev diagnostic')
-      map('n', ']d', function() vim.diagnostic.goto_next(float_table) end, 'Next diagnostic')
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+      vim.diagnostic.config({
+        signs = false,
+        float = { border = "rounded" },
+      })
+      map('n', '[D', vim.diagnostic.goto_prev, 'Prev Error')
+      map('n', ']D', vim.diagnostic.goto_next, 'Next Error')
+
+      local severity = { severity = { min = vim.diagnostic.severity.WARN } }
+      map('n', '[d', function() vim.diagnostic.goto_prev(severity) end, 'Prev diagnostic')
+      map('n', ']d', function() vim.diagnostic.goto_next(severity) end, 'Next diagnostic')
       map('n', '<leader>dl', vim.diagnostic.setloclist, 'Populate diagnostics in loclist')
 
       vim.api.nvim_create_autocmd('LspAttach', {
