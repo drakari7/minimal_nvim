@@ -33,3 +33,35 @@ buf_map('n', '<leader>sc', function()
   -- print(vim.inspect(vim.lsp.get_clients()))
   print("Sourced " .. lib64)
 end, 'Source lib64')
+
+
+buf_map('n', '<leader>gf', ":w<CR>:!black -l 120 %<CR>", "Format file with Black")
+-- buf_map('v', '<leader>gf', function()
+--   -- Need to leave visual mode as that updates the '< and '> mark values
+--   require('confs.utils').leave_visual_mode()
+--   local vstart = vim.fn.getpos("'<")
+--   local vend = vim.fn.getpos("'>")
+--   local lstart = vstart[2]
+--   local lend = vend[2]
+--
+--   local command = "black " .. vim.fn.expand('%') .. " --line-ranges " .. lstart .. "-" .. lend
+--   -- local output = vim.fn.system(command)
+--   -- print(output)
+--
+--   local command = {
+--     "black",
+--     vim.fn.expand('%'),
+--     -- "--line-ranges",
+--     -- lstart .. "-" .. lend
+--   }
+--   print(vim.inspect(command))
+--
+--   local on_exit = function(obj)
+--     print(obj.code)
+--     print(obj.signal)
+--     print(obj.stdout)
+--     print(obj.stderr)
+--   end
+--   vim.system(command, {}, on_exit):wait()
+--   print("echo")
+-- end, 'Black Format')
