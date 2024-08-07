@@ -44,6 +44,23 @@ return {
           "--smart-case",
         }
       },
+
+      extensions = {
+        zoxide = {
+          mappings = {
+            ["<C-g>"] = {
+              keepinsert = true,
+              action = function(selection)
+                builtin.live_grep({
+                  cwd = selection.path,
+                  path_display = { 'tail' },
+                  disable_coordinates = true,
+                })
+              end
+            }
+          }
+        }
+      }
     })
 
     -- Extensions
@@ -83,7 +100,10 @@ return {
     end
 
     local function live_grep_from_git_root()
-      local opts = { path_display = { 'tail' } }
+      local opts = {
+        path_display = { 'tail' },
+        disable_coordinates = true
+      }
       if utils.is_git_repo() then
         opts = vim.tbl_extend("keep", opts, { cwd = utils.get_git_root() })
       end
