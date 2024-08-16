@@ -16,27 +16,31 @@ return {
       on_attach = function(bufnr)
         -- Navigation
         map('n', ']h', function()
-          if vim.wo.diff then return ']h' end
-          vim.schedule(function() gs.next_hunk() end)
-          return '<Ignore>'
-        end, "Next hunk", { expr = true })
+          if vim.wo.diff then
+            vim.cmd.normal({ ']h', bang = true })
+          else
+            gs.nav_hunk('next')
+          end
+        end, "Next hunk")
 
         map('n', '[h', function()
-          if vim.wo.diff then return '[h' end
-          vim.schedule(function() gs.prev_hunk() end)
-          return '<Ignore>'
-        end, "Prev hunk", { expr = true })
+          if vim.wo.diff then
+            vim.cmd.normal({ '[h', bang = true })
+          else
+            gs.nav_hunk('prev')
+          end
+        end, "Prev hunk")
 
         -- Actions
         map('n', '<leader>hs', gs.stage_hunk, 'Stage hunk')
+        map('n', '<leader>hS', gs.stage_buffer, 'Stage buffer')
         map('n', '<leader>hr', gs.reset_hunk, 'Reset hunk')
+        map('n', '<leader>hR', gs.reset_buffer, 'Reset buffer')
         map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, 'Stage hunk')
         map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, 'Reset hunk')
-        map('n', '<leader>hS', gs.stage_buffer, 'Stage buffer')
         map('n', '<leader>hu', gs.undo_stage_hunk, 'Undo stage hunk')
-        map('n', '<leader>hR', gs.reset_buffer, 'Reset buffer')
         map('n', '<leader>hp', gs.preview_hunk, 'Preview hunk')
-        map('n', '<leader>hb', function() gs.blame_line { full = true } end, 'Git blame')
+        map('n', '<leader>hb', function() gs.blame_line({ full = true }) end, 'Git blame')
         map('n', '<leader>tb', gs.toggle_current_line_blame, 'Toggle linewise git blame')
         map('n', '<leader>hd', gs.diffthis, 'Diff this')
         map('n', '<leader>hD', function() gs.diffthis('~') end, 'Diff this against last commit')
