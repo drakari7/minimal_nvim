@@ -12,6 +12,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "pyright",
+          -- "ruff_lsp",
           "clangd",
           "bashls",
           "lua_ls",
@@ -59,8 +60,8 @@ return {
         callback = function(ev)
           local opts = { buffer = ev.buf }
           map('n', 'gd', vim.lsp.buf.definition, 'Goto definition', opts)
+          map('n', 'gD', vim.lsp.buf.declaration, 'Goto declaration', opts)
           map('n', 'gr', vim.lsp.buf.references, 'LSP references', opts)
-          map('n', 'K', vim.lsp.buf.hover, 'Hover', opts)
           map('n', '<leader>sr', vim.lsp.buf.rename, 'Rename symbol', opts)
 
           map({ 'n', 'v' }, 'gf', vim.lsp.buf.format, 'LSP Format', opts)

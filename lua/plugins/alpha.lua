@@ -64,6 +64,7 @@ return {
       { gc = '~/.gitconfig' },
       { tc = '~/random/colo_test_env/test.cpp' },
       { tp = '~/random/test.py' },
+      { t2 = '~/random/test2.py' },
       { tb = '~/random/test.sh' },
       { tm = '~/.config/tmux/tmux.conf' },
     }

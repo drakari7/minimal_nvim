@@ -37,6 +37,7 @@ map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame')   -- TODO: Move to a g
 map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
 map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
 map('n', '<leader>va', 'ggVG', 'Visual select entire file')
+map('n', '<leader>ex', ':w<CR>:! chmod +x %<CR>', 'Make current file executable')
 
 
 

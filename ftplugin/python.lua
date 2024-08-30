@@ -34,8 +34,17 @@ buf_map('n', '<leader>sc', function()
   print("Sourced " .. lib64)
 end, 'Source lib64')
 
+buf_map('n', '<leader>se', function()
+  local colo = "/home/shreyash/crypto_options/colo"
+  local clients = colo .. "/subprojects/crypto_clients/python"
+  vim.env.PYTHONPATH = append_path(vim.env.PYTHONPATH, clients)
+  print("Sourced " .. clients)
+end, 'Source exchange_clients')
+
 
 buf_map('n', '<leader>gf', ":w<CR>:!black -l 120 %<CR>", "Format file with Black")
+
+---- Attempt to write a black formatter which only works on visual selection
 -- buf_map('v', '<leader>gf', function()
 --   -- Need to leave visual mode as that updates the '< and '> mark values
 --   require('confs.utils').leave_visual_mode()
