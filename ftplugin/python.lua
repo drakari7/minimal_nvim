@@ -42,35 +42,39 @@ buf_map('n', '<leader>se', function()
 end, 'Source exchange_clients')
 
 
-buf_map('n', '<leader>gf', ":w<CR>:!black -l 120 %<CR>", "Format file with Black")
+-- Auto inserts an f at the start of string if you insert a { character
+vim.api.nvim_create_augroup("py-fstring", { clear = true })
+vim.api.nvim_create_autocmd("InsertCharPre", {
+  pattern = { "*.py" },
+  group = "py-fstring",
+  callback = function(opts)
+    -- Only run if f-string escape character is typed
+    if vim.v.char ~= "{" then
+      return
+    end
 
----- Attempt to write a black formatter which only works on visual selection
--- buf_map('v', '<leader>gf', function()
---   -- Need to leave visual mode as that updates the '< and '> mark values
---   require('confs.utils').leave_visual_mode()
---   local vstart = vim.fn.getpos("'<")
---   local vend = vim.fn.getpos("'>")
---   local lstart = vstart[2]
---   local lend = vend[2]
---
---   local command = "black " .. vim.fn.expand('%') .. " --line-ranges " .. lstart .. "-" .. lend
---   -- local output = vim.fn.system(command)
---   -- print(output)
---
---   local command = {
---     "black",
---     vim.fn.expand('%'),
---     -- "--line-ranges",
---     -- lstart .. "-" .. lend
---   }
---   print(vim.inspect(command))
---
---   local on_exit = function(obj)
---     print(obj.code)
---     print(obj.signal)
---     print(obj.stdout)
---     print(obj.stderr)
---   end
---   vim.system(command, {}, on_exit):wait()
---   print("echo")
--- end, 'Black Format')
+    -- Get node and return early if not in a string
+    local node = vim.treesitter.get_node()
+
+    if node:type() ~= "string" then
+      node = node:parent()
+    end
+
+    if node:type() ~= "string" then
+      return
+    end
+
+    -- Get parent string node and its range
+    local row, col, _, _ = vim.treesitter.get_node_range(node:parent())
+    col = col + 1
+
+    -- Return early if string is already a format string
+    local first_char = vim.api.nvim_buf_get_text(opts.buf, row, col, row, col + 1, {})[1]
+    if first_char == "f" then
+      return
+    end
+
+    -- Otherwise, make the string a format string
+    vim.api.nvim_input("<Esc>m'" .. row + 1 .. "gg" .. col + 1 .. "|if<Esc>`'la")
+  end,
+})

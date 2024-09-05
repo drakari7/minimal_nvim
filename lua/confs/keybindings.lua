@@ -5,6 +5,9 @@ local silent_opt = {silent = true}
 map('n', 'j', 'gj')
 map('n', 'k', 'gk')
 
+-- Insert blankline above and below
+map('n', '<Enter>', "<cmd>call append(line('.'), '')<CR>", "Insert blank line")
+
 -- Useful mappings
 map('n', '<leader>qh', '<cmd>noh<CR>', 'Quiet highlight', silent_opt)
 map('n', '<leader>nw', '<cmd>set wrap!<CR>', 'Toggle wrap', silent_opt)
