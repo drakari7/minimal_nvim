@@ -10,9 +10,9 @@ return {
 
     config = function()
       local common_server_config = {
-        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
         on_attach = function(client, bufnr)
-          client.server_capabilities.semanticTokensProvider = nil       -- Disable semantic highlighting for now
+          client.server_capabilities.semanticTokensProvider = nil -- Disable semantic highlighting for now
         end,
       }
 
@@ -61,12 +61,15 @@ return {
           local opts = { buffer = ev.buf }
           map('n', 'gd', vim.lsp.buf.definition, 'Goto definition', opts)
           map('n', 'gD', vim.lsp.buf.declaration, 'Goto declaration', opts)
+          map('n', 'gi', vim.lsp.buf.implementation, 'Goto implementation', opts)
+          map('n', 'go', vim.lsp.buf.type_definition, 'Goto type definition', opts)
           map('n', 'gr', vim.lsp.buf.references, 'LSP references', opts)
-          map('n', '<leader>sr', vim.lsp.buf.rename, 'Rename symbol', opts)
+          map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename symbol', opts)
 
-          map({ 'n', 'v' }, 'gf', vim.lsp.buf.format, 'LSP Format', opts)
-          map({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, 'Code action', opts)
+          map({ 'n', 'x' }, 'gf', function() vim.lsp.buf.format({ async = true }) end, 'LSP Format', opts)
+          map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code action', opts)
 
+          -- Figure out how to actually use workspaces
           map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add workspace folder', opts)
           map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Remove workspace folder', opts)
           map('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
