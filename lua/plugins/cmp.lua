@@ -6,7 +6,6 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    "saadparwaiz1/cmp_luasnip",
   },
   init = function ()
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -38,7 +37,6 @@ return {
       sources = {
         { name = 'nvim_lsp', keyword_length = 2 },
         { name = 'nvim_lua'},
-        { name = 'luasnip' },
         { name = 'neorg' },
         { name = 'path' },
         { name = 'buffer', keyword_length = 2 },
@@ -69,7 +67,7 @@ return {
 
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body)      -- for luasnip
+          vim.snippet.expand(args.body)
         end,
       },
 
@@ -80,8 +78,6 @@ return {
             nvim_lua = "[API]",
             nvim_lsp = "[LSP]",
             path = "[Path]",
-            luasnip = "[LuaSnip]",
-            ultisnips = "[UltiSnips]",
             buffer = "[Buf]",
           })[entry.source.name]
 
