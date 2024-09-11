@@ -9,6 +9,13 @@ return {
     },
 
     config = function()
+      local common_server_config = {
+        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        on_attach = function(client, bufnr)
+          client.server_capabilities.semanticTokensProvider = nil       -- Disable semantic highlighting for now
+        end,
+      }
+
       require("mason-lspconfig").setup({
         ensure_installed = {
           "pyright",
@@ -16,29 +23,22 @@ return {
           "clangd",
           "bashls",
           "lua_ls",
+        },
+
+        handlers = {
+          -- Default handler for a server
+          function(server_name)
+            require('lspconfig')[server_name].setup(common_server_config)
+          end,
+
+          -- Dedicated handler for a specific server
+          -- ["ruff_lsp"] = function()
+          --   require("lspconfig").ruff_lsp.setup({
+          --     config = {}
+          --   })
+          -- end
         }
-      })
 
-      -- Setup servers here instead of in lsp config
-      require("mason-lspconfig").setup_handlers({
-        -- Default handler
-        function(server_name)
-          require('lspconfig')[server_name].setup({
-            single_file_support = true,
-
-            -- capabilities from nvim cmp
-            capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-            -- handlers = handlers,
-            on_attach = function(client, bufnr)
-              client.server_capabilities.semanticTokensProvider = nil -- Disable semantic highlighting for now
-            end,
-          })
-        end
-
-        -- Next, you can provide a dedicated handler for specific servers.
-        -- ["rust_analyzer"] = function ()
-        --     require("rust-tools").setup({})
-        -- end
       })
 
       local map = require('confs.utils').map

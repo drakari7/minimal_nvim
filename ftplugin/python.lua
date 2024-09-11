@@ -28,9 +28,7 @@ buf_map('n', '<leader>sc', function()
   vim.env.PYTHONPATH = append_path(vim.env.PYTHONPATH, lib64)
   vim.env.PYTHONPATH = append_path(vim.env.PYTHONPATH, typings)
   vim.env.LD_LIBRARY_PATH = append_path(vim.env.LD_LIBRARY_PATH, lib64)
-  -- vim.lsp.stop_client(vim.lsp.get_clients())
-  -- vim.lsp.start_client(vim.lsp.get_clients())
-  -- print(vim.inspect(vim.lsp.get_clients()))
+  vim.cmd("LspRestart")
   print("Sourced " .. lib64)
 end, 'Source lib64')
 
@@ -38,43 +36,45 @@ buf_map('n', '<leader>se', function()
   local colo = "/home/shreyash/crypto_options/colo"
   local clients = colo .. "/subprojects/crypto_clients/python"
   vim.env.PYTHONPATH = append_path(vim.env.PYTHONPATH, clients)
+  vim.cmd("LspRestart")
   print("Sourced " .. clients)
 end, 'Source exchange_clients')
 
 
 -- Auto inserts an f at the start of string if you insert a { character
-vim.api.nvim_create_augroup("py-fstring", { clear = true })
-vim.api.nvim_create_autocmd("InsertCharPre", {
-  pattern = { "*.py" },
-  group = "py-fstring",
-  callback = function(opts)
-    -- Only run if f-string escape character is typed
-    if vim.v.char ~= "{" then
-      return
-    end
-
-    -- Get node and return early if not in a string
-    local node = vim.treesitter.get_node()
-
-    if node:type() ~= "string" then
-      node = node:parent()
-    end
-
-    if node:type() ~= "string" then
-      return
-    end
-
-    -- Get parent string node and its range
-    local row, col, _, _ = vim.treesitter.get_node_range(node:parent())
-    col = col + 1
-
-    -- Return early if string is already a format string
-    local first_char = vim.api.nvim_buf_get_text(opts.buf, row, col, row, col + 1, {})[1]
-    if first_char == "f" then
-      return
-    end
-
-    -- Otherwise, make the string a format string
-    vim.api.nvim_input("<Esc>m'" .. row + 1 .. "gg" .. col + 1 .. "|if<Esc>`'la")
-  end,
-})
+-- Disabled because it's not that good
+-- vim.api.nvim_create_augroup("py-fstring", { clear = true })
+-- vim.api.nvim_create_autocmd("InsertCharPre", {
+--   pattern = { "*.py" },
+--   group = "py-fstring",
+--   callback = function(opts)
+--     -- Only run if f-string escape character is typed
+--     if vim.v.char ~= "{" then
+--       return
+--     end
+--
+--     -- Get node and return early if not in a string
+--     local node = vim.treesitter.get_node()
+--
+--     if node:type() ~= "string" then
+--       node = node:parent()
+--     end
+--
+--     if node:type() ~= "string" then
+--       return
+--     end
+--
+--     -- Get parent string node and its range
+--     local row, col, _, _ = vim.treesitter.get_node_range(node:parent())
+--     col = col + 1
+--
+--     -- Return early if string is already a format string
+--     local first_char = vim.api.nvim_buf_get_text(opts.buf, row, col, row, col + 1, {})[1]
+--     if first_char == "f" then
+--       return
+--     end
+--
+--     -- Otherwise, make the string a format string
+--     vim.api.nvim_input("<Esc>m'" .. row + 1 .. "gg" .. col + 1 .. "|if<Esc>`'la")
+--   end,
+-- })
