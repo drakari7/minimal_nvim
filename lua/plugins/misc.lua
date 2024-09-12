@@ -1,3 +1,4 @@
+local map = require('confs.utils').map
 return {
   'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
@@ -10,7 +11,7 @@ return {
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
-    init = function ()
+    init = function()
       vim.o.background = "dark"
       vim.cmd([[
         colorscheme gruvbox
@@ -49,10 +50,14 @@ return {
   {
     'stevearc/oil.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
-    lazy = false,
-    keys = {
-      { "<leader>oi", ":Oil<CR>", desc = "Open Oil filetree" }
-    }
+    config = function()
+      require("oil").setup({
+        columns = { "icon", "size", "mtime" },
+        view_options = { show_hidden = true }
+      })
+
+      map('n', '-', '<cmd>Oil<CR>', "Open parent directory")
+      map('n', '<leader>-', require('oil').toggle_float, "Open parent directory in a float")
+    end,
   }
 }
