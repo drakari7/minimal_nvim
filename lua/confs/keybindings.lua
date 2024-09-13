@@ -38,3 +38,16 @@ map({ 'n', 'i' }, '<F1>', '<NOP>', 'Unmap F1')
 map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
 map('n', '<leader>va', 'ggVG', 'Visual select entire file')
 map('n', '<leader>ex', ':w<CR>:! chmod +x %<CR>', 'Make current file executable')
+
+
+-- Snippet navigation
+map({ 'i', 's' }, '<C-J>', function()
+  if vim.snippet.active({ direction = 1 }) then
+    return vim.snippet.jump(1)
+  end
+end, "Jump to next snippet placeholder")
+map({ 'i', 's' }, '<C-K>', function()
+  if vim.snippet.active({ direction = -1 }) then
+    return vim.snippet.jump(-1)
+  end
+end, "Jump to prev snippet placeholder")

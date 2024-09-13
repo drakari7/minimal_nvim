@@ -56,8 +56,8 @@ return {
         view_options = { show_hidden = true }
       })
 
-      map('n', '-', '<cmd>Oil<CR>', "Open parent directory")
-      map('n', '<leader>-', require('oil').toggle_float, "Open parent directory in a float")
+      map('n', '<leader>oi', '<cmd>Oil<CR>', "Open parent directory")
+      -- map('n', '<leader>-', require('oil').toggle_float, "Open parent directory in a float")
     end,
   },
 
