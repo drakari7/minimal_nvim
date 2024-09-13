@@ -60,25 +60,4 @@ return {
       -- map('n', '<leader>-', require('oil').toggle_float, "Open parent directory in a float")
     end,
   },
-
--- Commented out because we never use it and to free up the <c-k> keybinding
--- TODO: This can probably be replaced in a smarter way
--- return {
---   "ray-x/lsp_signature.nvim",
---   event = "VeryLazy",
---   opts = {
---     bind = true,    -- set to false if using lsp saga
---     doc_lines = 7,
---     floating_window = false,
---     fix_pos = true,
---     hint_enable = true,
---     hint_prefix = "> ",
---     max_height = 3,
---     max_width = 40,
---     select_signature_key = "<C-J>",
---   },
---   keys = {
---     { '<C-k>', function() require('lsp_signature').toggle_float_win() end, mode = {'n', 'i'}, desc = "Toggle signature" },
---   },
--- }
 }
