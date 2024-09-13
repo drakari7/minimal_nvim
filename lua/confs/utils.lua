@@ -1,7 +1,13 @@
 local M = {}
 
 function M.map(mode, lhs, rhs, description, opts)
-  local options = {desc = description}
+  local options
+  if description then
+    options = {desc = description}
+  else
+    options  = {}
+  end
+
   if opts then
     options = vim.tbl_extend("keep", options, opts)
   end

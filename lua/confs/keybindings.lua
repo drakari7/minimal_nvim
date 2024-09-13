@@ -1,12 +1,9 @@
 local map = require('confs.utils').map
-local silent_opt = {silent = true}
+local silent_opt = { silent = true }
 
 -- Smoother scrolling
 map('n', 'j', 'gj')
 map('n', 'k', 'gk')
-
--- Insert blankline above and below
-map('n', '<Enter>', "<cmd>call append(line('.'), '')<CR>", "Insert blank line")
 
 -- Useful mappings
 map('n', '<leader>qh', '<cmd>noh<CR>', 'Quiet highlight', silent_opt)
@@ -26,8 +23,8 @@ map('v', 'K', ":m '<-2<CR>gv=gv", 'Move line up', silent_opt)
 map('v', 'J', ":m '>+1<CR>gv=gv", 'Move line down', silent_opt)
 
 -- Paste in visual mode without yanking the pasted over content
-vim.keymap.set('x', 'p', 'P')
-vim.keymap.set('x', 'P', 'p')
+map('x', 'p', 'P')
+map('x', 'P', 'p')
 
 -- Json and python conversions
 map('n', '<leader>js', ":s/'/\"/ge | s/False/false/ge | s/True/true/ge | s/None/null/ge<CR>", "Convert to json")
@@ -35,28 +32,9 @@ map('v', '<leader>js', ":g/^/ s#'#\"#ge | s#False#false#ge | s#True#true#ge | s#
 map('v', '<leader>jp', ":g/^/ s#\"#'#ge | s#false#False#ge | s#true#True#ge | s#null#None#ge<CR>", "Convert json to python")
 
 -- Misc
-map({'n','v'}, '<leader>bh', '"_d', 'Blackhole register')
-map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame')   -- TODO: Move to a git plugin
-map({'n','i'}, '<F1>', '<NOP>', 'Unmap F1')
+map({ 'n', 'v' }, '<leader>bh', '"_d', 'Blackhole register')
+map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame') -- TODO: Move to a git plugin
+map({ 'n', 'i' }, '<F1>', '<NOP>', 'Unmap F1')
 map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
 map('n', '<leader>va', 'ggVG', 'Visual select entire file')
 map('n', '<leader>ex', ':w<CR>:! chmod +x %<CR>', 'Make current file executable')
-
-
-
--- map('v', '<leader>na', function ()
---   local vstart = vim.fn.getpos("'<")
---   local vend = vim.fn.getpos("'<")
---
---   local line_start = vstart[2]
---   local line_end = vend[2]
---
---   -- or use api.nvim_buf_get_lines
---   local lines = vim.fn.getline(line_start,line_end)
--- end, '')
-
--- Get git history of current and surrounding lines
--- local function get_line_git_history()
---   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
--- end
--- vim.keymap.set("n", "<leader>gh", get_line_git_history)
