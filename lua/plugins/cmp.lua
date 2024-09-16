@@ -8,33 +8,18 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
   },
-  init = function ()
-    vim.opt.completeopt = { "menu", "menuone", "noselect" }
-  end,
   opts = function ()
     local cmp = require('cmp')
     return {
+      -- preselect = cmp.PreselectMode.None,
       mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-x>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        -- TODO: instead of overloading tab, find a new keybinding
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            fallback()
-          end
-        end, {'i', 's'}),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            fallback()
-          end
-        end, {'i', 's'}),
+        -- EXPERIMENTAL
+        ["<C-i>"] = cmp.mapping.select_next_item(),
+        ["<C-o>"] = cmp.mapping.select_prev_item(),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
       }),
 
       sources = cmp.config.sources({
@@ -90,7 +75,6 @@ return {
         {{ name = 'path' }},
         {{ name = 'cmdline', keyword_length = 2 }}
       ),
-      matching = {}
     })
   end,
 }

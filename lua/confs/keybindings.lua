@@ -41,6 +41,7 @@ map('n', '<leader>ex', ':w<CR>:! chmod +x %<CR>', 'Make current file executable'
 
 
 -- Snippet navigation
+-- TODO: test how it is vs luasnip
 map({ 'i', 's' }, '<C-J>', function()
   if vim.snippet.active({ direction = 1 }) then
     return vim.snippet.jump(1)

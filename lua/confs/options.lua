@@ -40,6 +40,7 @@ vim.opt.incsearch = true
 
 -- Popup menu options
 vim.opt.pumheight = 15
+vim.opt.completeopt = { "menu", "menuone", "noselect", "preview" }
 
 -- Scrolloff and splits
 vim.opt.scrolloff = 20
