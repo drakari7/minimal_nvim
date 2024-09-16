@@ -17,9 +17,9 @@ return {
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-x>'] = cmp.mapping.abort(),
         -- EXPERIMENTAL
-        ["<C-i>"] = cmp.mapping.select_next_item(),
-        ["<C-o>"] = cmp.mapping.select_prev_item(),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ["<M-i>"] = cmp.mapping.select_next_item(),
+        ["<M-o>"] = cmp.mapping.select_prev_item(),
+        ['<M-CR>'] = cmp.mapping.confirm({ select = true }),
       }),
 
       sources = cmp.config.sources({
