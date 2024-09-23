@@ -8,7 +8,7 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
   },
-  opts = function ()
+  opts = function()
     local cmp = require('cmp')
     return {
       -- preselect = cmp.PreselectMode.None,
@@ -25,7 +25,7 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lsp', keyword_length = 2 },
         { name = 'nvim_lsp_signature_help' },
-        { name = 'nvim_lua'},
+        { name = 'nvim_lua' },
         { name = 'neorg' },
         { name = 'path' },
         { name = 'buffer', keyword_length = 2 },
@@ -38,7 +38,7 @@ return {
       },
 
       formatting = {
-        format = function (entry, vim_item)
+        format = function(entry, vim_item)
           vim_item.abbr = string.sub(vim_item.abbr, 1, 35)
           vim_item.menu = ({
             nvim_lua = "[API]",
@@ -58,22 +58,27 @@ return {
       },
     }
   end,
-  config = function (_, opts)
+  config = function(_, opts)
     local cmp = require('cmp')
     cmp.setup(opts)
+    local cmdline_mappings = cmp.mapping.preset.cmdline({
+      ["<M-j>"] = cmp.mapping.select_next_item(),
+      ["<M-k>"] = cmp.mapping.select_prev_item(),
+      ["<M-CR>"] = cmp.mapping.confirm({ select = true }),
+    })
 
     cmp.setup.cmdline({ '/', '?' }, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
+      mapping = cmdline_mappings,
+      sources = cmp.config.sources({
         { name = 'buffer' }
-      }
+      })
     })
 
     cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = cmdline_mappings,
       sources = cmp.config.sources(
-        {{ name = 'path' }},
-        {{ name = 'cmdline', keyword_length = 2 }}
+        { { name = 'path' } },
+        { { name = 'cmdline', keyword_length = 2 } }
       ),
     })
   end,
