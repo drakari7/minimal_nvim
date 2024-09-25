@@ -36,6 +36,15 @@ return {
           c = treesitter({ a = "@class.outer", i = "@class.inner" }),
           f = treesitter({ a = "@function.outer", i = "@function.inner" }),
           F = treesitter({ a = "@call.outer", i = "@call.inner" }),
+          -- B = entire buffer
+          B = function()
+            local from = { line = 1, col = 1 }
+            local to = {
+              line = vim.fn.line('$'),
+              col = math.max(vim.fn.getline('$'):len(), 1)
+            }
+            return { from = from, to = to }
+          end
         }
       })
     end
