@@ -53,6 +53,7 @@ return {
       { ka = '~/projects/exchange_configs/keys.toml' },
       { cg = '~/projects/product_definitions/generators/generate_product_config.py' },
       { cc = '~/crypto_options/config/crypto_options.prod.py' },
+      { pc = '~/crypto_options/config/reference/products.toml' },
       { mc = '~/configs/main/main.py' },
       { bc = '~/configs/beta/beta.py' },
       { ac = '~/configs/alpha/alpha.py' },

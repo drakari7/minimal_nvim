@@ -23,6 +23,8 @@ return {
           "clangd",
           "bashls",
           "lua_ls",
+          "jsonls",
+          "mesonlsp"
         },
 
         handlers = {
