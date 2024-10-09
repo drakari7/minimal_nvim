@@ -21,7 +21,7 @@ local function append_path(var, path_to_append)
   return res .. ":" .. path_to_append
 end
 
-buf_map('n', '<leader>sc', function()
+buf_map('n', '<leader>sl', function()
   local colo = "/home/shreyash/crypto_options/colo"
   local lib64 = colo .. "/dist-gcc/lib64"
   local typings = colo .. "/typings"
@@ -40,6 +40,13 @@ buf_map('n', '<leader>se', function()
   print("Sourced " .. clients)
 end, 'Source exchange_clients')
 
+buf_map('n', '<leader>sc', function()
+  local colo = "/home/shreyash/crypto_options/colo"
+  local subprojects = colo .. "/subprojects/"
+  vim.env.PYTHONPATH = append_path(vim.env.PYTHONPATH, subprojects)
+  vim.cmd("LspRestart")
+  print("Sourced " .. subprojects)
+end, 'Source subprojects')
 
 -- Auto inserts an f at the start of string if you insert a { character
 -- Disabled because it's not that good
