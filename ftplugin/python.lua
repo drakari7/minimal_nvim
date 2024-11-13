@@ -40,7 +40,7 @@ buf_map('n', '<leader>se', function()
   print("Sourced " .. clients)
 end, 'Source exchange_clients')
 
-buf_map('n', '<leader>sc', function()
+buf_map('n', '<leader>sp', function()
   local colo = "/home/shreyash/crypto_options/colo"
   local subprojects = colo .. "/subprojects/"
   vim.env.PYTHONPATH = append_path(vim.env.PYTHONPATH, subprojects)

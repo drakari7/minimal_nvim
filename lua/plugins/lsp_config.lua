@@ -24,7 +24,8 @@ return {
           "bashls",
           "lua_ls",
           "jsonls",
-          "mesonlsp"
+          "mesonlsp",
+          "taplo",
         },
 
         handlers = {

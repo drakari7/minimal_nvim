@@ -32,7 +32,6 @@ return {
       local treesitter = gen_spec.treesitter
       require('mini.ai').setup({
         custom_textobjects = {
-          a = treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),
           c = treesitter({ a = "@class.outer", i = "@class.inner" }),
           f = treesitter({ a = "@function.outer", i = "@function.inner" }),
           F = treesitter({ a = "@call.outer", i = "@call.inner" }),
