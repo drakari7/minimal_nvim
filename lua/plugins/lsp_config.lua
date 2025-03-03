@@ -29,7 +29,7 @@ return {
         },
 
         handlers = {
-          -- Default handler for a server
+          -- Default handler
           function(server_name)
             require('lspconfig')[server_name].setup(common_server_config)
           end,
