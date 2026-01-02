@@ -18,6 +18,7 @@ return {
         'csv',
         'toml',
         'markdown',
+        'markdown_inline',
         'vimdoc',
         'yaml',
       },

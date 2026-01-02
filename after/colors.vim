@@ -22,7 +22,8 @@ hi PmenuSbar        guifg=#efefef       guibg=#363944       gui=none
 hi PmenuThumb       guifg=#efefef       guibg=#696969       gui=none
 
 " for floating windows
-hi NormalFloat      guifg=#21eda9       guibg=#363944       gui=none
+" The ! is for overriding the colorscheme and force linking NormalFloat to Normal
+hi! link NormalFloat Normal
 hi FloatBorder      guifg=#21eda9       guibg=#363944       gui=none
 
 " LSP diagnostic colors
