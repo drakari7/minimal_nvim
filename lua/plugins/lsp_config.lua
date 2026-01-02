@@ -45,17 +45,17 @@ return {
       })
 
       local map = require('confs.utils').map
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+
       vim.diagnostic.config({
         signs = false,
         float = { border = "rounded" },
       })
-      map('n', '[D', vim.diagnostic.goto_prev, 'Prev Error')
-      map('n', ']D', vim.diagnostic.goto_next, 'Next Error')
+      map('n', '[D', function() vim.diagnostic.jump({count=-1, float=true}) end, 'Prev Error')
+      map('n', ']D', function() vim.diagnostic.jump({count= 1, float=true}) end, 'Next Error')
 
-      local severity = { severity = { min = vim.diagnostic.severity.WARN } }
-      map('n', '[d', function() vim.diagnostic.goto_prev(severity) end, 'Prev diagnostic')
-      map('n', ']d', function() vim.diagnostic.goto_next(severity) end, 'Next diagnostic')
+      local severity = { min = vim.diagnostic.severity.WARN }
+      map('n', '[d', function() vim.diagnostic.jump({count=-1, float=true, severity=severity}) end, 'Prev diagnostic')
+      map('n', ']d', function() vim.diagnostic.jump({count= 1, float=true, severity=severity}) end, 'Next diagnostic')
       map('n', '<leader>dl', vim.diagnostic.setloclist, 'Populate diagnostics in loclist')
 
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -68,6 +68,8 @@ return {
           map('n', 'go', vim.lsp.buf.type_definition, 'Goto type definition', opts)
           map('n', 'gr', vim.lsp.buf.references, 'LSP references', opts)
           map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename symbol', opts)
+
+          map('n', 'K', function() vim.lsp.buf.hover({ border = "rounded" }) end, 'Display Info', opts)
 
           map({ 'n', 'x' }, 'gf', function() vim.lsp.buf.format({ async = true }) end, 'LSP Format', opts)
           map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code action', opts)

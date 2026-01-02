@@ -22,11 +22,8 @@ hi PmenuSbar        guifg=#efefef       guibg=#363944       gui=none
 hi PmenuThumb       guifg=#efefef       guibg=#696969       gui=none
 
 " for floating windows
-hi NormalFloat      guifg=none          guibg=#363944       gui=none
+hi NormalFloat      guifg=#21eda9       guibg=#363944       gui=none
 hi FloatBorder      guifg=#21eda9       guibg=#363944       gui=none
-
-
-hi CompeDocumentationBorder  guifg=#21eda9      guibg=#1f1f1f       gui=none
 
 " LSP diagnostic colors
 hi LspDiagnosticsDefaultError       guifg=#f22222
