@@ -25,6 +25,7 @@ return {
           "lua_ls",
           "jsonls",
           "mesonlsp",
+          "rust_analyzer",
           "taplo",
         },
 

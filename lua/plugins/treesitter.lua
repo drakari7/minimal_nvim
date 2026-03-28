@@ -10,6 +10,7 @@ return {
         'bash',
         'c',
         'cpp',
+        'rust',
         'python',
         'json',
         'meson',
