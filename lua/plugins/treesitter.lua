@@ -2,8 +2,8 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    lazy = false,
     build = ':TSUpdate',
-    main = 'nvim-treesitter.config',
     opts = {
       ensure_installed = {
         'lua',
@@ -23,13 +23,7 @@ return {
         'vimdoc',
         'yaml',
       },
-      sync_install = false,
-      highlight = {
-        enable = true,
-        -- disable = function (lang, bufnr) -- Disable in files with more than 5k lines
-        --   return vim.api.nvim_buf_line_count(bufnr) > 5000
-        -- end
-      },
+      highlight = { enable = true },
       indent = { enable = true },
     }
   }
