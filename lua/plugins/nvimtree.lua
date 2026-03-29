@@ -39,7 +39,7 @@ return {
       enable = false,
     },
     filters = {
-      dotfiles = true,
+      dotfiles = false,
       custom = {
         '__pycache__',
       }
