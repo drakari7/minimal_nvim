@@ -49,20 +49,11 @@ return {
     }
 
     vim.g.startify_bookmarks = {
-      { cv = '~/.config/nvim/init.lua' },
-      { ds = '~/crypto_options/colo/dev.shreyash.py' },
-      { cc = '~/crypto_options/config/crypto_options.prod.py' },
-      { bi = '~/crypto_options/config/build_version.py' },
-      { pc = '~/crypto_options/config/products.toml' },
-      { mc = '~/configs/main/main.py' },
-      { bc = '~/configs/beta/beta.py' },
       { ni = '~/notes/index.norg' },
       { al = '~/.config/zsh/aliasrc' },
-      { ae = '~/.config/zsh/extra_aliasrc' },
       { zrc = '~/.config/zsh/.zshrc' },
       { ss = '~/.ssh/config' },
       { gc = '~/.gitconfig' },
-      { tc = '~/random/colo_test_env/test.cpp' },
       { tp = '~/random/test.py' },
       { t2 = '~/random/test2.py' },
       { tb = '~/random/test.sh' },
