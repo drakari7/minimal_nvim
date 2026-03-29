@@ -1,45 +1,49 @@
-return {
-  'nvim-neorg/neorg',
-  version = "*",
-  build = ":Neorg sync-parsers",
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-neorg/neorg-telescope',
-  },
-  lazy = false,
-  keys = {
-    {'<leader>ni', '<cmd>Neorg index<cr>', desc = "Neorg index file"}
-  },
-  opts = {
-    load = {
-      ['core.defaults'] = {},
-      ['core.concealer'] = {},
-      ['core.summary'] = {},
-      ['core.keybinds'] = {},
-      ['core.ui'] = {},
-      ['core.integrations.telescope'] = {},
-      ['core.completion'] = {
-        config = {
-          engine = 'nvim-cmp',
-        }
-      },
-      ['core.dirman'] = {
-        config = {
-          workspaces = {
-            notes = "~/notes"
-          },
-          default_workspace = 'notes',
-        }
-      },
-    }
-  },
-
-}
-
--- Trying to upgrade to 9.0.0
 -- return {
---   "nvim-neorg/neorg",
---   lazy = false,
+--   'nvim-neorg/neorg',
 --   version = "*",
---   config = true
+--   build = ":Neorg sync-parsers",
+--   dependencies = {
+--     'nvim-lua/plenary.nvim',
+--     'nvim-neorg/neorg-telescope',
+--   },
+--   lazy = false,
+--   keys = {
+--     {'<leader>ni', '<cmd>Neorg index<cr>', desc = "Neorg index file"}
+--   },
+--   opts = {
+--     load = {
+--       ['core.defaults'] = {},
+--       ['core.concealer'] = {},
+--       ['core.summary'] = {},
+--       ['core.keybinds'] = {},
+--       ['core.ui'] = {},
+--       ['core.integrations.telescope'] = {},
+--       ['core.completion'] = {
+--         config = {
+--           engine = 'nvim-cmp',
+--         }
+--       },
+--       ['core.dirman'] = {
+--         config = {
+--           workspaces = {
+--             notes = "~/notes"
+--           },
+--           default_workspace = 'notes',
+--         }
+--       },
+--     }
+--   },
+--
 -- }
+--
+-- -- Trying to upgrade to 9.0.0
+-- -- return {
+-- --   "nvim-neorg/neorg",
+-- --   lazy = false,
+-- --   version = "*",
+-- --   config = true
+-- -- }
+
+-- Latest version of neorg is broken due to changes in treesitter branch going from master to main
+-- which does not support a neorg treesitter parser. I will deal with this headache later
+return {}
