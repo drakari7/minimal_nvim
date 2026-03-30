@@ -13,4 +13,3 @@ require('confs.lazy')
 --     os.execute("killall xsel")
 --   end
 -- })
---
