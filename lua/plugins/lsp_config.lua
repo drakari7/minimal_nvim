@@ -44,13 +44,14 @@ return {
       vim.diagnostic.config({
         signs = false,
         float = { border = "rounded" },
+        jump = { float = true },
       })
-      map('n', '[D', function() vim.diagnostic.jump({count=-1, float=true}) end, 'Prev Error')
-      map('n', ']D', function() vim.diagnostic.jump({count= 1, float=true}) end, 'Next Error')
+      map('n', '[D', function() vim.diagnostic.jump({count=-1}) end, 'Prev Diagnostic')
+      map('n', ']D', function() vim.diagnostic.jump({count= 1}) end, 'Next Diagnostic')
 
       local severity = { min = vim.diagnostic.severity.WARN }
-      map('n', '[d', function() vim.diagnostic.jump({count=-1, float=true, severity=severity}) end, 'Prev diagnostic')
-      map('n', ']d', function() vim.diagnostic.jump({count= 1, float=true, severity=severity}) end, 'Next diagnostic')
+      map('n', '[d', function() vim.diagnostic.jump({count=-1, severity=severity}) end, 'Prev error')
+      map('n', ']d', function() vim.diagnostic.jump({count= 1, severity=severity}) end, 'Next error')
       map('n', '<leader>dl', vim.diagnostic.setloclist, 'Populate diagnostics in loclist')
 
       vim.api.nvim_create_autocmd('LspAttach', {
