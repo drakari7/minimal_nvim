@@ -11,14 +11,13 @@ return {
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
-    init = function()
-      vim.o.background = "dark"
-      vim.cmd([[
-        colorscheme gruvbox
-        source ~/.config/nvim/after/colors.vim
-        source ~/.config/nvim/after/telescope_theme.vim
-      ]])
-    end
+  },
+
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
   },
 
   {

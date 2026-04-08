@@ -49,7 +49,7 @@ return {
     }
 
     vim.g.startify_bookmarks = {
-      { ni = '~/notes/index.norg' },
+      { ni = '~/notes/notes.md' },
       { al = '~/.config/zsh/aliasrc' },
       { zrc = '~/.config/zsh/.zshrc' },
       { ss = '~/.ssh/config' },

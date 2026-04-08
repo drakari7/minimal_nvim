@@ -19,7 +19,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "pyright",
-          "ruff",
+          -- "ruff",
           "clangd",
           "bashls",
           "lua_ls",

@@ -107,6 +107,7 @@ return {
     map('n', '<leader>fv', function() find_in_dir("~/.config/nvim", "Nvim Config Files") end, 'Nvim config directory')
     map('n', '<leader>fs', function() find_in_dir("~/scripts", "My Scripts") end, 'Scripts directory')
 
+    map('n', '<leader>cs', function() builtin.colorscheme({ ignore_builtins = true, enable_preview = true }) end, "Change colorscheme")
     map('n', '<leader>ji', telescope.extensions.zoxide.list, "Zoxide cd")
 
     -- Git

@@ -29,6 +29,7 @@ return {
       highlight_on_jump = false, -- Set a value in milliseconds or false to disable
       nav = {
         min_height = { 30, 0.6 },
+        min_width = {20, 0.3},
         preview = true,
         win_opts = {
           cursorline = false,
