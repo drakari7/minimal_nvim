@@ -54,6 +54,7 @@ return {
       { zrc = '~/.config/zsh/.zshrc' },
       { ss = '~/.ssh/config' },
       { gc = '~/.gitconfig' },
+      { wc = '~/.config/wezterm/wezterm.lua' },
       { tp = '~/random/test.py' },
       { t2 = '~/random/test2.py' },
       { tb = '~/random/test.sh' },
