@@ -2,10 +2,9 @@ local map = require('confs.utils').map
 return {
   'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
-  'dstein64/vim-startuptime',
   'onsails/lspkind.nvim',
   'tpope/vim-fugitive',
-  'tpope/vim-abolish',
+  'tpope/vim-abolish',      -- for :S [:Subvert] substitutions
   'LunarVim/bigfile.nvim',
 
   {
@@ -17,11 +16,6 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
-  },
-
-  {
-    'numToStr/Comment.nvim',
     opts = {},
   },
 

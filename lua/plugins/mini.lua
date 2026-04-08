@@ -1,6 +1,6 @@
 return {
   {
-    'echasnovski/mini.bracketed',
+    'nvim-mini/mini.bracketed',
     opts = {
       diagnostic = { suffix = '' },
       buffer = { suffix = '' }
@@ -8,7 +8,7 @@ return {
   },
 
   {
-    'echasnovski/mini.surround',
+    'nvim-mini/mini.surround',
     opts = {
       mappings = {
         replace = 'sc', -- Replace surrounding
@@ -18,7 +18,7 @@ return {
   },
 
   {
-    "echasnovski/mini.bufremove",
+    "nvim-mini/mini.bufremove",
     keys = {
       { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
       { "<leader>bD", function() require("mini.bufremove").delete(0, true) end,  desc = "Delete Buffer (Force)" },
@@ -26,7 +26,7 @@ return {
   },
 
   {
-    'echasnovski/mini.ai',
+    'nvim-mini/mini.ai',
     config = function()
       local gen_spec = require('mini.ai').gen_spec
       local treesitter = gen_spec.treesitter
@@ -50,7 +50,7 @@ return {
   },
 
   {
-    'echasnovski/mini.splitjoin',
+    'nvim-mini/mini.splitjoin',
     opts = {
       mappings = {
         toggle = 'gs'
