@@ -6,6 +6,7 @@ require('confs.options')
 require('confs.keybindings')
 require('confs.lazy')
 
+-- test comment
 -- Kill xsel on leaving an instance of neovim
 -- vim.api.nvim_create_autocmd("VimLeave", {
 --   group = vim.api.nvim_create_augroup("KillXSel", { clear = true }),
