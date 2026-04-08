@@ -18,29 +18,23 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "pyright",
-          -- "ruff",
-          "clangd",
-          "bashls",
           "lua_ls",
+          "clangd",
+          "pyright",
+          "rust_analyzer",
+          -- "ruff",
+          "bashls",
           "jsonls",
           "mesonlsp",
-          "rust_analyzer",
           "taplo",
         },
 
         handlers = {
-          -- Default handler
           function(server_name)
             require('lspconfig')[server_name].setup(common_server_config)
           end,
 
-          -- Dedicated handler for a specific server
-          -- ["ruff_lsp"] = function()
-          --   require("lspconfig").ruff_lsp.setup({
-          --     config = {}
-          --   })
-          -- end
+          -- TODO: check how to enable server specific options here
         }
 
       })
@@ -65,15 +59,11 @@ return {
           local opts = { buffer = ev.buf }
           map('n', 'gd', vim.lsp.buf.definition, 'Goto definition', opts)
           map('n', 'gD', vim.lsp.buf.declaration, 'Goto declaration', opts)
-          map('n', 'gi', vim.lsp.buf.implementation, 'Goto implementation', opts)
           map('n', 'go', vim.lsp.buf.type_definition, 'Goto type definition', opts)
-          map('n', 'gr', vim.lsp.buf.references, 'LSP references', opts)
-          map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename symbol', opts)
 
           map('n', 'K', function() vim.lsp.buf.hover({ border = "rounded" }) end, 'Display Info', opts)
 
           map({ 'n', 'x' }, 'gf', function() vim.lsp.buf.format({ async = true }) end, 'LSP Format', opts)
-          map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code action', opts)
 
           -- Figure out how to actually use workspaces
           map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add workspace folder', opts)

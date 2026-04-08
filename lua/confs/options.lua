@@ -10,6 +10,9 @@ vim.opt.showmode = false
 vim.opt.mouse = ""
 vim.opt.clipboard = "unnamedplus"
 
+-- Floating window border
+vim.o.winborder = 'rounded'
+
 -- Wrap
 vim.opt.wrap = false
 vim.opt.whichwrap = ""

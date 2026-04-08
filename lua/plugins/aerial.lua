@@ -10,8 +10,6 @@ return {
       { "<leader>an", function() require('aerial').nav_toggle() end,           desc = 'Aerial nav toggle' },
       { "<leader>af", function() require('aerial').focus() end,                desc = 'Aerial focus' },
       { "<leader>ac", function() require('aerial').close_all() end,            desc = 'Aerial Close all' },
-      { "]a",         function() require('aerial').next() end,                 desc = 'Aerial next' },
-      { "[a",         function() require('aerial').prev() end,                 desc = 'Aerial prev' },
     },
     opts = {
       layout = {
