@@ -3,7 +3,7 @@ return {
   'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
   'onsails/lspkind.nvim',
-  'tpope/vim-fugitive',
+  'tpope/vim-fugitive',     -- Git commands
   'tpope/vim-abolish',      -- for :S [:Subvert] substitutions
   'LunarVim/bigfile.nvim',
 
@@ -12,12 +12,6 @@ return {
     priority = 1000,
   },
 
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
 
   {
     "lukas-reineke/indent-blankline.nvim",

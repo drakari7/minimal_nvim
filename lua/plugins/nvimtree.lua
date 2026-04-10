@@ -27,10 +27,6 @@ return {
       update_cwd  = false,
       ignore_list = {}
     },
-    system_open = {
-      cmd  = nil,
-      args = {}
-    },
     view = {
       -- width = math.floor(vim.o.columns * 0.2),
       side = 'left',

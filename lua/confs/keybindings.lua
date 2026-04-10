@@ -47,6 +47,7 @@ map({ 'i', 's' }, '<C-J>', function()
     return vim.snippet.jump(1)
   end
 end, "Jump to next snippet placeholder")
+
 map({ 'i', 's' }, '<C-K>', function()
   if vim.snippet.active({ direction = -1 }) then
     return vim.snippet.jump(-1)
