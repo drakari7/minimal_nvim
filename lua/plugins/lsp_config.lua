@@ -11,9 +11,6 @@ return {
     config = function()
       local common_server_config = {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        on_attach = function(client, bufnr)
-          client.server_capabilities.semanticTokensProvider = nil -- Disable semantic highlighting for now
-        end,
       }
 
       require("mason-lspconfig").setup({
