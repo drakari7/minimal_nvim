@@ -44,6 +44,7 @@ return {
       vim.diagnostic.config({
         signs = false,
         float = { border = "rounded" },
+        -- virtual_lines = { severity = { min = vim.diagnostic.severity.WARN } },
         jump = { float = true },
       })
       map('n', '[D', function() vim.diagnostic.jump({count=-1}) end, 'Prev Diagnostic')
