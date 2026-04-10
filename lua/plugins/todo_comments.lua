@@ -6,11 +6,18 @@ return {
     "nvim-lua/plenary.nvim",
   },
 
-  config = function ()
+  opts = {
+    signs = true,
+    merge_keywords = false,
+    highlight = {
+      multiline = false,
+      keyword = "bg",
+    }
+  },
+
+  config = function (_, opts)
     local tc = require("todo-comments")
-    tc.setup({
-      signs = false,
-    })
+    tc.setup(opts)
 
     map('n', ']t', tc.jump_next, 'Next todo comment')
     map('n', '[t', tc.jump_prev, 'Previous todo comment')
