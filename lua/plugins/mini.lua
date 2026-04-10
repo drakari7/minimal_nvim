@@ -1,13 +1,5 @@
 return {
   {
-    'nvim-mini/mini.bracketed',
-    opts = {
-      diagnostic = { suffix = '' },
-      buffer = { suffix = '' }
-    }
-  },
-
-  {
     'nvim-mini/mini.surround',
     opts = {
       mappings = {
