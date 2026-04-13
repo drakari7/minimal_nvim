@@ -2,13 +2,14 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "folke/lazydev.nvim",      opts = {}, ft = "lua" },
+      { "folke/lazydev.nvim",      opts = {}, ft = "lua" }, -- For vim lua support with lsp
       { "williamboman/mason.nvim", opts = {} },
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
 
     config = function()
+      -- TODO: Not sure what this is exactly needed for, perhaps autopairs
       local common_server_config = {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
       }
@@ -16,19 +17,17 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "clangd",
           "pyright",
-          "rust_analyzer",
           -- "ruff",
+          "rust_analyzer",
           "bashls",
           "jsonls",
-          "mesonlsp",
           "taplo",
         },
 
         handlers = {
           function(server_name)
-            require('lspconfig')[server_name].setup(common_server_config)
+            vim.lsp.config(server_name, common_server_config)
           end,
 
           -- TODO: check how to enable server specific options here
@@ -42,7 +41,7 @@ return {
         signs = false,
         float = { border = "rounded" },
         -- virtual_lines = { severity = { min = vim.diagnostic.severity.WARN } },
-        jump = { float = true },
+        jump = { on_jump = vim.diagnostic.open_float },
       })
       map('n', '[D', function() vim.diagnostic.jump({count=-1}) end, 'Prev Diagnostic')
       map('n', ']D', function() vim.diagnostic.jump({count= 1}) end, 'Next Diagnostic')
