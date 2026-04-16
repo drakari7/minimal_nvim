@@ -19,7 +19,7 @@ return {
           "lua_ls",
           "pyright",
           -- "ruff",
-          "rust_analyzer",
+          -- "rust_analyzer",
           "sqlls",
           "bashls",
           "jsonls",
