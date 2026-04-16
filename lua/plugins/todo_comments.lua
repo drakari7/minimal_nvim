@@ -7,7 +7,7 @@ return {
   },
 
   opts = {
-    signs = true,
+    signs = false,
     merge_keywords = false,
     highlight = {
       multiline = false,
