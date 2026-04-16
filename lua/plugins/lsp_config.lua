@@ -40,7 +40,7 @@ return {
 
       vim.diagnostic.config({
         signs = false,
-        float = { border = "rounded" },
+        float = { border = "rounded", source = true },
         -- virtual_lines = { severity = { min = vim.diagnostic.severity.WARN } },
         -- jump = { on_jump = vim.diagnostic.open_float },
         jump = { float = true },
