@@ -11,16 +11,6 @@ return {
     priority = 1000,
   },
 
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {
-      scope = { enabled = false },
-      exclude = { filetypes = { "help", "norg", "lazy", "mason", "notify", "startify" } }
-    },
-  },
-
   -- Color hexcodes
   {
     'norcalli/nvim-colorizer.lua',
