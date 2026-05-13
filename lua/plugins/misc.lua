@@ -5,7 +5,6 @@ return {
   'onsails/lspkind.nvim',
   'tpope/vim-fugitive',     -- Git commands
   'tpope/vim-abolish',      -- for :S [:Subvert] substitutions
-  'LunarVim/bigfile.nvim',
 
   {
     'ellisonleao/gruvbox.nvim',
