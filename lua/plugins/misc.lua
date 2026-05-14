@@ -17,14 +17,15 @@ return {
     priority = 1000,
   },
 
-  -- Color hexcodes
   {
-    'norcalli/nvim-colorizer.lua',
+    'brenoprata10/nvim-highlight-colors',
     opts = {
-      names = false
+      render = 'background',       -- 'background' | 'foreground' | 'first_column' | 'virtual'
+      enable_named_colors = true, -- don't match 'red', 'blue', etc.
+      enable_tailwind = false,
     },
     keys = {
-      { "<leader>co", ":ColorizerToggle<CR>", desc = "Toggle colorizer" }
+      { "<leader>co", "<cmd>HighlightColors Toggle<CR>", desc = "Toggle highlight colors" }
     }
   },
 
