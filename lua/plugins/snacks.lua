@@ -24,7 +24,7 @@ return {
   priority = 1000,
   lazy = false,
   keys = {
-    { '<leader>nn', function() Snacks.explorer() end, desc = 'File tree' },
+    { '<leader>nn', function() require('snacks').explorer() end, desc = 'File tree' },
   },
   opts = {
     bigfile     = { enabled = true },
@@ -34,6 +34,7 @@ return {
         -- Pane 1 (left): header, bookmarks, startup
         { pane = 1, section = 'header' },
         { pane = 1, title = 'Bookmarks', indent = 2 },
+        { pane = 1, icon = '󰈔', key = 'e',   desc = 'New file',       action = ':enew',                            indent = 2 },
         { pane = 1, icon = '󰎚', key = 'ni',  desc = 'Notes',          action = ':e ~/notes/notes.md',              indent = 2 },
         { pane = 1, icon = '󰈙', key = 'al',  desc = 'Aliases',        action = ':e ~/.config/zsh/aliasrc',         indent = 2 },
         { pane = 1, icon = '󰆍', key = 'zrc', desc = 'Zshrc',          action = ':e ~/.config/zsh/.zshrc',          indent = 2 },
@@ -42,7 +43,6 @@ return {
         { pane = 1, icon = '󰍹', key = 'wc',  desc = 'Wezterm config', action = ':e ~/.config/wezterm/wezterm.lua', indent = 2 },
         { pane = 1, icon = '󰌠', key = 'tp',  desc = 'test.py',        action = ':e ~/random/test.py',              indent = 2 },
         { pane = 1, icon = '󰆍', key = 'tb',  desc = 'test.sh',        action = ':e ~/random/test.sh',              indent = 2 },
-        { pane = 1, icon = '󰈔', key = 'e',   desc = 'New file',       action = ':enew',                            indent = 2 },
         { pane = 1, icon = '󰗼', key = 'q',   desc = 'Quit',           action = ':qa',                              indent = 2 },
         { pane = 1, section = 'startup' },
 
