@@ -23,6 +23,9 @@ return {
   'folke/snacks.nvim',
   priority = 1000,
   lazy = false,
+  keys = {
+    { '<leader>nn', function() Snacks.explorer() end, desc = 'File tree' },
+  },
   opts = {
     bigfile     = { enabled = true },
     dashboard   = {
@@ -59,7 +62,8 @@ return {
     },
     indent      = { enabled = true },
     notifier    = { enabled = true },
-    -- picker      = { enabled = true },
+    picker      = { enabled = true },
+    explorer    = { enabled = true },
     -- statuscolumn= { enabled = true },
     -- terminal    = { enabled = true },
     -- words       = { enabled = true },
