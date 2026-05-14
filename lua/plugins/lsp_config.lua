@@ -5,14 +5,14 @@ return {
       { "folke/lazydev.nvim", opts = {}, ft = "lua" }, -- For vim lua support with lsp
       { "mason-org/mason.nvim", opts = {} },
       "mason-org/mason-lspconfig.nvim",
-      "hrsh7th/cmp-nvim-lsp",
+      { "hrsh7th/cmp-nvim-lsp", enabled = false }, -- disabled with cmp; flip to revert
     },
 
     config = function()
       -- Default config merged into every LSP server (capabilities for completion, etc.).
       -- For per-server overrides use vim.lsp.config('<server>', { ... }) below.
       vim.lsp.config('*', {
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        capabilities = require('blink.cmp').get_lsp_capabilities(),
       })
 
       require("mason-lspconfig").setup({
