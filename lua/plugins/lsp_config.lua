@@ -2,17 +2,18 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      { "folke/lazydev.nvim",      opts = {}, ft = "lua" }, -- For vim lua support with lsp
-      { "williamboman/mason.nvim", opts = {} },
-      "williamboman/mason-lspconfig.nvim",
+      { "folke/lazydev.nvim", opts = {}, ft = "lua" }, -- For vim lua support with lsp
+      { "mason-org/mason.nvim", opts = {} },
+      "mason-org/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
 
     config = function()
-      -- TODO: Not sure what this is exactly needed for, perhaps autopairs
-      local common_server_config = {
+      -- Default config merged into every LSP server (capabilities for completion, etc.).
+      -- For per-server overrides use vim.lsp.config('<server>', { ... }) below.
+      vim.lsp.config('*', {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
-      }
+      })
 
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -25,15 +26,6 @@ return {
           "jsonls",
           "taplo",
         },
-
-        handlers = {
-          function(server_name)
-            vim.lsp.config(server_name, common_server_config)
-          end,
-
-          -- TODO: check how to enable server specific options here
-        }
-
       })
 
       local map = require('confs.utils').map

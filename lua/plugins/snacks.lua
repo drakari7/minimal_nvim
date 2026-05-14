@@ -39,6 +39,7 @@ return {
         { pane = 1, icon = '󰍹', key = 'wc',  desc = 'Wezterm config', action = ':e ~/.config/wezterm/wezterm.lua', indent = 2 },
         { pane = 1, icon = '󰌠', key = 'tp',  desc = 'test.py',        action = ':e ~/random/test.py',              indent = 2 },
         { pane = 1, icon = '󰆍', key = 'tb',  desc = 'test.sh',        action = ':e ~/random/test.sh',              indent = 2 },
+        { pane = 1, icon = '󰈔', key = 'e',   desc = 'New file',       action = ':enew',                            indent = 2 },
         { pane = 1, icon = '󰗼', key = 'q',   desc = 'Quit',           action = ':qa',                              indent = 2 },
         { pane = 1, section = 'startup' },
 
