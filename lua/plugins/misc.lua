@@ -3,8 +3,14 @@ return {
   'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
   'onsails/lspkind.nvim',
-  'tpope/vim-fugitive',     -- Git commands
   'tpope/vim-abolish',      -- for :S [:Subvert] substitutions
+
+  {
+    'tpope/vim-fugitive',     -- Git commands
+    keys = {
+      { "<leader>gb", ":Git blame<CR>", desc = "Git blame" }
+    }
+  },
 
   {
     'ellisonleao/gruvbox.nvim',

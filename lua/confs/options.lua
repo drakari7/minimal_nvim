@@ -21,7 +21,7 @@ vim.opt.linebreak = true
 vim.opt.showbreak = "  > "
 
 -- Format options
-vim.opt.formatoptions = "c,r,j"
+vim.opt.formatoptions = "c,r,j,q,n"
 
 -- Tabs and indentation
 vim.opt.autoindent = true

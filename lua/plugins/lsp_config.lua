@@ -33,7 +33,8 @@ return {
       vim.diagnostic.config({
         signs = false,
         float = { border = "rounded", source = true },
-        -- virtual_lines = { severity = { min = vim.diagnostic.severity.WARN } },
+        virtual_lines = { severity = { min = vim.diagnostic.severity.WARN } },
+        -- virtual_lines = { current_line = true },
         -- jump = { on_jump = vim.diagnostic.open_float },
         jump = { float = true },
       })
@@ -53,18 +54,7 @@ return {
           map('n', 'gD', vim.lsp.buf.declaration, 'Goto declaration', opts)
           map('n', 'go', vim.lsp.buf.type_definition, 'Goto type definition', opts)
 
-          map('n', 'K', function() vim.lsp.buf.hover({ border = "rounded" }) end, 'Display Info', opts)
-
           map({ 'n', 'x' }, 'gf', function() vim.lsp.buf.format({ async = true }) end, 'LSP Format', opts)
-
-          -- Figure out how to actually use workspaces
-          map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, 'Add workspace folder', opts)
-          map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, 'Remove workspace folder', opts)
-          map('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
-            'List workspace folders', opts)
-
-          map('n', '<leader>ls', '<cmd>LspStop<CR>', 'Stop LSP', opts)
-          map('n', '<leader>lr', '<cmd>LspRestart<CR>', 'Restart LSP', opts)
         end,
       })
     end

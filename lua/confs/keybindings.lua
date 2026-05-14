@@ -33,7 +33,6 @@ map('v', '<leader>jp', ":g/^/ s#\"#'#ge | s#false#False#ge | s#true#True#ge | s#
 
 -- Misc
 map({ 'n', 'v' }, '<leader>bh', '"_d', 'Blackhole register')
-map('n', '<leader>gb', '<cmd>Git blame<CR>', 'Git blame') -- TODO: Move to a git plugin
 map({ 'n', 'i' }, '<F1>', '<NOP>', 'Unmap F1')
 map('n', '<leader>hw', ":let @/='\\<<C-R><C-W>\\>'<CR>:set hls<CR>", 'Highlight word under cursor')
 map('n', '<leader>va', 'ggVG', 'Visual select entire file')
