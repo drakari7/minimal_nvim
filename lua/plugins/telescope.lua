@@ -53,7 +53,7 @@ return {
   config = function()
     require('telescope').setup({
       defaults = {
-        prompt_prefix = "   ",
+        prompt_prefix = "",
         results_title = false,
         layout_strategy = 'horizontal',
         layout_config = {
