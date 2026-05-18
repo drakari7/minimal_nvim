@@ -6,13 +6,6 @@ return {
   'tpope/vim-abolish',      -- for :S [:Subvert] substitutions
 
   {
-    'tpope/vim-fugitive',     -- Git commands
-    keys = {
-      { "<leader>gb", ":Git blame<CR>", desc = "Git blame" }
-    }
-  },
-
-  {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
   },
