@@ -20,6 +20,7 @@ return {
       format_on_save = function(bufnr)
         local enable_fts = {
           rust = true,
+          python = true,
         }
         if not enable_fts[vim.bo[bufnr].filetype] then
           return
