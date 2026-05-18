@@ -1,7 +1,7 @@
 return {
   {
     'nvim-mini/mini.icons',
-    lazy = false, -- needs to be available before plugins that require 'nvim-web-devicons'
+    lazy = false,
     config = function()
       require('mini.icons').setup()
       require('mini.icons').mock_nvim_web_devicons()

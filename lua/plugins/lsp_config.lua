@@ -85,7 +85,6 @@ return {
         map('n', 'gd', vim.lsp.buf.definition, 'Goto definition', opts)
         map('n', 'gD', vim.lsp.buf.declaration, 'Goto declaration', opts)
         map('n', 'go', vim.lsp.buf.type_definition, 'Goto type definition', opts)
-        map({ 'n', 'x' }, 'gf', function() vim.lsp.buf.format({ async = true }) end, 'LSP Format', opts)
       end,
     })
   end
