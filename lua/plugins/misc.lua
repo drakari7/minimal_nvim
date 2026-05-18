@@ -15,6 +15,15 @@ return {
   },
 
   {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    opts = {
+      preset = "helix",
+      delay = 500,
+    },
+  },
+
+  {
     'brenoprata10/nvim-highlight-colors',
     opts = {
       render = 'background',      -- 'background' | 'foreground' | 'first_column' | 'virtual'
