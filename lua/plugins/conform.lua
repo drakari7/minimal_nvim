@@ -1,23 +1,35 @@
 return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
-  cmd  = { 'ConformInfo' },
-  opts = {
+  cmd   = { 'ConformInfo' },
+  opts  = {
     formatters_by_ft = {
-      python = { 'ruff_format' },
+      python = { 'autoflake', 'isort', 'black' },
       lua    = { 'stylua' },
       sh     = { 'shfmt' },
       bash   = { 'shfmt' },
-      -- json/yaml/toml/rust: fall back to LSP (lsp_format = 'fallback' below)
+      rust   = { 'rustfmt' },
     },
-    format_on_save = {
-      timeout_ms = 1000,
-      lsp_format = 'fallback',
-    },
+    format_on_save = function(bufnr)
+      local enable_fts = {
+        rust = true,
+      }
+      if not enable_fts[vim.bo[bufnr].filetype] then
+        return
+      else
+        return {
+          timeout_ms = 1000,
+          -- lsp_format = 'fallback'
+        }
+      end
+    end,
   },
-  keys = {
-    { 'gf', mode = { 'n', 'x' }, function()
-      require('conform').format({ async = true, lsp_format = 'fallback' })
-    end, desc = 'Format' },
+  keys  = {
+    {
+      'gf',
+      mode = { 'n', 'x' },
+      function() require('conform').format({ async = true }) end,
+      desc = 'Format'
+    },
   },
 }
