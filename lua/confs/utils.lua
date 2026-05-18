@@ -36,10 +36,4 @@ function M.get_git_root()
   return vim.fn.fnamemodify(dot_git_path, ":h")
 end
 
-function M.leave_visual_mode()
-  local escKey = vim.api.nvim_replace_termcodes("<Esc>", false, true, true)
-  vim.api.nvim_feedkeys(escKey, "nx", false)
-end
-
-
 return M

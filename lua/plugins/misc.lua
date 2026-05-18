@@ -33,7 +33,6 @@ return {
       })
 
       map('n', '<leader>oi', '<cmd>Oil<CR>', "Open parent directory")
-      -- map('n', '<leader>-', require('oil').toggle_float, "Open parent directory in a float")
     end,
   },
 }
