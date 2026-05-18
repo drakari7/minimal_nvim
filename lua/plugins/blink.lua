@@ -16,7 +16,7 @@ return {
       ['<C-x>']  = { 'cancel', 'fallback' },
       ['<M-j>']  = { 'select_next', 'fallback' },
       ['<M-k>']  = { 'select_prev', 'fallback' },
-      ['<M-CR>'] = { 'accept', 'fallback' },
+      ['<M-CR>'] = { 'select_and_accept', 'fallback' },
     },
     snippets = { preset = 'default' }, -- uses vim.snippet (your <C-J>/<C-K> bindings still work)
     signature = { enabled = true },
@@ -39,7 +39,7 @@ return {
         preset = 'none',
         ['<M-j>']  = { 'select_next', 'fallback' },
         ['<M-k>']  = { 'select_prev', 'fallback' },
-        ['<M-CR>'] = { 'accept', 'fallback' },
+        ['<M-CR>'] = { 'select_and_accept', 'fallback' },
         ['<C-x>']  = { 'cancel', 'fallback' },
       },
       completion = { menu = { auto_show = true } },

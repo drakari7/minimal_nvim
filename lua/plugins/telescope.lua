@@ -44,6 +44,11 @@ return {
       { '<leader>fs', find_in_dir('~/scripts', 'My Scripts'),             desc = 'Scripts directory' },
 
       { '<leader>fw', function() builtin.grep_string({ initial_mode = 'normal' }) end,                       desc = 'Grep word under cursor' },
+      { '<leader>fw', mode = 'x', function()
+        local m = vim.fn.mode()
+        local lines = vim.fn.getregion(vim.fn.getpos('v'), vim.fn.getpos('.'), { type = m })
+        builtin.grep_string({ search = table.concat(lines, '\n'), initial_mode = 'normal' })
+      end, desc = 'Grep visual selection' },
       { '<leader>fr', function() builtin.resume({ initial_mode = 'normal' }) end,                            desc = 'Resume last picker' },
       { '<leader>cs', function() builtin.colorscheme({ ignore_builtins = true, enable_preview = true }) end, desc = 'Change colorscheme' },
       -- zoxide extension is set up in config(); defer require to call time so it's available.
