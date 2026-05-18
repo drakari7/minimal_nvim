@@ -1,8 +1,6 @@
 local map = require('confs.utils').map
 return {
-  'nvim-lua/popup.nvim',
   'nvim-lua/plenary.nvim',
-  'onsails/lspkind.nvim',
   'tpope/vim-abolish',      -- for :S [:Subvert] substitutions
 
   {
@@ -25,7 +23,7 @@ return {
   -- File explorer
   {
     'stevearc/oil.nvim',
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-mini/mini.icons" },
     config = function()
       require("oil").setup({
         columns = { "icon", "size", "mtime" },

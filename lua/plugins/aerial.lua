@@ -3,7 +3,7 @@ return {
     'stevearc/aerial.nvim',
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons"
+      "nvim-mini/mini.icons",
     },
     keys = {
       { "<leader>ao", function() require('aerial').toggle({ focus = false }) end, desc = 'Aerial toggle' },
