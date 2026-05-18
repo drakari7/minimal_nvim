@@ -41,7 +41,6 @@ return {
     { "folke/lazydev.nvim", opts = {}, ft = "lua" }, -- For vim lua support with lsp
     { "mason-org/mason.nvim", opts = {} },
     "mason-org/mason-lspconfig.nvim",
-    { "hrsh7th/cmp-nvim-lsp", enabled = false }, -- disabled with cmp; flip to revert
   },
 
   config = function()

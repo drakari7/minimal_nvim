@@ -1,7 +1,7 @@
 local map = require('confs.utils').map
 return {
   'nvim-lua/plenary.nvim',
-  'tpope/vim-abolish',      -- for :S [:Subvert] substitutions
+  'tpope/vim-abolish', -- for :S [:Subvert] substitutions
 
   {
     'ellisonleao/gruvbox.nvim',
@@ -9,9 +9,15 @@ return {
   },
 
   {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {},
+  },
+
+  {
     'brenoprata10/nvim-highlight-colors',
     opts = {
-      render = 'background',       -- 'background' | 'foreground' | 'first_column' | 'virtual'
+      render = 'background',      -- 'background' | 'foreground' | 'first_column' | 'virtual'
       enable_named_colors = true, -- don't match 'red', 'blue', etc.
       enable_tailwind = false,
     },
