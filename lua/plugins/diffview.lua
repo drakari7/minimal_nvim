@@ -3,9 +3,10 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
   keys = {
-    { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff view" },
-    { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "File history (current file)" },
-    { "<leader>gh", ":DiffviewFileHistory %<cr>", mode = 'x', desc = "Line history (visual selection)" },
-    { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "File history (repo)" },
+    { "<leader>dh", "<cmd>DiffviewFileHistory %<cr>", desc = "File history (current file)" },
+    { "<leader>dh", ":DiffviewFileHistory %<cr>", mode = 'x', desc = "Line history (visual selection)" },
+    { "<leader>dH", "<cmd>DiffviewFileHistory<cr>", desc = "File history (repo)" },
+    { "<leader>dc", "<cmd>DiffviewClose<cr>", desc = "Close diffview" },
+    { "<leader>dt", "<cmd>DiffviewClose<cr>", desc = "Toggle diffview file panel" },
   },
 }
